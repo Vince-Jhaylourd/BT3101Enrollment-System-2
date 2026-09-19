@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12201.205 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{2EBA2E9D-0871-4B01-A81D-DFF0AC64B9B7}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{B5975B60-F8C1-4D2E-BCB0-53C48C20670D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{7DDBF060-413C-4D34-897F-72C3060DD316}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{899FCF8F-A1BE-4861-8E9C-D1252F753175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{B5975B60-F8C1-4D2E-BCB0-53C48C20670D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5975B60-F8C1-4D2E-BCB0-53C48C20670D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5975B60-F8C1-4D2E-BCB0-53C48C20670D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DDBF060-413C-4D34-897F-72C3060DD316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DDBF060-413C-4D34-897F-72C3060DD316}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DDBF060-413C-4D34-897F-72C3060DD316}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DDBF060-413C-4D34-897F-72C3060DD316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{899FCF8F-A1BE-4861-8E9C-D1252F753175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{899FCF8F-A1BE-4861-8E9C-D1252F753175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{899FCF8F-A1BE-4861-8E9C-D1252F753175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{899FCF8F-A1BE-4861-8E9C-D1252F753175}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
