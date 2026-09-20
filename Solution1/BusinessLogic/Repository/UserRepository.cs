@@ -11,8 +11,7 @@ namespace BusinessLogic.Repository
 {
     public class UserRepository
     {
-        private readonly string _connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=EnrollmentSystem;
-Trusted_Connection=True;TrushServerCertificate=True;";
+        private readonly string _connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=EnrollmentSystem;Trusted_Connection=True;TrustServerCertificate=True;";
         public User? Login(string username, string password)
         {
             using SqlConnection connection = new SqlConnection(_connectionString);

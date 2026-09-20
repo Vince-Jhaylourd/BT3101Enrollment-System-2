@@ -1,19 +1,11 @@
-﻿USE EnrollmentSystem;
+﻿CREATE TABLE Users (
+    UserId INT IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50) NOT NULL,
+    Password NVARCHAR(50) NOT NULL
+);
 GO
 
-CREATE PROCEDURE dbo.spLogin
-	@Username NVARCHAR(50),
-	@Password NVARCHAR(255)
-	AS
-BEGIN
-	SET NOCOUNT ON;
-
-	SELECT 
-		UserId,
-		Username
-	FROM [dbo].[User]
-	WHERE
-		Username = @Username 
-		AND Password = @Password;
-END;
+-- Insert a test user record
+INSERT INTO Users (Username, Password) 
+VALUES ('ADMIN', '12345');
 GO
