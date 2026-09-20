@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using BusinessLogic.Repository;
+using Model;
+
 namespace UI
 {
     public partial class LoginForm : Form
@@ -23,25 +24,36 @@ namespace UI
             string username = txtUserName.Text;
             string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            UserRepository userRepository = new UserRepository();
+
+            User user = userRepository.Login(username, password);
+
+            if (user == null)
             {
-                MessageBox.Show("Please enter your username and password");
+                MessageBox.Show("Invalid username or password.");
                 return;
             }
 
-            UserRepository repository = new UserRepository();
-
-            var user = repository.Login(username, password);
-
-            if (user != null)
+            if (user.Role == "Admin")
             {
-                MessageBox.Show("Login successful!");
+                AdminLandingPage adminForm = new AdminLandingPage();
+                adminForm.Show();
             }
-            else
+            else if (user.Role == "Registrar")
             {
-                MessageBox.Show("Invalid username or password");
+                RegistrarLandingPage registrarForm = new RegistrarLandingPage();
+                registrarForm.Show();
             }
+
+            else if (user.Role == "Cashier")
+            {
+                CashierLandingPage cashierForm = new CashierLandingPage();
+                cashierForm.Show();
+            }
+            else 
+                { 
+                MessageBox.Show("User role not recognized.");
+                }
         }
-    
     }
 }
