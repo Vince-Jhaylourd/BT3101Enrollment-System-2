@@ -196,6 +196,12 @@
     <Compile Include="RegistrarLandingPage.Designer.cs">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInterface.Designer.cs">
+      <DependentUpon>StudentInterface.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminLandingPage.resx">
       <DependentUpon>AdminLandingPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +222,9 @@
     </Compile>
     <EmbeddedResource Include="RegistrarLandingPage.resx">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInterface.resx">
+      <DependentUpon>StudentInterface.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
