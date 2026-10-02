@@ -25,6 +25,7 @@ namespace BusinessLogic
 
         public void InitializeDatabase()
         {
+            //User
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -58,6 +59,26 @@ namespace BusinessLogic
                 {
                     command.CommandText = insertUserSql;
                     command.ExecuteNonQuery();
+                }
+
+                string createStudentTableSql = @"
+                CREATE TABLE IF NOT EXISTS Students 
+                (
+                    StudentId INTEGER PRIMARY KEY AUTOINCREMENT,
+                    FullName TEXT NOT NULL,
+                    DateOfBirth TEXT NOT NULL,
+                    LRN TEXT NOT NULL UNIQUE,
+                    ContactInfo TEXT NOT NULL,
+                    GuardianContactInfo TEXT NOT NULL,
+                    isActive INTEGER NOT NULL DEFAULT 1
+                );
+             ";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = createStudentTableSql;
+                    command.ExecuteNonQuery();
+
                 }
             }
         }

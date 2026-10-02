@@ -104,7 +104,9 @@
     <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.12.3116, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.12\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
@@ -196,6 +198,12 @@
     <Compile Include="RegistrarLandingPage.Designer.cs">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInterface.Designer.cs">
+      <DependentUpon>StudentInterface.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminLandingPage.resx">
       <DependentUpon>AdminLandingPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,9 +221,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegistrarLandingPage.resx">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInterface.resx">
+      <DependentUpon>StudentInterface.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -240,6 +252,24 @@
       <Project>{2eba2e9d-0871-4b01-a81d-dff0ac64b9b7}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChatGPT Image Oct 1, 2026, 10_49_58 PM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modern Student Registration Banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modern Cashier Checkout Banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modern Office Registration Banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modern Blue Office Administration Banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modern Blue Office Administration Banner1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.7.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.7.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

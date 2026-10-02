@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace UI
 {
     public partial class RegistrarLandingPage : Form
@@ -15,6 +16,12 @@ namespace UI
         public RegistrarLandingPage()
         {
             InitializeComponent();
+        }
+
+        private void btnStudentMaintenance_Click(object sender, EventArgs e)
+        {
+            StudentInterface form = new StudentInterface();
+            form.Show();
         }
     }
 }
