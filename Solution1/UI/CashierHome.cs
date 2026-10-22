@@ -17,14 +17,30 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchStudent_Click(object sender, EventArgs e)
         {
-
+            CashierSearchStudent searchForm = new CashierSearchStudent();
+            searchForm.Show();
+            this.Hide();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCashiering_Click(object sender, EventArgs e)
         {
+            CashierCashieringPayment paymentForm = new CashierCashieringPayment();
+            paymentForm.Show();
+            this.Hide();
+        }
 
+        private void btnPaymentHistory_Click(object sender, EventArgs e)
+        {
+            CashierPaymentHistory historyForm = new CashierPaymentHistory();
+            historyForm.Show();
+            this.Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

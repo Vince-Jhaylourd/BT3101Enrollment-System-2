@@ -30,14 +30,14 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnPaymentHistory = new System.Windows.Forms.Button();
+            this.btnCashiering = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Location = new System.Drawing.Point(198, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(792, 55);
@@ -77,49 +77,52 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Cashier";
             // 
-            // button1
+            // btnLogout
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(671, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "LOGOUT";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLogout.BackColor = System.Drawing.Color.Red;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(671, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(94, 30);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "LOGOUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.btnPaymentHistory);
+            this.panel1.Controls.Add(this.btnCashiering);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 585);
             this.panel1.TabIndex = 2;
             // 
-            // button8
+            // btnPaymentHistory
             // 
-            this.button8.Location = new System.Drawing.Point(13, 337);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(174, 44);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "PAYMENT HISTORY";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnPaymentHistory.Location = new System.Drawing.Point(13, 337);
+            this.btnPaymentHistory.Name = "btnPaymentHistory";
+            this.btnPaymentHistory.Size = new System.Drawing.Size(174, 44);
+            this.btnPaymentHistory.TabIndex = 11;
+            this.btnPaymentHistory.Text = "PAYMENT HISTORY";
+            this.btnPaymentHistory.UseVisualStyleBackColor = true;
+            this.btnPaymentHistory.Click += new System.EventHandler(this.btnPaymentHistory_Click);
             // 
-            // button7
+            // btnCashiering
             // 
-            this.button7.Location = new System.Drawing.Point(13, 270);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(174, 44);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "CASHIERING PAYMENT";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnCashiering.Location = new System.Drawing.Point(13, 270);
+            this.btnCashiering.Name = "btnCashiering";
+            this.btnCashiering.Size = new System.Drawing.Size(174, 44);
+            this.btnCashiering.TabIndex = 10;
+            this.btnCashiering.Text = "CASHIERING PAYMENT";
+            this.btnCashiering.UseVisualStyleBackColor = true;
+            this.btnCashiering.Click += new System.EventHandler(this.btnCashiering_Click);
             // 
             // button6
             // 
@@ -152,14 +155,15 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "SYSTEM";
             // 
-            // button2
+            // btnHome
             // 
-            this.button2.Location = new System.Drawing.Point(13, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 44);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "HOME";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHome.Location = new System.Drawing.Point(13, 140);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(174, 44);
+            this.btnHome.TabIndex = 8;
+            this.btnHome.Text = "HOME";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // label2
             // 
@@ -332,14 +336,14 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnPaymentHistory;
+        private System.Windows.Forms.Button btnCashiering;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label5;

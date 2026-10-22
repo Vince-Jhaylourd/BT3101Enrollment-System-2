@@ -16,5 +16,31 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            CashierHome homeForm = new CashierHome();
+            homeForm.Show();
+            this.Hide();
+        }
+
+        private void btnCashiering_Click(object sender, EventArgs e)
+        {
+            CashierCashieringPayment paymentForm = new CashierCashieringPayment();
+            paymentForm.Show();
+            this.Hide();
+        }
+
+        private void btnPaymentHistory_Click(object sender, EventArgs e)
+        {
+            CashierPaymentHistory historyForm = new CashierPaymentHistory();
+            historyForm.Show();
+            this.Hide();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

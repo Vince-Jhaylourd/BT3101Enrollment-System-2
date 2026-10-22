@@ -47,13 +47,15 @@ namespace UI
 
             else if (user.Role == "Cashier")
             {
-                CashierLandingPage cashierForm = new CashierLandingPage();
+                CashierHome cashierForm = new CashierHome();
                 cashierForm.Show();
             }
             else 
                 { 
                 MessageBox.Show("User role not recognized.");
                 }
+
+        
         }
     }
 }

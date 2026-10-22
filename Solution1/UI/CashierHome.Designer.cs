@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnPaymentHistory = new System.Windows.Forms.Button();
+            this.btnCashiering = new System.Windows.Forms.Button();
+            this.btnSearchStudent = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
@@ -52,58 +52,46 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.btnPaymentHistory);
+            this.panel1.Controls.Add(this.btnCashiering);
+            this.panel1.Controls.Add(this.btnSearchStudent);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 585);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // btnPaymentHistory
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(199, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(792, 55);
-            this.panel2.TabIndex = 1;
+            this.btnPaymentHistory.Location = new System.Drawing.Point(13, 337);
+            this.btnPaymentHistory.Name = "btnPaymentHistory";
+            this.btnPaymentHistory.Size = new System.Drawing.Size(174, 44);
+            this.btnPaymentHistory.TabIndex = 11;
+            this.btnPaymentHistory.Text = "PAYMENT HISTORY";
+            this.btnPaymentHistory.UseVisualStyleBackColor = true;
+            this.btnPaymentHistory.Click += new System.EventHandler(this.btnPaymentHistory_Click);
             // 
-            // button1
+            // btnCashiering
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(671, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "LOGOUT";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCashiering.Location = new System.Drawing.Point(13, 270);
+            this.btnCashiering.Name = "btnCashiering";
+            this.btnCashiering.Size = new System.Drawing.Size(174, 44);
+            this.btnCashiering.TabIndex = 10;
+            this.btnCashiering.Text = "CASHIERING PAYMENT";
+            this.btnCashiering.UseVisualStyleBackColor = true;
+            this.btnCashiering.Click += new System.EventHandler(this.btnCashiering_Click);
             // 
-            // label1
+            // btnSearchStudent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 22);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cashier";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(222, 125);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(190, 160);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.btnSearchStudent.Location = new System.Drawing.Point(13, 207);
+            this.btnSearchStudent.Name = "btnSearchStudent";
+            this.btnSearchStudent.Size = new System.Drawing.Size(174, 44);
+            this.btnSearchStudent.TabIndex = 9;
+            this.btnSearchStudent.Text = "SEARCH STUDENT ACCOUNT";
+            this.btnSearchStudent.UseVisualStyleBackColor = true;
+            this.btnSearchStudent.Click += new System.EventHandler(this.btnSearchStudent_Click);
             // 
             // label3
             // 
@@ -127,41 +115,55 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "SYSTEM";
             // 
-            // button2
+            // btnHome
             // 
-            this.button2.Location = new System.Drawing.Point(13, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 44);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "HOME";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnHome.Location = new System.Drawing.Point(13, 140);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(174, 44);
+            this.btnHome.TabIndex = 8;
+            this.btnHome.Text = "HOME";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // panel2
             // 
-            this.button6.Location = new System.Drawing.Point(13, 207);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(174, 44);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "SEARCH STUDENT ACCOUNT";
-            this.button6.UseVisualStyleBackColor = true;
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnLogout);
+            this.panel2.Location = new System.Drawing.Point(199, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(792, 55);
+            this.panel2.TabIndex = 1;
             // 
-            // button7
+            // label1
             // 
-            this.button7.Location = new System.Drawing.Point(13, 270);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(174, 44);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "CASHIERING PAYMENT";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Cashier";
             // 
-            // button8
+            // btnLogout
             // 
-            this.button8.Location = new System.Drawing.Point(13, 337);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(174, 44);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "PAYMENT HISTORY";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnLogout.BackColor = System.Drawing.Color.Red;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogout.Location = new System.Drawing.Point(671, 12);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(94, 30);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "LOGOUT";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(222, 125);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(190, 160);
+            this.listBox1.TabIndex = 4;
             // 
             // label5
             // 
@@ -244,14 +246,14 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnPaymentHistory;
+        private System.Windows.Forms.Button btnCashiering;
+        private System.Windows.Forms.Button btnSearchStudent;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox2;
