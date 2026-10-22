@@ -176,11 +176,29 @@
     <Compile Include="AdminLandingPage.Designer.cs">
       <DependentUpon>AdminLandingPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="CashierLandingPage.cs">
+    <Compile Include="CashierCashieringPayment .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CashierLandingPage.Designer.cs">
-      <DependentUpon>CashierLandingPage.cs</DependentUpon>
+    <Compile Include="CashierCashieringPayment .Designer.cs">
+      <DependentUpon>CashierCashieringPayment .cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierHome.Designer.cs">
+      <DependentUpon>CashierHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierPaymentHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierPaymentHistory.Designer.cs">
+      <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CashierSearchStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierSearchStudent.Designer.cs">
+      <DependentUpon>CashierSearchStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -199,8 +217,17 @@
     <EmbeddedResource Include="AdminLandingPage.resx">
       <DependentUpon>AdminLandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CashierLandingPage.resx">
-      <DependentUpon>CashierLandingPage.cs</DependentUpon>
+    <EmbeddedResource Include="CashierCashieringPayment .resx">
+      <DependentUpon>CashierCashieringPayment .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierHome.resx">
+      <DependentUpon>CashierHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPaymentHistory.resx">
+      <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierSearchStudent.resx">
+      <DependentUpon>CashierSearchStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

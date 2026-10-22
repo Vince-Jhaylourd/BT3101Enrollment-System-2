@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class CashierLandingPage : Form
+    public partial class CashierSearchStudent : Form
     {
-        public CashierLandingPage()
+        public CashierSearchStudent()
         {
             InitializeComponent();
         }
