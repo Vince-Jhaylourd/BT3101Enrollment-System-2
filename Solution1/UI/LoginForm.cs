@@ -38,17 +38,20 @@ namespace UI
             {
                 AdminLandingPage adminForm = new AdminLandingPage();
                 adminForm.Show();
+                this.Hide();
             }
             else if (user.Role == "Registrar")
             {
                 RegistrarLandingPage registrarForm = new RegistrarLandingPage();
                 registrarForm.Show();
+                this.Hide();
             }
 
             else if (user.Role == "Cashier")
             {
                 CashierHome cashierForm = new CashierHome();
                 cashierForm.Show();
+                this.Hide();
             }
             else 
                 { 
