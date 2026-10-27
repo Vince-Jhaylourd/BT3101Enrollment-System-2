@@ -102,49 +102,53 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            this.Close();
+            AdminLandingPage AdminForm = new AdminLandingPage();
+            AdminForm.Show();
+            this.Hide();
         }
 
         private void btnSectionManagement_Click(object sender, EventArgs e)
         {
+            SectionManagement SectionForm = new SectionManagement();
+            SectionForm.Show();
             this.Hide();
-            new SectionManagement().ShowDialog();
-            this.Show();
         }
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
+            SearchStudentAccount SearchStudentForm = new SearchStudentAccount();
+            SearchStudentForm.Show();
             this.Hide();
-            new SearchStudentAccount().ShowDialog();
-            this.Show();
         }
 
         private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
         {
+            PaymentHistoryReceipts PaymentReceiptForms = new PaymentHistoryReceipts();
+            PaymentReceiptForms.Show();
             this.Hide();
-            new PaymentHistoryReceipts().ShowDialog();
-            this.Show();
         }
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
+            Student_InformationReport StudentInfoForm = new Student_InformationReport();
+            StudentInfoForm.Show();
             this.Hide();
-            new Student_InformationReport().ShowDialog();
-            this.Show();
         }
 
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("You are already on User Management.");
+           
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Log out",
-       MessageBoxButtons.YesNo) == DialogResult.Yes)
+     MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Application.Restart();
             }
+
+            this.Hide();
         }
     }
     }

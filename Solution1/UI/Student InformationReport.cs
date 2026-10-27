@@ -61,47 +61,7 @@ namespace UI
             preview.ShowDialog();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnSectionManagement_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new SectionManagement().ShowDialog();
-            this.Show();
-
-        }
-
-        private void btnSearchStudentAccount_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new SearchStudentAccount().ShowDialog();
-            this.Show();
-        }
-
-        private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new PaymentHistoryReceipts().ShowDialog();
-            this.Show();
-        }
-
-        private void btnStudentInformationReport_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new Student_InformationReport().ShowDialog();
-            this.Show();
-        }
-
-        private void btnUserManagement_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new UserManagement().ShowDialog();
-            this.Show();
-        }
-
+      
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Log out",
@@ -109,6 +69,52 @@ namespace UI
             {
                 Application.Restart();
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AdminLandingPage AdminForm = new AdminLandingPage();
+            AdminForm.Show();
+            this.Hide();
+        }
+
+        private void btnSectionManagement_Click(object sender, EventArgs e)
+        {
+            SectionManagement SectionForm = new SectionManagement();
+            SectionForm.Show();
+            this.Hide();
+        }
+
+        private void btnSearchStudentAccount_Click(object sender, EventArgs e)
+        {
+            SearchStudentAccount SearchStudentForm = new SearchStudentAccount();
+            SearchStudentForm.Show();
+            this.Hide();
+        }
+
+        private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
+        {
+            PaymentHistoryReceipts PaymentReceiptForms = new PaymentHistoryReceipts();
+            PaymentReceiptForms.Show();
+            this.Hide();
+        }
+
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            UserManagement UserManagementForm = new UserManagement();
+            UserManagementForm.Show();
+            this.Hide();
+        }
+
+        private void buttonLogOut_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "Log out",
+      MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+
+            this.Hide();
         }
     }
 }

@@ -28,42 +28,47 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
         }
 
         private void btnSectionManagement_Click(object sender, EventArgs e)
         {
+        
+           SectionManagement SectionForm = new SectionManagement();
+            SectionForm.Show();
             this.Hide();
-            new SectionManagement().ShowDialog();
-            this.Show();
         }
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
+          
+            SearchStudentAccount SearchStudentForm = new SearchStudentAccount();
+            SearchStudentForm.Show();
             this.Hide();
-            new SearchStudentAccount().ShowDialog();
-            this.Show();
         }
 
         private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
         {
+        
+            PaymentHistoryReceipts PaymentReceiptForms = new PaymentHistoryReceipts();
+            PaymentReceiptForms.Show();
             this.Hide();
-            new PaymentHistoryReceipts().ShowDialog();
-            this.Show();
         }
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
+         
+            Student_InformationReport StudentInfoForm = new Student_InformationReport();
+            StudentInfoForm.Show();
             this.Hide();
-            new Student_InformationReport().ShowDialog();
-            this.Show();
         }
 
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
+            
+            UserManagement UserManagementForm = new UserManagement();
+            UserManagementForm.Show();
             this.Hide();
-            new UserManagement().ShowDialog();
-            this.Show();
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
@@ -73,6 +78,7 @@ namespace UI
             {
                 Application.Restart();
             }
+            this.Hide();
         }
     }
 }
