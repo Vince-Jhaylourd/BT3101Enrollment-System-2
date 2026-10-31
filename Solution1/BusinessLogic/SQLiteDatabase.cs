@@ -25,6 +25,7 @@ namespace BusinessLogic
 
         public void InitializeDatabase()
         {
+            //User
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -58,6 +59,34 @@ namespace BusinessLogic
                 {
                     command.CommandText = insertUserSql;
                     command.ExecuteNonQuery();
+                }
+
+                string createStudentTableSql = @"
+                CREATE TABLE IF NOT EXISTS Students 
+                (
+                    StudentId       INTEGER PRIMARY KEY AUTOINCREMENT,
+                    LRN             TEXT NOT NULL CHECK (length(LRN) = 12 AND LRN NOT GLOB '*[^0-9]*'),
+                    LastName        TEXT NOT NULL,
+                    FirstName       TEXT NOT NULL,
+                    MiddleName      TEXT NULL,
+                    Gender          TEXT NOT NULL CHECK (Gender IN ('Male','Female')),
+                    DateOfBirth     TEXT NOT NULL,
+                    ContactNo       TEXT NOT NULL,
+                    GuardianName    TEXT NOT NULL,
+                    GuardianContact TEXT NOT NULL,
+                    Address         TEXT NULL,
+                    IsDeleted       INTEGER NOT NULL DEFAULT 0,
+                    CreatedAt       TEXT NOT NULL DEFAULT (datetime('now'))
+                );
+                CREATE UNIQUE INDEX IF NOT EXISTS UX_Students_LRN_Active
+                    ON Students (LRN) WHERE IsDeleted = 0;
+             ";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = createStudentTableSql;
+                    command.ExecuteNonQuery();
+
                 }
             }
         }
