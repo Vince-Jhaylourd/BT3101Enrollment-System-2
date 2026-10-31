@@ -17,6 +17,48 @@ namespace UI
             InitializeComponent();
         }
 
-      
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
+            RegistrarLandingPage HomeForm = new RegistrarLandingPage();
+            HomeForm.Show();
+            this.Hide();
+        }
+
+        private void btnStudentMaintenance_Click(object sender, EventArgs e)
+        {
+            StudentMaintenance StudentMaintenanceForm = new StudentMaintenance();
+            StudentMaintenanceForm.Show();
+            this.Hide();
+        }
+
+        private void btnStudentAssesssment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchStudentAccount_Click(object sender, EventArgs e)
+        {
+            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
+            SeacrhStudentAccount.Show();
+            this.Hide();
+        }
+
+        private void btnStudentInformationReport_Click(object sender, EventArgs e)
+        {
+            StudentInformationReport studentInformationReportForm = new StudentInformationReport();
+            studentInformationReportForm.Show();
+            this.Hide();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "Log out",
+       MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+            this.Hide();
+        }
     }
 }
