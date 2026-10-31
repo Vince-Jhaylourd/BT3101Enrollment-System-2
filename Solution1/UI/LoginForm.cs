@@ -38,22 +38,27 @@ namespace UI
             {
                 AdminLandingPage adminForm = new AdminLandingPage();
                 adminForm.Show();
+                this.Hide();
             }
             else if (user.Role == "Registrar")
             {
                 RegistrarLandingPage registrarForm = new RegistrarLandingPage();
                 registrarForm.Show();
+                this.Hide();
             }
 
             else if (user.Role == "Cashier")
             {
-                CashierLandingPage cashierForm = new CashierLandingPage();
+                CashierHome cashierForm = new CashierHome();
                 cashierForm.Show();
+                this.Hide();
             }
             else 
                 { 
                 MessageBox.Show("User role not recognized.");
                 }
+
+        
         }
 
        

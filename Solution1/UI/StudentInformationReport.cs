@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class CashierLandingPage : Form
+    public partial class StudentInformationReport : Form
     {
-        public CashierLandingPage()
+        public StudentInformationReport()
         {
             InitializeComponent();
         }
-
-      
     }
 }
