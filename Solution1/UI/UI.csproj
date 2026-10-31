@@ -239,6 +239,24 @@
     <Compile Include="Student InformationReport.Designer.cs">
       <DependentUpon>Student InformationReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentAssessment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentAssessment.Designer.cs">
+      <DependentUpon>StudentAssessment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInformationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInformationReport.Designer.cs">
+      <DependentUpon>StudentInformationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentMaintenance.Designer.cs">
+      <DependentUpon>StudentMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +304,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student InformationReport.resx">
       <DependentUpon>Student InformationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentAssessment.resx">
+      <DependentUpon>StudentAssessment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInformationReport.resx">
+      <DependentUpon>StudentInformationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentMaintenance.resx">
+      <DependentUpon>StudentMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
