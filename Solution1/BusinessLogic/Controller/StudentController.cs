@@ -17,20 +17,25 @@ namespace BusinessLogic.Controller
         }
         public void AddStudent(Student student)
         {
-            _studentRepository.AddStudent(student);
+            _studentRepository.Add(student);
         }
         public List<Student> GetStudents(string searchText)
         {
-            return _studentRepository.GetStudents(searchText);
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return _studentRepository.GetAll();
+            }
+
+            return _studentRepository.Search(searchText);
         }
         public void UpdateStudent (Student student)
         {
-            _studentRepository.UpdateStudent(student);
+            _studentRepository.Update(student);
         }
 
         public void DeleteStudent (int studentId)
         {
-            _studentRepository.DeleteStudent(studentId);
+            _studentRepository.Delete(studentId);
         }
     }
 }
