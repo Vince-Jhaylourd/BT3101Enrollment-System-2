@@ -78,71 +78,76 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(1, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 720);
+            this.panel1.Size = new System.Drawing.Size(200, 585);
             this.panel1.TabIndex = 10;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(264, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(198, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1055, 57);
+            this.panel2.Size = new System.Drawing.Size(791, 46);
             this.panel2.TabIndex = 23;
             // 
             // btnStudentInformationReport
             // 
             this.btnStudentInformationReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentInformationReport.Location = new System.Drawing.Point(12, 385);
-            this.btnStudentInformationReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentInformationReport.Location = new System.Drawing.Point(9, 313);
+            this.btnStudentInformationReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudentInformationReport.Name = "btnStudentInformationReport";
-            this.btnStudentInformationReport.Size = new System.Drawing.Size(237, 42);
+            this.btnStudentInformationReport.Size = new System.Drawing.Size(178, 34);
             this.btnStudentInformationReport.TabIndex = 15;
             this.btnStudentInformationReport.Text = "Student Information Report";
             this.btnStudentInformationReport.UseVisualStyleBackColor = true;
+            this.btnStudentInformationReport.Click += new System.EventHandler(this.btnStudentInformationReport_Click);
             // 
             // btnSearchStudentAccount
             // 
             this.btnSearchStudentAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchStudentAccount.Location = new System.Drawing.Point(12, 318);
-            this.btnSearchStudentAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchStudentAccount.Location = new System.Drawing.Point(9, 258);
+            this.btnSearchStudentAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchStudentAccount.Name = "btnSearchStudentAccount";
-            this.btnSearchStudentAccount.Size = new System.Drawing.Size(237, 42);
+            this.btnSearchStudentAccount.Size = new System.Drawing.Size(178, 34);
             this.btnSearchStudentAccount.TabIndex = 15;
             this.btnSearchStudentAccount.Text = "Search Student Account";
             this.btnSearchStudentAccount.UseVisualStyleBackColor = true;
+            this.btnSearchStudentAccount.Click += new System.EventHandler(this.btnSearchStudentAccount_Click);
             // 
             // btnStudentAssesssment
             // 
             this.btnStudentAssesssment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentAssesssment.Location = new System.Drawing.Point(12, 258);
-            this.btnStudentAssesssment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentAssesssment.Location = new System.Drawing.Point(9, 210);
+            this.btnStudentAssesssment.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudentAssesssment.Name = "btnStudentAssesssment";
-            this.btnStudentAssesssment.Size = new System.Drawing.Size(237, 42);
+            this.btnStudentAssesssment.Size = new System.Drawing.Size(178, 34);
             this.btnStudentAssesssment.TabIndex = 15;
             this.btnStudentAssesssment.Text = "Student Assesssment";
             this.btnStudentAssesssment.UseVisualStyleBackColor = true;
+            this.btnStudentAssesssment.Click += new System.EventHandler(this.btnStudentAssesssment_Click);
             // 
             // btnStudentMaintenance
             // 
             this.btnStudentMaintenance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentMaintenance.Location = new System.Drawing.Point(12, 198);
-            this.btnStudentMaintenance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentMaintenance.Location = new System.Drawing.Point(9, 161);
+            this.btnStudentMaintenance.Margin = new System.Windows.Forms.Padding(2);
             this.btnStudentMaintenance.Name = "btnStudentMaintenance";
-            this.btnStudentMaintenance.Size = new System.Drawing.Size(237, 42);
+            this.btnStudentMaintenance.Size = new System.Drawing.Size(178, 34);
             this.btnStudentMaintenance.TabIndex = 17;
             this.btnStudentMaintenance.Text = "Student Maintenance";
             this.btnStudentMaintenance.UseVisualStyleBackColor = true;
+            this.btnStudentMaintenance.Click += new System.EventHandler(this.btnStudentMaintenance_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(60, 59);
+            this.label3.Location = new System.Drawing.Point(45, 48);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 32);
+            this.label3.Size = new System.Drawing.Size(109, 26);
             this.label3.TabIndex = 16;
             this.label3.Text = "SYSTEM";
             // 
@@ -151,32 +156,34 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(25, 27);
+            this.label2.Location = new System.Drawing.Point(19, 22);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 32);
+            this.label2.Size = new System.Drawing.Size(171, 26);
             this.label2.TabIndex = 15;
             this.label2.Text = "ENROLLMENT";
             // 
             // btnHome
             // 
             this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(12, 138);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHome.Location = new System.Drawing.Point(9, 112);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(237, 42);
+            this.btnHome.Size = new System.Drawing.Size(178, 34);
             this.btnHome.TabIndex = 8;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel3.Controls.Add(this.buttonLogOut);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(268, 2);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(201, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1052, 59);
+            this.panel3.Size = new System.Drawing.Size(789, 48);
             this.panel3.TabIndex = 25;
             // 
             // buttonLogOut
@@ -184,21 +191,23 @@
             this.buttonLogOut.BackColor = System.Drawing.Color.Red;
             this.buttonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.ForeColor = System.Drawing.Color.Black;
-            this.buttonLogOut.Location = new System.Drawing.Point(891, 11);
-            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLogOut.Location = new System.Drawing.Point(668, 9);
+            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(149, 42);
+            this.buttonLogOut.Size = new System.Drawing.Size(112, 34);
             this.buttonLogOut.TabIndex = 18;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 22);
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(228, 20);
+            this.label1.Size = new System.Drawing.Size(195, 17);
             this.label1.TabIndex = 14;
             this.label1.Text = "Registrar Staff | Registrar";
             // 
@@ -207,9 +216,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(274, 81);
+            this.label4.Location = new System.Drawing.Point(206, 66);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(292, 32);
+            this.label4.Size = new System.Drawing.Size(231, 26);
             this.label4.TabIndex = 26;
             this.label4.Text = "Student Assessment";
             // 
@@ -217,36 +227,39 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(287, 123);
+            this.label5.Location = new System.Drawing.Point(215, 100);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(299, 20);
+            this.label5.Size = new System.Drawing.Size(257, 17);
             this.label5.TabIndex = 54;
             this.label5.Text = "Search Student (ID, LRN or name)";
             // 
             // txtSearchStudentID
             // 
             this.txtSearchStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchStudentID.Location = new System.Drawing.Point(291, 146);
+            this.txtSearchStudentID.Location = new System.Drawing.Point(218, 119);
+            this.txtSearchStudentID.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchStudentID.Name = "txtSearchStudentID";
-            this.txtSearchStudentID.Size = new System.Drawing.Size(507, 27);
+            this.txtSearchStudentID.Size = new System.Drawing.Size(381, 23);
             this.txtSearchStudentID.TabIndex = 55;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(291, 179);
+            this.listBox1.Location = new System.Drawing.Point(218, 145);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1014, 164);
+            this.listBox1.Size = new System.Drawing.Size(762, 134);
             this.listBox1.TabIndex = 56;
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(804, 130);
+            this.btnUpdate.Location = new System.Drawing.Point(603, 106);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(161, 43);
+            this.btnUpdate.Size = new System.Drawing.Size(121, 35);
             this.btnUpdate.TabIndex = 57;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -254,19 +267,20 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(291, 559);
+            this.listBox2.Location = new System.Drawing.Point(218, 454);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(1014, 148);
+            this.listBox2.Size = new System.Drawing.Size(762, 121);
             this.listBox2.TabIndex = 58;
             // 
             // lblGradelevel
             // 
             this.lblGradelevel.AutoSize = true;
             this.lblGradelevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGradelevel.Location = new System.Drawing.Point(287, 355);
+            this.lblGradelevel.Location = new System.Drawing.Point(215, 288);
+            this.lblGradelevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGradelevel.Name = "lblGradelevel";
-            this.lblGradelevel.Size = new System.Drawing.Size(112, 20);
+            this.lblGradelevel.Size = new System.Drawing.Size(98, 17);
             this.lblGradelevel.TabIndex = 59;
             this.lblGradelevel.Text = "Grade level*";
             // 
@@ -274,9 +288,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(617, 355);
+            this.label7.Location = new System.Drawing.Point(463, 288);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 20);
+            this.label7.Size = new System.Drawing.Size(100, 17);
             this.label7.TabIndex = 60;
             this.label7.Text = "School year*";
             // 
@@ -284,9 +299,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(946, 355);
+            this.label8.Location = new System.Drawing.Point(710, 288);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(209, 20);
+            this.label8.Size = new System.Drawing.Size(178, 17);
             this.label8.TabIndex = 61;
             this.label8.Text = "Discount / schoolarship";
             // 
@@ -294,9 +310,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(300, 419);
+            this.label9.Location = new System.Drawing.Point(225, 340);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 20);
+            this.label9.Size = new System.Drawing.Size(51, 17);
             this.label9.TabIndex = 62;
             this.label9.Text = "Tuition";
             // 
@@ -304,9 +321,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(514, 419);
+            this.label10.Location = new System.Drawing.Point(386, 340);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 20);
+            this.label10.Size = new System.Drawing.Size(153, 17);
             this.label10.TabIndex = 63;
             this.label10.Text = "Mandatory School fees";
             // 
@@ -314,9 +332,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(825, 419);
+            this.label11.Location = new System.Drawing.Point(619, 340);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 20);
+            this.label11.Size = new System.Drawing.Size(63, 17);
             this.label11.TabIndex = 64;
             this.label11.Text = "Discount";
             // 
@@ -324,9 +343,10 @@
             // 
             this.lblTuition.AutoSize = true;
             this.lblTuition.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTuition.Location = new System.Drawing.Point(310, 441);
+            this.lblTuition.Location = new System.Drawing.Point(232, 358);
+            this.lblTuition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTuition.Name = "lblTuition";
-            this.lblTuition.Size = new System.Drawing.Size(14, 20);
+            this.lblTuition.Size = new System.Drawing.Size(13, 17);
             this.lblTuition.TabIndex = 65;
             this.lblTuition.Text = ".";
             // 
@@ -334,9 +354,10 @@
             // 
             this.lblMandatorySchoolFees.AutoSize = true;
             this.lblMandatorySchoolFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMandatorySchoolFees.Location = new System.Drawing.Point(524, 441);
+            this.lblMandatorySchoolFees.Location = new System.Drawing.Point(393, 358);
+            this.lblMandatorySchoolFees.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMandatorySchoolFees.Name = "lblMandatorySchoolFees";
-            this.lblMandatorySchoolFees.Size = new System.Drawing.Size(14, 20);
+            this.lblMandatorySchoolFees.Size = new System.Drawing.Size(13, 17);
             this.lblMandatorySchoolFees.TabIndex = 66;
             this.lblMandatorySchoolFees.Text = ".";
             // 
@@ -344,9 +365,10 @@
             // 
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(835, 441);
+            this.lblDiscount.Location = new System.Drawing.Point(626, 358);
+            this.lblDiscount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(14, 20);
+            this.lblDiscount.Size = new System.Drawing.Size(13, 17);
             this.lblDiscount.TabIndex = 67;
             this.lblDiscount.Text = ".";
             // 
@@ -354,35 +376,39 @@
             // 
             this.cbGradelevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGradelevel.FormattingEnabled = true;
-            this.cbGradelevel.Location = new System.Drawing.Point(289, 378);
+            this.cbGradelevel.Location = new System.Drawing.Point(217, 307);
+            this.cbGradelevel.Margin = new System.Windows.Forms.Padding(2);
             this.cbGradelevel.Name = "cbGradelevel";
-            this.cbGradelevel.Size = new System.Drawing.Size(297, 28);
+            this.cbGradelevel.Size = new System.Drawing.Size(224, 25);
             this.cbGradelevel.TabIndex = 68;
             // 
             // txtSchoolYear
             // 
             this.txtSchoolYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSchoolYear.Location = new System.Drawing.Point(621, 379);
+            this.txtSchoolYear.Location = new System.Drawing.Point(466, 308);
+            this.txtSchoolYear.Margin = new System.Windows.Forms.Padding(2);
             this.txtSchoolYear.Name = "txtSchoolYear";
-            this.txtSchoolYear.Size = new System.Drawing.Size(297, 27);
+            this.txtSchoolYear.Size = new System.Drawing.Size(224, 23);
             this.txtSchoolYear.TabIndex = 69;
             // 
             // cbDiscountSchoolarship
             // 
             this.cbDiscountSchoolarship.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDiscountSchoolarship.FormattingEnabled = true;
-            this.cbDiscountSchoolarship.Location = new System.Drawing.Point(950, 378);
+            this.cbDiscountSchoolarship.Location = new System.Drawing.Point(712, 307);
+            this.cbDiscountSchoolarship.Margin = new System.Windows.Forms.Padding(2);
             this.cbDiscountSchoolarship.Name = "cbDiscountSchoolarship";
-            this.cbDiscountSchoolarship.Size = new System.Drawing.Size(297, 28);
+            this.cbDiscountSchoolarship.Size = new System.Drawing.Size(224, 25);
             this.cbDiscountSchoolarship.TabIndex = 70;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1021, 419);
+            this.label6.Location = new System.Drawing.Point(766, 340);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 20);
+            this.label6.Size = new System.Drawing.Size(151, 17);
             this.label6.TabIndex = 71;
             this.label6.Text = "TOTAL ASSESSMENT";
             // 
@@ -391,9 +417,10 @@
             this.lblTotalAssessment.AutoSize = true;
             this.lblTotalAssessment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalAssessment.ForeColor = System.Drawing.Color.Lime;
-            this.lblTotalAssessment.Location = new System.Drawing.Point(1031, 441);
+            this.lblTotalAssessment.Location = new System.Drawing.Point(773, 358);
+            this.lblTotalAssessment.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalAssessment.Name = "lblTotalAssessment";
-            this.lblTotalAssessment.Size = new System.Drawing.Size(13, 20);
+            this.lblTotalAssessment.Size = new System.Drawing.Size(12, 17);
             this.lblTotalAssessment.TabIndex = 72;
             this.lblTotalAssessment.Text = ".";
             // 
@@ -401,9 +428,10 @@
             // 
             this.btComputeSaveAssessment.BackColor = System.Drawing.Color.LimeGreen;
             this.btComputeSaveAssessment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btComputeSaveAssessment.Location = new System.Drawing.Point(291, 488);
+            this.btComputeSaveAssessment.Location = new System.Drawing.Point(218, 396);
+            this.btComputeSaveAssessment.Margin = new System.Windows.Forms.Padding(2);
             this.btComputeSaveAssessment.Name = "btComputeSaveAssessment";
-            this.btComputeSaveAssessment.Size = new System.Drawing.Size(270, 42);
+            this.btComputeSaveAssessment.Size = new System.Drawing.Size(202, 34);
             this.btComputeSaveAssessment.TabIndex = 73;
             this.btComputeSaveAssessment.Text = "Compute / Save Assessment";
             this.btComputeSaveAssessment.UseVisualStyleBackColor = false;
@@ -412,18 +440,19 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(300, 533);
+            this.label12.Location = new System.Drawing.Point(225, 433);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(159, 20);
+            this.label12.Size = new System.Drawing.Size(136, 17);
             this.label12.TabIndex = 74;
             this.label12.Text = "Assessed student";
             // 
             // StudentAssessment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.ClientSize = new System.Drawing.Size(989, 584);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btComputeSaveAssessment);
             this.Controls.Add(this.lblTotalAssessment);
@@ -448,6 +477,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StudentAssessment";
             this.Text = "StudentAssessment";
             this.panel1.ResumeLayout(false);

@@ -19,14 +19,12 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            RegistrarLandingPage HomeForm = new RegistrarLandingPage();
-            HomeForm.Show();
-            this.Hide();
+            
         }
 
         private void btnStudentMaintenance_Click(object sender, EventArgs e)
         {
-            RegistrarLandingPage StudentMaintenanceForm = new RegistrarLandingPage();
+            StudentMaintenance StudentMaintenanceForm = new StudentMaintenance();
             StudentMaintenanceForm.Show();
             this.Hide();
 
@@ -34,14 +32,14 @@ namespace UI
 
         private void btnStudentAssesssment_Click(object sender, EventArgs e)
         {
-            RegistrarLandingPage StudentAssessmentForm = new RegistrarLandingPage();
+            StudentAssessment StudentAssessmentForm = new StudentAssessment();
             StudentAssessmentForm.Show();
             this.Hide();
         }
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            RegistrarLandingPage SeacrhStudentAccount = new RegistrarLandingPage();
+            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
             SeacrhStudentAccount.Show();
             this.Hide();
 
@@ -49,8 +47,20 @@ namespace UI
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            
+            StudentInformationReport studentInformationReportForm = new StudentInformationReport();
+            studentInformationReportForm.Show();
+            this.Hide();
 
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to log out?", "Log out",
+       MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Restart();
+            }
+            this.Hide();
         }
     }
 }
