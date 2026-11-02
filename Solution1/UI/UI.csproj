@@ -222,11 +222,17 @@
     <Compile Include="RegistrarLandingPage.Designer.cs">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchStudentAccount.cs">
+    <Compile Include="SearchStudentAccountADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchStudentAccount.Designer.cs">
-      <DependentUpon>SearchStudentAccount.cs</DependentUpon>
+    <Compile Include="SearchStudentAccountADMIN.Designer.cs">
+      <DependentUpon>SearchStudentAccountADMIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchStudentAccountREG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchStudentAccountREG.Designer.cs">
+      <DependentUpon>SearchStudentAccountREG.cs</DependentUpon>
     </Compile>
     <Compile Include="SectionItem.cs" />
     <Compile Include="SectionManagement.cs">
@@ -235,11 +241,11 @@
     <Compile Include="SectionManagement.Designer.cs">
       <DependentUpon>SectionManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student InformationReport.cs">
+    <Compile Include="Student InformationReportADMIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student InformationReport.Designer.cs">
-      <DependentUpon>Student InformationReport.cs</DependentUpon>
+    <Compile Include="Student InformationReportADMIN.Designer.cs">
+      <DependentUpon>Student InformationReportADMIN.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentAssessment.cs">
       <SubType>Form</SubType>
@@ -298,14 +304,17 @@
     <EmbeddedResource Include="RegistrarLandingPage.resx">
       <DependentUpon>RegistrarLandingPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchStudentAccount.resx">
-      <DependentUpon>SearchStudentAccount.cs</DependentUpon>
+    <EmbeddedResource Include="SearchStudentAccountADMIN.resx">
+      <DependentUpon>SearchStudentAccountADMIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchStudentAccountREG.resx">
+      <DependentUpon>SearchStudentAccountREG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SectionManagement.resx">
       <DependentUpon>SectionManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student InformationReport.resx">
-      <DependentUpon>Student InformationReport.cs</DependentUpon>
+    <EmbeddedResource Include="Student InformationReportADMIN.resx">
+      <DependentUpon>Student InformationReportADMIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentAssessment.resx">
       <DependentUpon>StudentAssessment.cs</DependentUpon>

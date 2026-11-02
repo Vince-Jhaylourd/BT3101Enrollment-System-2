@@ -19,53 +19,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private List<string> allReceipts = new List<string>()
-        {
-
-            " |  |  | | ",
-              " |  |  | | ",
-        };
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.Clear();
-
-            foreach (string r in allReceipts)
-            {
-                if (r.ToLower().Contains(txtSearchTransactionID.Text.ToLower()))
-                    listBox1.Items.Add(r);
-            }
-
-            if (listBox1.Items.Count == 0)
-                MessageBox.Show("No records found.");
-        }
-
-        private void PaymentHistoryReceipts_Load(object sender, EventArgs e)
-        {
-            foreach (string r in allReceipts)
-                listBox1.Items.Add(r);
-        }
-
-        private void btnViewPrintReceipts_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedIndex == -1)
-            {
-                MessageBox.Show("Select a receipt first.");
-                return;
-            }
-
-            string receipt = listBox1.SelectedItem.ToString();
-
-            PrintDocument doc = new PrintDocument();
-            doc.PrintPage += (s, ev) =>
-            {
-                ev.Graphics.DrawString("PAYMENT RECEIPT", new Font("Arial", 16, FontStyle.Bold), Brushes.Black, 50, 50);
-                ev.Graphics.DrawString(receipt, new Font("Arial", 12), Brushes.Black, 50, 100);
-            };
-
-            PrintPreviewDialog preview = new PrintPreviewDialog();
-            preview.Document = doc;
-            preview.ShowDialog();
-        }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -83,19 +36,21 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount studentForm = new SearchStudentAccount();
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
             studentForm.Show();
             this.Hide();
         }
 
         private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
         {
-           
+            PaymentHistoryReceipts paymentHistoryReceiptsForm = new PaymentHistoryReceipts();
+            paymentHistoryReceiptsForm.Show();
+            this.Hide();
         }
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            Student_InformationReport studentinfoForm = new Student_InformationReport();
+            StudentInformationReport studentinfoForm = new StudentInformationReport();
             studentinfoForm.Show();
             this.Hide();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class SearchStudentAccount: Form
+    public partial class SearchStudentAccountREG: Form
     {
-        public SearchStudentAccount()
+        public SearchStudentAccountREG()
         {
             InitializeComponent();
         }
@@ -40,8 +40,8 @@ namespace UI
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            StudentInformationReport studentInformationReportForm = new StudentInformationReport();
-            studentInformationReportForm.Show();
+            StudentInformationReport studentInformationReportFormREG = new StudentInformationReport();
+            studentInformationReportFormREG.Show();
             this.Hide();
         }
 
@@ -52,6 +52,13 @@ namespace UI
             {
                 Application.Restart();
             }
+            this.Hide();
+        }
+
+        private void btnSearchStudentAccount_Click(object sender, EventArgs e)
+        {
+            SearchStudentAccountREG SeacrhStudentAccount = new SearchStudentAccountREG();
+            SeacrhStudentAccount.Show();
             this.Hide();
         }
     }

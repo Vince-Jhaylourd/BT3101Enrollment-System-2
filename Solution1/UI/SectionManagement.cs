@@ -93,19 +93,21 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            AdminLandingPage homeForm = new AdminLandingPage();
+            SectionManagement homeForm = new SectionManagement();
             homeForm.Show();
             this.Hide();
         }
 
         private void btnSectionManagement_Click(object sender, EventArgs e)
         {
-          
+            SectionManagement sectionForm = new SectionManagement();
+            sectionForm.Show();
+            this.Hide();
         }
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount studentForm = new SearchStudentAccount();
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
             studentForm.Show();
             this.Hide();
         }

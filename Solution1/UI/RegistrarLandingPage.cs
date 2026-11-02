@@ -19,7 +19,9 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            
+            RegistrarLandingPage homeForm = new RegistrarLandingPage();
+            homeForm.Show();
+            this.Hide();
         }
 
         private void btnStudentMaintenance_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
+            SearchStudentAccountREG SeacrhStudentAccount = new SearchStudentAccountREG();
             SeacrhStudentAccount.Show();
             this.Hide();
 

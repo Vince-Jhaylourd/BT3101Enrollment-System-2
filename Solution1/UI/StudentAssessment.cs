@@ -34,12 +34,14 @@ namespace UI
 
         private void btnStudentAssesssment_Click(object sender, EventArgs e)
         {
-
+            StudentAssessment StudentAssessmentForm = new StudentAssessment();
+            StudentAssessmentForm.Show();
+            this.Hide();
         }
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
+            SearchStudentAccountREG SeacrhStudentAccount = new SearchStudentAccountREG();
             SeacrhStudentAccount.Show();
             this.Hide();
         }

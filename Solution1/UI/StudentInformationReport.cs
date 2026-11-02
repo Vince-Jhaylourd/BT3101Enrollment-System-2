@@ -40,7 +40,7 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
+            SearchStudentAccountREG SeacrhStudentAccount = new SearchStudentAccountREG();
             SeacrhStudentAccount.Show();
             this.Hide();
         }
@@ -52,6 +52,13 @@ namespace UI
             {
                 Application.Restart();
             }
+            this.Hide();
+        }
+
+        private void btnStudentInformationReport_Click(object sender, EventArgs e)
+        {
+            Student_InformationReport student_InformationReport = new Student_InformationReport();
+            student_InformationReport.Show();
             this.Hide();
         }
     }

@@ -87,9 +87,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 20);
+            this.label1.Size = new System.Drawing.Size(259, 20);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Registrar Staff | Admin";
+            this.label1.Text = "System Administrator | Admin";
             // 
             // label4
             // 
@@ -252,6 +252,7 @@
             this.btnStudentInformationReport.TabIndex = 15;
             this.btnStudentInformationReport.Text = "Student Information Report";
             this.btnStudentInformationReport.UseVisualStyleBackColor = true;
+            this.btnStudentInformationReport.Click += new System.EventHandler(this.btnStudentInformationReport_Click);
             // 
             // btnSearchStudentAccount
             // 
@@ -263,6 +264,7 @@
             this.btnSearchStudentAccount.TabIndex = 15;
             this.btnSearchStudentAccount.Text = "Search Student Account";
             this.btnSearchStudentAccount.UseVisualStyleBackColor = true;
+            this.btnSearchStudentAccount.Click += new System.EventHandler(this.btnSearchStudentAccount_Click_1);
             // 
             // btnStudentAssesssment
             // 
@@ -274,6 +276,7 @@
             this.btnStudentAssesssment.TabIndex = 15;
             this.btnStudentAssesssment.Text = "Student Assesssment";
             this.btnStudentAssesssment.UseVisualStyleBackColor = true;
+            this.btnStudentAssesssment.Click += new System.EventHandler(this.btnStudentAssesssment_Click);
             // 
             // btnStudentMaintenance
             // 
@@ -285,6 +288,7 @@
             this.btnStudentMaintenance.TabIndex = 17;
             this.btnStudentMaintenance.Text = "Student Maintenance";
             this.btnStudentMaintenance.UseVisualStyleBackColor = true;
+            this.btnStudentMaintenance.Click += new System.EventHandler(this.btnStudentMaintenance_Click);
             // 
             // label3
             // 
@@ -318,6 +322,7 @@
             this.btnHome.TabIndex = 8;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click_1);
             // 
             // Student_InformationReport
             // 

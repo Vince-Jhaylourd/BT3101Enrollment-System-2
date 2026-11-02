@@ -29,7 +29,9 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-          
+            AdminLandingPage homeForm = new AdminLandingPage();
+            homeForm.Show();
+            this.Hide();
         }
 
         private void btnSectionManagement_Click(object sender, EventArgs e)
@@ -42,8 +44,7 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-          
-            SearchStudentAccount studentForm = new SearchStudentAccount();
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
             studentForm.Show();
             this.Hide();
         }
@@ -84,6 +85,24 @@ namespace UI
             this.Hide();
         }
 
-      
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

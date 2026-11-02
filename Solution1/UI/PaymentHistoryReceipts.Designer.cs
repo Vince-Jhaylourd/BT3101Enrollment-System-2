@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(3, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 720);
+            this.panel1.Size = new System.Drawing.Size(261, 720);
             this.panel1.TabIndex = 9;
             // 
             // panel2
@@ -235,7 +235,6 @@
             this.btnSearch.TabIndex = 33;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // listBox1
             // 
@@ -256,7 +255,6 @@
             this.btnViewPrintReceipts.TabIndex = 36;
             this.btnViewPrintReceipts.Text = "View / Print Receipts";
             this.btnViewPrintReceipts.UseVisualStyleBackColor = false;
-            this.btnViewPrintReceipts.Click += new System.EventHandler(this.btnViewPrintReceipts_Click);
             // 
             // PaymentHistoryReceipts
             // 
@@ -274,7 +272,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "PaymentHistoryReceipts";
             this.Text = "PaymentHistoryReceipts";
-            this.Load += new System.EventHandler(this.PaymentHistoryReceipts_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

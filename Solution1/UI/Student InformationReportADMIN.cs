@@ -78,7 +78,7 @@ namespace UI
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
 
-            SearchStudentAccount studentForm = new SearchStudentAccount();
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
             studentForm.Show();
             this.Hide();
         }
@@ -107,6 +107,41 @@ namespace UI
                 Application.Restart();
             }
 
+            this.Hide();
+        }
+
+        private void btnStudentInformationReport_Click(object sender, EventArgs e)
+        {
+            StudentInformationReport studentInformationReportFormADMIN = new StudentInformationReport();
+            studentInformationReportFormADMIN.Show();
+            this.Hide();
+        }
+
+        private void btnHome_Click_1(object sender, EventArgs e)
+        {
+            AdminLandingPage adminLandingPage = new AdminLandingPage();
+            adminLandingPage.Show();
+            this.Hide();
+        }
+
+        private void btnStudentMaintenance_Click(object sender, EventArgs e)
+        {
+            StudentMaintenance studentMaintenanceForm = new StudentMaintenance();
+            studentMaintenanceForm.Show();
+            this.Hide();
+        }
+
+        private void btnStudentAssesssment_Click(object sender, EventArgs e)
+        {
+            StudentAssessment studentAssessmentForm = new StudentAssessment();
+            studentAssessmentForm.Show();
+            this.Hide();
+        }
+
+        private void btnSearchStudentAccount_Click_1(object sender, EventArgs e)
+        {
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
+            studentForm.Show();
             this.Hide();
         }
     }

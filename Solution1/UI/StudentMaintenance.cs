@@ -98,7 +98,7 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount SeacrhStudentAccount = new SearchStudentAccount();
+            SearchStudentAccountREG SeacrhStudentAccount = new SearchStudentAccountREG();
             SeacrhStudentAccount.Show();
             this.Hide();
         }
