@@ -19,11 +19,7 @@ namespace UI
         }
         private void AdminLandingPage_Load(object sender, EventArgs e)
         {
-            lstTotalStudents.Items.Add("Total students: 0");
-            lstEnrollmentStudents.Items.Add("Enrolled students: 0");
-            lstSections.Items.Add("Sections: 0");
-            lstCollectionsToday.Items.Add("Collections today: 0.00");
-            lstOutstandingBalances.Items.Add("Outstanding balances: 0.00");
+
         }
 
 

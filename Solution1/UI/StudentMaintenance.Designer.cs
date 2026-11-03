@@ -65,7 +65,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.txtSearchStudentID = new System.Windows.Forms.TextBox();
+            this.txtSearchStudents = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
@@ -468,15 +468,16 @@
             this.btnClear.TabIndex = 51;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // txtSearchStudentID
+            // txtSearchStudents
             // 
-            this.txtSearchStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchStudentID.Location = new System.Drawing.Point(293, 377);
-            this.txtSearchStudentID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchStudentID.Name = "txtSearchStudentID";
-            this.txtSearchStudentID.Size = new System.Drawing.Size(507, 27);
-            this.txtSearchStudentID.TabIndex = 52;
+            this.txtSearchStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchStudents.Location = new System.Drawing.Point(293, 377);
+            this.txtSearchStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchStudents.Name = "txtSearchStudents";
+            this.txtSearchStudents.Size = new System.Drawing.Size(507, 27);
+            this.txtSearchStudents.TabIndex = 52;
             // 
             // label5
             // 
@@ -499,6 +500,7 @@
             this.btnSearch.TabIndex = 55;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvStudents
             // 
@@ -525,7 +527,7 @@
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtSearchStudentID);
+            this.Controls.Add(this.txtSearchStudents);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -606,7 +608,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.TextBox txtSearchStudentID;
+        private System.Windows.Forms.TextBox txtSearchStudents;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvStudents;

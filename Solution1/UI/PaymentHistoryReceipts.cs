@@ -50,7 +50,7 @@ namespace UI
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            StudentInformationReport studentinfoForm = new StudentInformationReport();
+            Student_InformationReport studentinfoForm = new Student_InformationReport();
             studentinfoForm.Show();
             this.Hide();
         }

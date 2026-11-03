@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +22,10 @@ namespace UI
         {
             InitializeComponent();
 
-
             _studentRepository = new StudentRepository();
+
+            _studentRepository.SeedSampleStudents();
+
 
             cbGender.Items.Add("Male");
             cbGender.Items.Add("Female");
@@ -32,13 +34,29 @@ namespace UI
 
             LoadStudents();
         }
+
         private void LoadStudents()
         {
-            dgvStudents.DataSource = null;
-            dgvStudents.DataSource = _studentRepository.GetAll();
+            try
+            {
+                dgvStudents.AutoGenerateColumns = true;
+                dgvStudents.DataSource = null;
+                dgvStudents.DataSource = _studentRepository.GetAll();
 
+                dgvStudents.ReadOnly = true;
+                dgvStudents.AllowUserToAddRows = false;
+                dgvStudents.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
 
-            dgvStudents.Columns["StudentId"].Visible = false;
+                dgvStudents.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Unable to load students: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error
+                );
+            }
         }
         private Student GetStudentFromForm()
         {
@@ -86,7 +104,7 @@ namespace UI
 
         private void btnStudentMaintenance_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnStudentAssesssment_Click(object sender, EventArgs e)
@@ -228,6 +246,28 @@ namespace UI
                 MessageBox.Show(ex.Message, "Error");
             }
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchText = txtSearchStudents.Text.Trim();
+
+                dgvStudents.DataSource = null;
+                dgvStudents.DataSource = string.IsNullOrWhiteSpace(searchText)
+                    ? _studentRepository.GetAll()
+                    : _studentRepository.Search(searchText);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search failed: " + ex.Message);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearForm();
         }
     }
 }

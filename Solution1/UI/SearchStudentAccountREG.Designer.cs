@@ -54,10 +54,10 @@
             this.lblEnrollmentStatus = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblCurrentBalance = new System.Windows.Forms.Label();
-            this.dtgListofStudentREG = new System.Windows.Forms.DataGridView();
+            this.dgvListofStudentREG = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListofStudentREG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListofStudentREG)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -345,15 +345,15 @@
             this.lblCurrentBalance.TabIndex = 71;
             this.lblCurrentBalance.Text = ".";
             // 
-            // dtgListofStudentREG
+            // dgvListofStudentREG
             // 
-            this.dtgListofStudentREG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgListofStudentREG.Location = new System.Drawing.Point(291, 200);
-            this.dtgListofStudentREG.Name = "dtgListofStudentREG";
-            this.dtgListofStudentREG.RowHeadersWidth = 51;
-            this.dtgListofStudentREG.RowTemplate.Height = 24;
-            this.dtgListofStudentREG.Size = new System.Drawing.Size(993, 315);
-            this.dtgListofStudentREG.TabIndex = 72;
+            this.dgvListofStudentREG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListofStudentREG.Location = new System.Drawing.Point(291, 200);
+            this.dgvListofStudentREG.Name = "dgvListofStudentREG";
+            this.dgvListofStudentREG.RowHeadersWidth = 51;
+            this.dgvListofStudentREG.RowTemplate.Height = 24;
+            this.dgvListofStudentREG.Size = new System.Drawing.Size(993, 315);
+            this.dgvListofStudentREG.TabIndex = 72;
             // 
             // SearchStudentAccountREG
             // 
@@ -361,7 +361,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
-            this.Controls.Add(this.dtgListofStudentREG);
+            this.Controls.Add(this.dgvListofStudentREG);
             this.Controls.Add(this.lblCurrentBalance);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblEnrollmentStatus);
@@ -385,7 +385,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListofStudentREG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListofStudentREG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,6 +419,6 @@
         private System.Windows.Forms.Label lblEnrollmentStatus;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblCurrentBalance;
-        private System.Windows.Forms.DataGridView dtgListofStudentREG;
+        private System.Windows.Forms.DataGridView dgvListofStudentREG;
     }
 }

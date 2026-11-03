@@ -45,10 +45,11 @@
             this.lblTransactionID = new System.Windows.Forms.Label();
             this.txtSearchTransactionID = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnViewPrintReceipts = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -236,15 +237,6 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(282, 180);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1028, 436);
-            this.listBox1.TabIndex = 34;
-            // 
             // btnViewPrintReceipts
             // 
             this.btnViewPrintReceipts.BackColor = System.Drawing.Color.LimeGreen;
@@ -256,14 +248,24 @@
             this.btnViewPrintReceipts.Text = "View / Print Receipts";
             this.btnViewPrintReceipts.UseVisualStyleBackColor = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(282, 199);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(946, 403);
+            this.dataGridView1.TabIndex = 37;
+            // 
             // PaymentHistoryReceipts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnViewPrintReceipts);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearchTransactionID);
             this.Controls.Add(this.lblTransactionID);
@@ -276,6 +278,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,7 +303,7 @@
         private System.Windows.Forms.Label lblTransactionID;
         private System.Windows.Forms.TextBox txtSearchTransactionID;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnViewPrintReceipts;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

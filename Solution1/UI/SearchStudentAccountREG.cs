@@ -7,14 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic.Repository;
 
 namespace UI
 {
     public partial class SearchStudentAccountREG: Form
     {
+        private readonly StudentRepository _studentRepository =
+    new StudentRepository();
         public SearchStudentAccountREG()
         {
             InitializeComponent();
+            LoadStudents();
+        }
+        private void LoadStudents()
+        {
+            try
+            {
+                dgvListofStudentREG.AutoGenerateColumns = true;
+                dgvListofStudentREG.DataSource = _studentRepository.GetAll();
+
+                dgvListofStudentREG.ReadOnly = true;
+                dgvListofStudentREG.AllowUserToAddRows = false;
+                dgvListofStudentREG.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
+
+                dgvListofStudentREG.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to load students: " + ex.Message);
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)

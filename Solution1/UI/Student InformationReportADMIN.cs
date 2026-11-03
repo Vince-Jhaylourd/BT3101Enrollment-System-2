@@ -112,7 +112,7 @@ namespace UI
 
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            StudentInformationReport studentInformationReportFormADMIN = new StudentInformationReport();
+            Student_InformationReport studentInformationReportFormADMIN = new Student_InformationReport();
             studentInformationReportFormADMIN.Show();
             this.Hide();
         }

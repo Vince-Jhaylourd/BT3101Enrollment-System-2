@@ -7,15 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic.Repository;
 
 namespace UI
 {
     public partial class StudentAssessment : Form
     {
+        private readonly StudentRepository _studentRepository;
         public StudentAssessment()
         {
             InitializeComponent();
+            _studentRepository = new StudentRepository();
+            LoadStudents();
         }
+        private void LoadStudents()
+        {
+            try
+            {
+                dgvListofStudents.AutoGenerateColumns = true;
+                dgvListofStudents.DataSource = _studentRepository.GetAll();
+
+                dgvListofStudents.ReadOnly = true;
+                dgvListofStudents.AllowUserToAddRows = false;
+                dgvListofStudents.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
+                dgvListofStudents.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+
+
+                dgvListofStudents1.AutoGenerateColumns = true;
+                dgvListofStudents1.DataSource = _studentRepository.GetAll();
+
+                dgvListofStudents1.ReadOnly = true;
+                dgvListofStudents1.AllowUserToAddRows = false;
+                dgvListofStudents1.SelectionMode =
+                    DataGridViewSelectionMode.FullRowSelect;
+                dgvListofStudents1.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to load students: " + ex.Message);
+            }
+        }
+
 
         private void btnHome_Click(object sender, EventArgs e)
         {
