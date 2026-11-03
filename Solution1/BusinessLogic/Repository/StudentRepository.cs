@@ -76,6 +76,24 @@ namespace BusinessLogic.Repository
 
         public List<Student> GetAll() => Query("", null);
 
+        public int GetTotalStudents()
+        {
+            using (var con = _database.GetConnection())
+            {
+                con.Open();
+
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                SELECT COUNT(*)
+                FROM Students
+                WHERE IsDeleted = 0";
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
         public List<Student> Search(string query)
         {
             if (string.IsNullOrEmpty(query)) return GetAll();

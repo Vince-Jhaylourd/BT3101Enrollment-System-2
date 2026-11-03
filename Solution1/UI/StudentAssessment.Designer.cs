@@ -43,7 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSearchStudentID = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnFindStudent = new System.Windows.Forms.Button();
             this.lblGradelevel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -240,17 +240,17 @@
             this.txtSearchStudentID.Size = new System.Drawing.Size(507, 27);
             this.txtSearchStudentID.TabIndex = 55;
             // 
-            // btnUpdate
+            // btnFindStudent
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(804, 130);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(161, 43);
-            this.btnUpdate.TabIndex = 57;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnFindStudent.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFindStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindStudent.Location = new System.Drawing.Point(804, 130);
+            this.btnFindStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFindStudent.Name = "btnFindStudent";
+            this.btnFindStudent.Size = new System.Drawing.Size(161, 43);
+            this.btnFindStudent.TabIndex = 57;
+            this.btnFindStudent.Text = "Find Student";
+            this.btnFindStudent.UseVisualStyleBackColor = false;
             // 
             // lblGradelevel
             // 
@@ -458,7 +458,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblGradelevel);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnFindStudent);
             this.Controls.Add(this.txtSearchStudentID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -495,7 +495,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSearchStudentID;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnFindStudent;
         private System.Windows.Forms.Label lblGradelevel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

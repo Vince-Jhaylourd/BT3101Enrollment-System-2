@@ -2,19 +2,39 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic.Repository;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class RegistrarLandingPage : Form
     {
+        private readonly StudentRepository _studentRepository = new StudentRepository();
         public RegistrarLandingPage()
         {
             InitializeComponent();
+
+            LoadDashboard();
+
+        }
+        private void LoadDashboard()
+        {
+            try
+            {
+                int totalStudents = _studentRepository.GetTotalStudents();
+
+                lblTotalofStudentsValue.Text = totalStudents.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Unable to load dashboard: " + ex.Message);
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -61,8 +81,15 @@ namespace UI
        MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Application.Restart();
+
+                this.Hide();
+
             }
-            this.Hide();
+            else
+            {
+                return;
+            }
+            
         }
     }
 }
