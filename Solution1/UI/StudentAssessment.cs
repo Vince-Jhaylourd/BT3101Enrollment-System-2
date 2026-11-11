@@ -14,10 +14,15 @@ namespace UI
     public partial class StudentAssessment : Form
     {
         private readonly StudentRepository _studentRepository;
+        private readonly AssessmentRepository _assessmentRepository;
+        private int selectedStudentId = 0;
         public StudentAssessment()
         {
             InitializeComponent();
+
             _studentRepository = new StudentRepository();
+            _assessmentRepository = new AssessmentRepository();
+
             LoadStudents();
         }
         private void LoadStudents()
@@ -36,7 +41,7 @@ namespace UI
 
 
                 dgvListofStudents1.AutoGenerateColumns = true;
-                dgvListofStudents1.DataSource = _studentRepository.GetAll();
+                dgvListofStudents1.DataSource = _assessmentRepository.GetAssessedStudents();
 
                 dgvListofStudents1.ReadOnly = true;
                 dgvListofStudents1.AllowUserToAddRows = false;
@@ -49,6 +54,47 @@ namespace UI
             {
                 MessageBox.Show("Unable to load students: " + ex.Message);
             }
+        }
+        private void SearchStudents()
+        {
+            string searchText = txtSearchStudent.Text.Trim().ToLower();
+
+            var students = _studentRepository.GetAll();
+
+            var filteredStudents = students
+                .Where(student =>
+                    student.LRN.ToLower().Contains(searchText) ||
+                    student.FirstName.ToLower().Contains(searchText) ||
+                    student.LastName.ToLower().Contains(searchText))
+                .ToList();
+
+            dgvListofStudents.DataSource = filteredStudents;
+        }
+        private void CalculateAssessment(object sender, EventArgs e)
+        {
+            string gradeLevel = cbGradelevel.Text.Trim();
+
+            decimal tuition = _assessmentRepository.GetTuitionFee(gradeLevel);
+            decimal mandatoryFees =
+                _assessmentRepository.GetMandatorySchoolFees(gradeLevel);
+
+            string discountText = cbDiscountSchoolarship.Text
+                .Replace("%", "")
+                .Trim();
+
+            decimal discountPercent = 0;
+            decimal.TryParse(discountText, out discountPercent);
+
+            decimal discount = _assessmentRepository.CalculateDiscount(
+                tuition, discountPercent);
+
+            decimal total = _assessmentRepository.CalculateTotalAssessment(
+                tuition, mandatoryFees, discount);
+
+            lblTuition.Text = "₱" + tuition.ToString("N2");
+            lblMandatorySchoolFees.Text = "₱" + mandatoryFees.ToString("N2");
+            lblDiscount.Text = "₱" + discount.ToString("N2");
+            lblTotalAssessment.Text = "₱" + total.ToString("N2");
         }
 
 
@@ -97,5 +143,149 @@ namespace UI
             }
             this.Hide();
         }
+
+        private void cbDiscountSchoolarship_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateAssessment(sender, e);
+        }
+
+        private void cbGradelevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculateAssessment(sender, e);
+        }
+
+        private void btnComputeSaveAssessment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Check if a student was selected
+                if (selectedStudentId == 0)
+                {
+                    MessageBox.Show("Please select a student first.");
+                    return;
+                }
+
+                // Get Grade Level and School Year
+                string gradeLevel = cbGradelevel.Text.Trim();
+                string schoolYear = txtSchoolYear.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(gradeLevel))
+                {
+                    MessageBox.Show("Please select a Grade Level.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(schoolYear))
+                {
+                    MessageBox.Show("Please enter a School Year.");
+                    return;
+                }
+                if (_assessmentRepository.HasEnrollment(selectedStudentId, schoolYear))
+                {
+                    MessageBox.Show(
+                        "This student is already enrolled and assessed for this school year."
+                    );
+                    return;
+                }
+
+
+                // Calculate fees
+                decimal tuition =
+                    _assessmentRepository.GetTuitionFee(gradeLevel);
+
+                decimal mandatoryFees =
+                    _assessmentRepository.GetMandatorySchoolFees(gradeLevel);
+
+                // Get discount percentage
+                string discountText = cbDiscountSchoolarship.Text
+                    .Replace("%", "")
+                    .Trim();
+
+                decimal discountPercent = 0;
+                decimal.TryParse(discountText, out discountPercent);
+
+                decimal discount =
+                    _assessmentRepository.CalculateDiscount(
+                        tuition,
+                        discountPercent
+                    );
+
+                decimal total =
+                    _assessmentRepository.CalculateTotalAssessment(
+                        tuition,
+                        mandatoryFees,
+                        discount
+                    );
+
+                // Find a section automatically
+                int sectionId =
+                    _assessmentRepository.GetAvailableSectionId(
+                        gradeLevel,
+                        schoolYear
+                    );
+
+                if (sectionId == 0)
+                {
+                    MessageBox.Show(
+                        "No available section was found for this Grade Level and School Year."
+                    );
+                    return;
+                }
+
+                // Save Enrollment + Assessment
+                _assessmentRepository.CreateEnrollmentAndAssessment(
+                    selectedStudentId,
+                    sectionId,
+                    schoolYear,
+                    total,
+                    discount
+                );
+
+                // Update labels
+                lblTuition.Text = "₱" + tuition.ToString("N2");
+                lblMandatorySchoolFees.Text =
+                    "₱" + mandatoryFees.ToString("N2");
+                lblDiscount.Text = "₱" + discount.ToString("N2");
+                lblTotalAssessment.Text = "₱" + total.ToString("N2");
+
+                MessageBox.Show(
+                    "Assessment saved successfully!"
+                );
+
+                // Refresh the student lists
+                LoadStudents();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Unable to save assessment: " + ex.Message
+                );
+            }
+        }
+
+        private void dgvListofStudents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedStudentId = Convert.ToInt32(dgvListofStudents.Rows[e.RowIndex].Cells["StudentId"].Value);
+            }
+
+            MessageBox.Show("Student selected successfully.");
+        }
+
+        private void dgvListofStudents1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedStudentId = Convert.ToInt32(dgvListofStudents.Rows[e.RowIndex].Cells["StudentId"].Value);
+            }
+            MessageBox.Show("Student selected successfully.");
+        }
+
+        private void btnFindStudent_Click(object sender, EventArgs e)
+        {
+            SearchStudents();
+        }
     }
+    
 }

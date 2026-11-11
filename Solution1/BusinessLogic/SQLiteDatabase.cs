@@ -91,6 +91,22 @@ namespace BusinessLogic
 
                     UNIQUE (SectionName, GradeLevel, SchoolYear)
                 );
+                
+                -- SAMPLE SECTIONS
+                    INSERT OR IGNORE INTO Sections
+                    (SectionName, GradeLevel, SchoolYear)
+                    VALUES
+                    ('Section A', 'Grade 1', '2026-2027'),
+                    ('Section B', 'Grade 1', '2026-2027'),
+
+                    ('Section A', 'Grade 2', '2026-2027'),
+                    ('Section B', 'Grade 2', '2026-2027'),
+
+                    ('Section A', 'Grade 7', '2026-2027'),
+                    ('Section B', 'Grade 7', '2026-2027'),
+
+                    ('Section A', 'Grade 11', '2026-2027'),
+                    ('Section B', 'Grade 11', '2026-2027');
 
 
                 -- ENROLLMENTS TABLE

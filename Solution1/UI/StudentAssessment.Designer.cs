@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtSearchStudentID = new System.Windows.Forms.TextBox();
+            this.txtSearchStudent = new System.Windows.Forms.TextBox();
             this.btnFindStudent = new System.Windows.Forms.Button();
             this.lblGradelevel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.cbDiscountSchoolarship = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotalAssessment = new System.Windows.Forms.Label();
-            this.btComputeSaveAssessment = new System.Windows.Forms.Button();
+            this.btnComputeSaveAssessment = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvListofStudents = new System.Windows.Forms.DataGridView();
             this.dgvListofStudents1 = new System.Windows.Forms.DataGridView();
@@ -231,14 +231,14 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Search Student (ID, LRN or name)";
             // 
-            // txtSearchStudentID
+            // txtSearchStudent
             // 
-            this.txtSearchStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchStudentID.Location = new System.Drawing.Point(291, 146);
-            this.txtSearchStudentID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSearchStudentID.Name = "txtSearchStudentID";
-            this.txtSearchStudentID.Size = new System.Drawing.Size(507, 27);
-            this.txtSearchStudentID.TabIndex = 55;
+            this.txtSearchStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchStudent.Location = new System.Drawing.Point(291, 146);
+            this.txtSearchStudent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchStudent.Name = "txtSearchStudent";
+            this.txtSearchStudent.Size = new System.Drawing.Size(507, 27);
+            this.txtSearchStudent.TabIndex = 55;
             // 
             // btnFindStudent
             // 
@@ -251,6 +251,7 @@
             this.btnFindStudent.TabIndex = 57;
             this.btnFindStudent.Text = "Find Student";
             this.btnFindStudent.UseVisualStyleBackColor = false;
+            this.btnFindStudent.Click += new System.EventHandler(this.btnFindStudent_Click);
             // 
             // lblGradelevel
             // 
@@ -346,11 +347,36 @@
             // 
             this.cbGradelevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGradelevel.FormattingEnabled = true;
+            this.cbGradelevel.Items.AddRange(new object[] {
+            "Grade 1",
+            "",
+            "Grade 2",
+            "",
+            "Grade 3",
+            "",
+            "Grade 4",
+            "",
+            "Grade 5",
+            "",
+            "Grade 6",
+            "",
+            "Grade 7",
+            "",
+            "Grade 8",
+            "",
+            "Grade 9",
+            "",
+            "Grade 10",
+            "",
+            "Grade 11",
+            "",
+            "Grade 12"});
             this.cbGradelevel.Location = new System.Drawing.Point(289, 378);
             this.cbGradelevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGradelevel.Name = "cbGradelevel";
             this.cbGradelevel.Size = new System.Drawing.Size(297, 28);
             this.cbGradelevel.TabIndex = 68;
+            this.cbGradelevel.SelectedIndexChanged += new System.EventHandler(this.cbGradelevel_SelectedIndexChanged);
             // 
             // txtSchoolYear
             // 
@@ -365,11 +391,22 @@
             // 
             this.cbDiscountSchoolarship.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDiscountSchoolarship.FormattingEnabled = true;
+            this.cbDiscountSchoolarship.Items.AddRange(new object[] {
+            "0%",
+            "",
+            "10%",
+            "",
+            "25%",
+            "",
+            "30%",
+            "",
+            "50%"});
             this.cbDiscountSchoolarship.Location = new System.Drawing.Point(949, 378);
             this.cbDiscountSchoolarship.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDiscountSchoolarship.Name = "cbDiscountSchoolarship";
             this.cbDiscountSchoolarship.Size = new System.Drawing.Size(297, 28);
             this.cbDiscountSchoolarship.TabIndex = 70;
+            this.cbDiscountSchoolarship.SelectedIndexChanged += new System.EventHandler(this.cbDiscountSchoolarship_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -392,17 +429,18 @@
             this.lblTotalAssessment.TabIndex = 72;
             this.lblTotalAssessment.Text = ".";
             // 
-            // btComputeSaveAssessment
+            // btnComputeSaveAssessment
             // 
-            this.btComputeSaveAssessment.BackColor = System.Drawing.Color.LimeGreen;
-            this.btComputeSaveAssessment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btComputeSaveAssessment.Location = new System.Drawing.Point(291, 487);
-            this.btComputeSaveAssessment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btComputeSaveAssessment.Name = "btComputeSaveAssessment";
-            this.btComputeSaveAssessment.Size = new System.Drawing.Size(269, 42);
-            this.btComputeSaveAssessment.TabIndex = 73;
-            this.btComputeSaveAssessment.Text = "Compute / Save Assessment";
-            this.btComputeSaveAssessment.UseVisualStyleBackColor = false;
+            this.btnComputeSaveAssessment.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnComputeSaveAssessment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComputeSaveAssessment.Location = new System.Drawing.Point(291, 487);
+            this.btnComputeSaveAssessment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnComputeSaveAssessment.Name = "btnComputeSaveAssessment";
+            this.btnComputeSaveAssessment.Size = new System.Drawing.Size(269, 42);
+            this.btnComputeSaveAssessment.TabIndex = 73;
+            this.btnComputeSaveAssessment.Text = "Compute / Save Assessment";
+            this.btnComputeSaveAssessment.UseVisualStyleBackColor = false;
+            this.btnComputeSaveAssessment.Click += new System.EventHandler(this.btnComputeSaveAssessment_Click);
             // 
             // label12
             // 
@@ -423,6 +461,7 @@
             this.dgvListofStudents.RowTemplate.Height = 24;
             this.dgvListofStudents.Size = new System.Drawing.Size(955, 150);
             this.dgvListofStudents.TabIndex = 75;
+            this.dgvListofStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListofStudents_CellClick);
             // 
             // dgvListofStudents1
             // 
@@ -433,6 +472,7 @@
             this.dgvListofStudents1.RowTemplate.Height = 24;
             this.dgvListofStudents1.Size = new System.Drawing.Size(948, 135);
             this.dgvListofStudents1.TabIndex = 76;
+            this.dgvListofStudents1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListofStudents1_CellClick);
             // 
             // StudentAssessment
             // 
@@ -443,7 +483,7 @@
             this.Controls.Add(this.dgvListofStudents1);
             this.Controls.Add(this.dgvListofStudents);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btComputeSaveAssessment);
+            this.Controls.Add(this.btnComputeSaveAssessment);
             this.Controls.Add(this.lblTotalAssessment);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbDiscountSchoolarship);
@@ -459,7 +499,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblGradelevel);
             this.Controls.Add(this.btnFindStudent);
-            this.Controls.Add(this.txtSearchStudentID);
+            this.Controls.Add(this.txtSearchStudent);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
@@ -494,7 +534,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtSearchStudentID;
+        private System.Windows.Forms.TextBox txtSearchStudent;
         private System.Windows.Forms.Button btnFindStudent;
         private System.Windows.Forms.Label lblGradelevel;
         private System.Windows.Forms.Label label7;
@@ -510,7 +550,7 @@
         private System.Windows.Forms.ComboBox cbDiscountSchoolarship;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotalAssessment;
-        private System.Windows.Forms.Button btComputeSaveAssessment;
+        private System.Windows.Forms.Button btnComputeSaveAssessment;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvListofStudents;
         private System.Windows.Forms.DataGridView dgvListofStudents1;
