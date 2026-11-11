@@ -42,6 +42,27 @@ namespace UI
 
                 dgvListofStudents1.AutoGenerateColumns = true;
                 dgvListofStudents1.DataSource = _assessmentRepository.GetAssessedStudents();
+                // Format currency columns
+                if (dgvListofStudents1.Columns["TotalFees"] != null)
+                {
+                    dgvListofStudents1.Columns["TotalFees"].DefaultCellStyle.Format = "₱#,##0.00";
+                }
+
+                if (dgvListofStudents1.Columns["Discount"] != null)
+                {
+                    dgvListofStudents1.Columns["Discount"].DefaultCellStyle.Format = "₱#,##0.00";
+                }
+
+                if (dgvListofStudents1.Columns["TotalPaid"] != null)
+                {
+                    dgvListofStudents1.Columns["TotalPaid"].DefaultCellStyle.Format = "₱#,##0.00";
+                }
+
+                if (dgvListofStudents1.Columns["Balance"] != null)
+                {
+                    dgvListofStudents1.Columns["Balance"].DefaultCellStyle.Format = "₱#,##0.00";
+                }
+
 
                 dgvListofStudents1.ReadOnly = true;
                 dgvListofStudents1.AllowUserToAddRows = false;

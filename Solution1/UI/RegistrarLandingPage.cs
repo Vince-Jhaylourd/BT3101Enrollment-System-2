@@ -15,6 +15,8 @@ namespace UI
     public partial class RegistrarLandingPage : Form
     {
         private readonly StudentRepository _studentRepository = new StudentRepository();
+        private readonly AssessmentRepository _assessmentRepository =
+    new AssessmentRepository();
         public RegistrarLandingPage()
         {
             InitializeComponent();
@@ -28,7 +30,31 @@ namespace UI
             {
                 int totalStudents = _studentRepository.GetTotalStudents();
 
+                int totalEnrolledStudents =
+                    _assessmentRepository.GetTotalEnrolledStudents();
+
+                int totalSections =
+                    _assessmentRepository.GetTotalSections();
+
+                decimal collectionsToday =
+                    _assessmentRepository.GetCollectionsToday();
+
+                decimal outstandingBalance =
+                    _assessmentRepository.GetOutstandingBalance();
+
                 lblTotalofStudentsValue.Text = totalStudents.ToString();
+
+                lblTotalofEnrolledStudentsValue.Text =
+                    totalEnrolledStudents.ToString();
+
+                lblTotalofSectionsValue.Text =
+                    totalSections.ToString();
+
+                lblCollectionsValue.Text =
+                    "₱" + collectionsToday.ToString("N2");
+
+                lblOutstandingBalanceValue.Text =
+                    "₱" + outstandingBalance.ToString("N2");
             }
             catch (Exception ex)
             {

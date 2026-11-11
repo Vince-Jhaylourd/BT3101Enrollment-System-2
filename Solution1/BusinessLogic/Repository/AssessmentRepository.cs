@@ -315,14 +315,39 @@ namespace BusinessLogic.Repository
                 sec.SectionName,
                 e.SchoolYear,
                 a.TotalFees,
-                a.Discount
+                a.Discount,
+
+            COALESCE(SUM(p.Amount), 0) AS TotalPaid,
+
+                a.TotalFees - COALESCE(SUM(p.Amount), 0) AS Balance
+
             FROM Assessments a
+
             INNER JOIN Enrollments e
-                ON a.EnrollmentId = e.EnrollmentId
+                 ON a.EnrollmentId = e.EnrollmentId
+
             INNER JOIN Students s
                 ON e.StudentId = s.StudentId
+
             INNER JOIN Sections sec
                 ON e.SectionId = sec.SectionId
+
+             LEFT JOIN Payments p
+                ON a.AssessmentId = p.AssessmentId
+
+            GROUP BY
+                a.AssessmentId,
+                s.StudentId,
+                s.LRN,
+                s.LastName,
+                s.FirstName,
+                s.MiddleName,
+                sec.GradeLevel,
+                 sec.SectionName,
+                e.SchoolYear,
+                a.TotalFees,
+                a.Discount
+
             ORDER BY s.LastName, s.FirstName;";
 
                 using (var command = connection.CreateCommand())
@@ -344,7 +369,16 @@ namespace BusinessLogic.Repository
                                 Section = reader.GetString(6),
                                 SchoolYear = reader.GetString(7),
                                 TotalFees = reader.GetDouble(8),
-                                Discount = reader.GetDouble(9)
+                                Discount = reader.GetDouble(9),
+
+                                TotalPaid = reader.GetDouble(10),
+                                Balance = reader.GetDouble(11),
+
+                                PaymentStatus =
+                                     reader.GetDouble(11) <= 0 ? "Paid" :
+                                     reader.GetDouble(10) > 0 ? "Partial" :
+                                    "Unpaid"
+
                             });
                         }
                     }
@@ -353,5 +387,88 @@ namespace BusinessLogic.Repository
 
             return students;
         }
+        public int GetTotalEnrolledStudents()
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT COUNT(DISTINCT StudentId)
+            FROM Enrollments;";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+
+        }
+        public int GetTotalSections()
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT COUNT(*)
+            FROM Sections;";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    return Convert.ToInt32(command.ExecuteScalar());
+                }
+            }
+        }
+        public decimal GetCollectionsToday()
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT COALESCE(SUM(Amount), 0)
+            FROM Payments
+            WHERE DATE(PaymentDate) = DATE('now', 'localtime');";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    return Convert.ToDecimal(command.ExecuteScalar());
+                }
+            }
+        }
+        public decimal GetOutstandingBalance()
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT COALESCE(SUM(
+                a.TotalFees - COALESCE(
+                    (
+                        SELECT SUM(p.Amount)
+                        FROM Payments p
+                        WHERE p.AssessmentId = a.AssessmentId
+                    ),
+                    0
+                )
+            ), 0)
+            FROM Assessments a;";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    return Convert.ToDecimal(command.ExecuteScalar());
+                }
+            }
+        }   
     }
 }
