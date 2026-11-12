@@ -196,6 +196,12 @@
     <Compile Include="CashierPaymentHistory.Designer.cs">
       <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashierPaymentReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierPaymentReceipt.Designer.cs">
+      <DependentUpon>CashierPaymentReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="CashierSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CashierPaymentHistory.resx">
       <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CashierPaymentReceipt.resx">
+      <DependentUpon>CashierPaymentReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CashierSearchStudent.resx">
       <DependentUpon>CashierSearchStudent.cs</DependentUpon>

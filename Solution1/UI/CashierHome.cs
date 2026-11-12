@@ -40,12 +40,14 @@ namespace UI
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to log out?", "Log out",
-       MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show(
+        "Are you sure you want to log out?",
+        "Log out",
+        MessageBoxButtons.YesNo
+    ) == DialogResult.Yes)
             {
                 Application.Restart();
             }
-            this.Hide();
         }
     }
 }

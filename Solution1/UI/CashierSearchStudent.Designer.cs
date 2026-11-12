@@ -39,22 +39,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtSearchStudent = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblStudentValue = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTotalAssessmentValue = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotalPaidValue = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblEnrollmentStatusValue = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblRemainingBalanceValue = new System.Windows.Forms.Label();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -62,18 +63,20 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnLogout);
-            this.panel2.Location = new System.Drawing.Point(198, 0);
+            this.panel2.Location = new System.Drawing.Point(264, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(792, 55);
+            this.panel2.Size = new System.Drawing.Size(1056, 68);
             this.panel2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 18);
+            this.label1.Location = new System.Drawing.Point(24, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 22);
+            this.label1.Size = new System.Drawing.Size(80, 28);
             this.label1.TabIndex = 3;
             this.label1.Text = "Cashier";
             // 
@@ -82,9 +85,10 @@
             this.btnLogout.BackColor = System.Drawing.Color.Red;
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogout.Location = new System.Drawing.Point(671, 12);
+            this.btnLogout.Location = new System.Drawing.Point(895, 15);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(94, 30);
+            this.btnLogout.Size = new System.Drawing.Size(125, 37);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "LOGOUT";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -99,16 +103,18 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Location = new System.Drawing.Point(-3, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 585);
+            this.panel1.Size = new System.Drawing.Size(267, 720);
             this.panel1.TabIndex = 2;
             // 
             // btnPaymentHistory
             // 
-            this.btnPaymentHistory.Location = new System.Drawing.Point(13, 337);
+            this.btnPaymentHistory.Location = new System.Drawing.Point(17, 415);
+            this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPaymentHistory.Name = "btnPaymentHistory";
-            this.btnPaymentHistory.Size = new System.Drawing.Size(174, 44);
+            this.btnPaymentHistory.Size = new System.Drawing.Size(232, 54);
             this.btnPaymentHistory.TabIndex = 11;
             this.btnPaymentHistory.Text = "PAYMENT HISTORY";
             this.btnPaymentHistory.UseVisualStyleBackColor = true;
@@ -116,9 +122,10 @@
             // 
             // btnCashiering
             // 
-            this.btnCashiering.Location = new System.Drawing.Point(13, 270);
+            this.btnCashiering.Location = new System.Drawing.Point(17, 332);
+            this.btnCashiering.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCashiering.Name = "btnCashiering";
-            this.btnCashiering.Size = new System.Drawing.Size(174, 44);
+            this.btnCashiering.Size = new System.Drawing.Size(232, 54);
             this.btnCashiering.TabIndex = 10;
             this.btnCashiering.Text = "CASHIERING PAYMENT";
             this.btnCashiering.UseVisualStyleBackColor = true;
@@ -126,9 +133,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(13, 207);
+            this.button6.Location = new System.Drawing.Point(17, 255);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(174, 44);
+            this.button6.Size = new System.Drawing.Size(232, 54);
             this.button6.TabIndex = 9;
             this.button6.Text = "SEARCH STUDENT ACCOUNT";
             this.button6.UseVisualStyleBackColor = true;
@@ -138,9 +146,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(31, 20);
+            this.label3.Location = new System.Drawing.Point(41, 25);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 22);
+            this.label3.Size = new System.Drawing.Size(179, 28);
             this.label3.TabIndex = 6;
             this.label3.Text = "ENROLLMENT";
             // 
@@ -149,17 +158,19 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(53, 46);
+            this.label4.Location = new System.Drawing.Point(71, 57);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 22);
+            this.label4.Size = new System.Drawing.Size(110, 28);
             this.label4.TabIndex = 7;
             this.label4.Text = "SYSTEM";
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(13, 140);
+            this.btnHome.Location = new System.Drawing.Point(17, 172);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(174, 44);
+            this.btnHome.Size = new System.Drawing.Size(232, 54);
             this.btnHome.TabIndex = 8;
             this.btnHome.Text = "HOME";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -169,164 +180,184 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bodoni MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(216, 69);
+            this.label2.Location = new System.Drawing.Point(288, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 22);
+            this.label2.Size = new System.Drawing.Size(249, 28);
             this.label2.TabIndex = 4;
             this.label2.Text = "Search Student Account";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(222, 156);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(741, 238);
-            this.listBox1.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(219, 107);
+            this.label5.Location = new System.Drawing.Point(292, 132);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 13);
+            this.label5.Size = new System.Drawing.Size(202, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Search Student ID, LRN or Name";
             // 
-            // textBox1
+            // txtSearchStudent
             // 
-            this.textBox1.Location = new System.Drawing.Point(222, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 20);
-            this.textBox1.TabIndex = 7;
+            this.txtSearchStudent.Location = new System.Drawing.Point(296, 151);
+            this.txtSearchStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearchStudent.Name = "txtSearchStudent";
+            this.txtSearchStudent.Size = new System.Drawing.Size(319, 22);
+            this.txtSearchStudent.TabIndex = 7;
             // 
-            // button3
+            // btnSearch
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.Location = new System.Drawing.Point(470, 123);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSearch.Location = new System.Drawing.Point(627, 151);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(225, 426);
+            this.label6.Location = new System.Drawing.Point(300, 524);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.Size = new System.Drawing.Size(52, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Student";
             // 
-            // label7
+            // lblStudentValue
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(227, 450);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "label7";
+            this.lblStudentValue.AutoSize = true;
+            this.lblStudentValue.Location = new System.Drawing.Point(303, 554);
+            this.lblStudentValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStudentValue.Name = "lblStudentValue";
+            this.lblStudentValue.Size = new System.Drawing.Size(44, 16);
+            this.lblStudentValue.TabIndex = 10;
+            this.lblStudentValue.Text = "label7";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(226, 490);
+            this.label8.Location = new System.Drawing.Point(301, 603);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.Size = new System.Drawing.Size(115, 16);
             this.label8.TabIndex = 11;
             this.label8.Text = "Total Assessment";
             // 
-            // label9
+            // lblTotalAssessmentValue
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(229, 515);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "label9";
+            this.lblTotalAssessmentValue.AutoSize = true;
+            this.lblTotalAssessmentValue.Location = new System.Drawing.Point(305, 634);
+            this.lblTotalAssessmentValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalAssessmentValue.Name = "lblTotalAssessmentValue";
+            this.lblTotalAssessmentValue.Size = new System.Drawing.Size(44, 16);
+            this.lblTotalAssessmentValue.TabIndex = 12;
+            this.lblTotalAssessmentValue.Text = "label9";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(467, 490);
+            this.label10.Location = new System.Drawing.Point(623, 603);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(69, 16);
             this.label10.TabIndex = 13;
             this.label10.Text = "Total Paid";
             // 
-            // label11
+            // lblTotalPaidValue
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(469, 515);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 14;
-            this.label11.Text = "label11";
+            this.lblTotalPaidValue.AutoSize = true;
+            this.lblTotalPaidValue.Location = new System.Drawing.Point(625, 634);
+            this.lblTotalPaidValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPaidValue.Name = "lblTotalPaidValue";
+            this.lblTotalPaidValue.Size = new System.Drawing.Size(51, 16);
+            this.lblTotalPaidValue.TabIndex = 14;
+            this.lblTotalPaidValue.Text = "label11";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(681, 426);
+            this.label12.Location = new System.Drawing.Point(908, 524);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 13);
+            this.label12.Size = new System.Drawing.Size(110, 16);
             this.label12.TabIndex = 15;
             this.label12.Text = "Enrollment Status";
             // 
-            // label13
+            // lblEnrollmentStatusValue
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(681, 450);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "label13";
+            this.lblEnrollmentStatusValue.AutoSize = true;
+            this.lblEnrollmentStatusValue.Location = new System.Drawing.Point(908, 554);
+            this.lblEnrollmentStatusValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEnrollmentStatusValue.Name = "lblEnrollmentStatusValue";
+            this.lblEnrollmentStatusValue.Size = new System.Drawing.Size(51, 16);
+            this.lblEnrollmentStatusValue.TabIndex = 16;
+            this.lblEnrollmentStatusValue.Text = "label13";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(681, 490);
+            this.label14.Location = new System.Drawing.Point(908, 603);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 13);
+            this.label14.Size = new System.Drawing.Size(125, 16);
             this.label14.TabIndex = 17;
             this.label14.Text = "Remaining Balance";
             // 
-            // label15
+            // lblRemainingBalanceValue
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(681, 515);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 18;
-            this.label15.Text = "label15";
+            this.lblRemainingBalanceValue.AutoSize = true;
+            this.lblRemainingBalanceValue.Location = new System.Drawing.Point(908, 634);
+            this.lblRemainingBalanceValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRemainingBalanceValue.Name = "lblRemainingBalanceValue";
+            this.lblRemainingBalanceValue.Size = new System.Drawing.Size(51, 16);
+            this.lblRemainingBalanceValue.TabIndex = 18;
+            this.lblRemainingBalanceValue.Text = "label15";
+            // 
+            // dgvStudents
+            // 
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Location = new System.Drawing.Point(303, 211);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.RowHeadersWidth = 51;
+            this.dgvStudents.RowTemplate.Height = 24;
+            this.dgvStudents.Size = new System.Drawing.Size(980, 296);
+            this.dgvStudents.TabIndex = 19;
+            this.dgvStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellClick);
             // 
             // CashierSearchStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 584);
-            this.Controls.Add(this.label15);
+            this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dgvStudents);
+            this.Controls.Add(this.lblRemainingBalanceValue);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.lblEnrollmentStatusValue);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblTotalPaidValue);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblTotalAssessmentValue);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblStudentValue);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearchStudent);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CashierSearchStudent";
             this.Text = "CashierSearchStudent";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,19 +376,19 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtSearchStudent;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblStudentValue;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotalAssessmentValue;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTotalPaidValue;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblEnrollmentStatusValue;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblRemainingBalanceValue;
+        private System.Windows.Forms.DataGridView dgvStudents;
     }
 }
