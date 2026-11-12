@@ -116,7 +116,7 @@ namespace UI
 
         private void btnSearchStudentAccount_Click(object sender, EventArgs e)
         {
-            SearchStudentAccount studentForm = new SearchStudentAccount();
+            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
             studentForm.Show();
             this.Hide();
         }
@@ -137,7 +137,9 @@ namespace UI
 
         private void btnUserManagement_Click(object sender, EventArgs e)
         {
-           
+            UserManagement userForm = new UserManagement();
+            userForm.Show();
+            this.Hide();
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)

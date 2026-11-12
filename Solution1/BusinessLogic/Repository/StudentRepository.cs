@@ -13,7 +13,7 @@ namespace BusinessLogic.Repository
         public StudentRepository()
         {
             _database = new SQLiteDatabase();
-            _database.InitializeDatabase();  
+            _database.InitializeDatabase();
         }
         //updated(?)
         private const string SelectColumns =
@@ -75,6 +75,24 @@ namespace BusinessLogic.Repository
         }
 
         public List<Student> GetAll() => Query("", null);
+
+        public int GetTotalStudents()
+        {
+            using (var con = _database.GetConnection())
+            {
+                con.Open();
+
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                SELECT COUNT(*)
+                FROM Students
+                WHERE IsDeleted = 0";
+
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
 
         public List<Student> Search(string query)
         {
@@ -146,7 +164,6 @@ namespace BusinessLogic.Repository
             }
         }
 
-        /// <summary>Soft delete: the row is kept (for payment history), just hidden from lists.</summary>
         public void Delete(int studentId)
         {
             using (var con = _database.GetConnection())
@@ -158,6 +175,68 @@ namespace BusinessLogic.Repository
                     cmd.Parameters.AddWithValue("@StudentId", studentId);
                     if (cmd.ExecuteNonQuery() == 0)
                         throw new InvalidOperationException("Student record not found.");
+                }
+            }
+        }
+        public void SeedSampleStudents()
+        {
+            string[] firstNames =
+            {
+        "Alex", "Joshua", "Daniel", "Michael", "Gabriel",
+        "Sophia", "Emma", "Olivia", "Mia", "Isabella",
+        "Ethan", "Noah", "Liam", "Lucas", "James"
+    };
+
+            string[] lastNames =
+            {
+        "Santos", "Reyes", "Cruz", "Garcia", "Mendoza",
+        "Dela Cruz", "Ramos", "Torres", "Flores", "Castillo"
+    };
+
+            using (var con = _database.GetConnection())
+            {
+                con.Open();
+
+                for (int i = 1; i <= 55; i++)
+                {
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = @"
+                    INSERT OR IGNORE INTO Students
+                    (LRN, LastName, FirstName, MiddleName, Gender,
+                     DateOfBirth, ContactNo, GuardianName,
+                     GuardianContact, Address)
+                    VALUES
+                    (@LRN, @LastName, @FirstName, @MiddleName, @Gender,
+                     @DateOfBirth, @ContactNo, @GuardianName,
+                     @GuardianContact, @Address);";
+
+                        cmd.Parameters.AddWithValue("@LRN",
+                            (900000000000L + i).ToString());
+
+                        cmd.Parameters.AddWithValue("@LastName",
+                            lastNames[(i - 1) % lastNames.Length]);
+
+                        cmd.Parameters.AddWithValue("@FirstName",
+                            firstNames[(i - 1) % firstNames.Length]);
+
+                        cmd.Parameters.AddWithValue("@MiddleName", "Sample");
+
+                        cmd.Parameters.AddWithValue("@Gender",
+                            i % 2 == 0 ? "Female" : "Male");
+
+                        cmd.Parameters.AddWithValue("@DateOfBirth",
+                            new DateTime(2008, 1, 1)
+                                .AddDays(i * 17)
+                                .ToString("yyyy-MM-dd"));
+
+                        cmd.Parameters.AddWithValue("@ContactNo", "00000000000");
+                        cmd.Parameters.AddWithValue("@GuardianName", "Sample Guardian");
+                        cmd.Parameters.AddWithValue("@GuardianContact", "00000000000");
+                        cmd.Parameters.AddWithValue("@Address", "Sample Address");
+
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
         }
