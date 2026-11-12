@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Model;
 using Microsoft.Data.Sqlite;
 
 namespace BusinessLogic.Repository
@@ -469,6 +470,92 @@ namespace BusinessLogic.Repository
                     return Convert.ToDecimal(command.ExecuteScalar());
                 }
             }
-        }   
+        }
+        public StudentAccount GetStudentAccount(int studentId)
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT
+                s.StudentId,
+
+                CASE
+                    WHEN e.EnrollmentId IS NOT NULL
+                    THEN 'Enrolled'
+                    ELSE 'Not Enrolled'
+                END AS EnrollmentStatus,
+
+                COALESCE(a.TotalFees, 0) AS TotalAssessment,
+
+                COALESCE(SUM(p.Amount), 0) AS TotalPaid,
+
+                COALESCE(
+                    a.TotalFees - COALESCE(SUM(p.Amount), 0),
+                    0
+                ) AS CurrentBalance
+
+            FROM Students s
+
+            LEFT JOIN Enrollments e
+                ON s.StudentId = e.StudentId
+
+            LEFT JOIN Assessments a
+                ON e.EnrollmentId = a.EnrollmentId
+
+            LEFT JOIN Payments p
+                ON a.AssessmentId = p.AssessmentId
+
+            WHERE s.StudentId = @StudentId
+
+            GROUP BY
+                s.StudentId,
+                e.EnrollmentId,
+                a.TotalFees;";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.Parameters.AddWithValue(
+                        "@StudentId",
+                        studentId
+                    );
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new StudentAccount
+                            {
+                                StudentId = Convert.ToInt32(
+                                    reader["StudentId"]
+                                ),
+
+                                EnrollmentStatus =
+                                    reader["EnrollmentStatus"].ToString(),
+
+                                TotalAssessment =
+                                    Convert.ToDecimal(
+                                        reader["TotalAssessment"]
+                                    ),
+
+                                TotalPaid =
+                                    Convert.ToDecimal(
+                                        reader["TotalPaid"]
+                                    ),
+
+                                CurrentBalance =
+                                    Convert.ToDecimal(
+                                        reader["CurrentBalance"]
+                                    )
+                            };
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
     }
 }

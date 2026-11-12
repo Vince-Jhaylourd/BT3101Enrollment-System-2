@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtStudentID = new System.Windows.Forms.TextBox();
+            this.txtStudents = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblStudent = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -223,14 +223,14 @@
             this.label5.TabIndex = 55;
             this.label5.Text = "Student ID, LRN or name";
             // 
-            // txtStudentID
+            // txtStudents
             // 
-            this.txtStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentID.Location = new System.Drawing.Point(291, 148);
-            this.txtStudentID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudentID.Name = "txtStudentID";
-            this.txtStudentID.Size = new System.Drawing.Size(475, 27);
-            this.txtStudentID.TabIndex = 56;
+            this.txtStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudents.Location = new System.Drawing.Point(291, 148);
+            this.txtStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudents.Name = "txtStudents";
+            this.txtStudents.Size = new System.Drawing.Size(475, 27);
+            this.txtStudents.TabIndex = 56;
             // 
             // btnSearch
             // 
@@ -243,6 +243,7 @@
             this.btnSearch.TabIndex = 58;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblStudent
             // 
@@ -354,6 +355,7 @@
             this.dgvListofStudentREG.RowTemplate.Height = 24;
             this.dgvListofStudentREG.Size = new System.Drawing.Size(993, 315);
             this.dgvListofStudentREG.TabIndex = 72;
+            this.dgvListofStudentREG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListofStudentREG_CellClick);
             // 
             // SearchStudentAccountREG
             // 
@@ -373,7 +375,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblStudent);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtStudentID);
+            this.Controls.Add(this.txtStudents);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
@@ -407,7 +409,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtStudentID;
+        private System.Windows.Forms.TextBox txtStudents;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblStudent;
         private System.Windows.Forms.Label label9;
