@@ -39,27 +39,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearchStudent = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblStudentValue = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTotalAssessmentValue = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblTotalPaidValue = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblRemainingBalanceValue = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.txtPaymentAmount = new System.Windows.Forms.TextBox();
+            this.cmbPaymentScheme = new System.Windows.Forms.ComboBox();
+            this.txtReferenceNotes = new System.Windows.Forms.TextBox();
+            this.btnRecordPayment = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -68,7 +69,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Location = new System.Drawing.Point(264, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1056, 68);
             this.panel2.TabIndex = 5;
@@ -90,7 +91,7 @@
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogout.Location = new System.Drawing.Point(895, 15);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(125, 37);
             this.btnLogout.TabIndex = 2;
@@ -108,7 +109,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(-3, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 720);
             this.panel1.TabIndex = 4;
@@ -116,7 +117,7 @@
             // btnPaymentHistory
             // 
             this.btnPaymentHistory.Location = new System.Drawing.Point(17, 415);
-            this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPaymentHistory.Margin = new System.Windows.Forms.Padding(4);
             this.btnPaymentHistory.Name = "btnPaymentHistory";
             this.btnPaymentHistory.Size = new System.Drawing.Size(232, 54);
             this.btnPaymentHistory.TabIndex = 11;
@@ -127,7 +128,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(17, 332);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(232, 54);
             this.button7.TabIndex = 10;
@@ -137,7 +138,7 @@
             // btnSearchStudent
             // 
             this.btnSearchStudent.Location = new System.Drawing.Point(17, 255);
-            this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchStudent.Name = "btnSearchStudent";
             this.btnSearchStudent.Size = new System.Drawing.Size(232, 54);
             this.btnSearchStudent.TabIndex = 9;
@@ -172,7 +173,7 @@
             // btnHome
             // 
             this.btnHome.Location = new System.Drawing.Point(17, 172);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(232, 54);
             this.btnHome.TabIndex = 8;
@@ -191,24 +192,25 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Cashiering Payments";
             // 
-            // button3
+            // btnSearch
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.Location = new System.Drawing.Point(624, 154);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Search";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSearch.Location = new System.Drawing.Point(624, 154);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBox1
+            // txtSearchStudent
             // 
-            this.textBox1.Location = new System.Drawing.Point(293, 154);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 22);
-            this.textBox1.TabIndex = 10;
+            this.txtSearchStudent.Location = new System.Drawing.Point(293, 154);
+            this.txtSearchStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchStudent.Name = "txtSearchStudent";
+            this.txtSearchStudent.Size = new System.Drawing.Size(319, 22);
+            this.txtSearchStudent.TabIndex = 10;
             // 
             // label5
             // 
@@ -220,25 +222,15 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Search Student ID, LRN or Name";
             // 
-            // listBox1
+            // lblStudentValue
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(293, 192);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(989, 292);
-            this.listBox1.TabIndex = 12;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(292, 533);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "label7";
+            this.lblStudentValue.AutoSize = true;
+            this.lblStudentValue.Location = new System.Drawing.Point(292, 533);
+            this.lblStudentValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStudentValue.Name = "lblStudentValue";
+            this.lblStudentValue.Size = new System.Drawing.Size(44, 16);
+            this.lblStudentValue.TabIndex = 14;
+            this.lblStudentValue.Text = "label7";
             // 
             // label6
             // 
@@ -250,15 +242,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Student";
             // 
-            // label9
+            // lblTotalAssessmentValue
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(620, 533);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 16);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "label9";
+            this.lblTotalAssessmentValue.AutoSize = true;
+            this.lblTotalAssessmentValue.Location = new System.Drawing.Point(620, 533);
+            this.lblTotalAssessmentValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalAssessmentValue.Name = "lblTotalAssessmentValue";
+            this.lblTotalAssessmentValue.Size = new System.Drawing.Size(44, 16);
+            this.lblTotalAssessmentValue.TabIndex = 16;
+            this.lblTotalAssessmentValue.Text = "label9";
             // 
             // label8
             // 
@@ -270,15 +262,15 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Total Assessment";
             // 
-            // label11
+            // lblTotalPaidValue
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(872, 533);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 16);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "label11";
+            this.lblTotalPaidValue.AutoSize = true;
+            this.lblTotalPaidValue.Location = new System.Drawing.Point(872, 533);
+            this.lblTotalPaidValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPaidValue.Name = "lblTotalPaidValue";
+            this.lblTotalPaidValue.Size = new System.Drawing.Size(51, 16);
+            this.lblTotalPaidValue.TabIndex = 18;
+            this.lblTotalPaidValue.Text = "label11";
             // 
             // label10
             // 
@@ -290,15 +282,15 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Total Paid";
             // 
-            // label15
+            // lblRemainingBalanceValue
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1037, 533);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 16);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "label15";
+            this.lblRemainingBalanceValue.AutoSize = true;
+            this.lblRemainingBalanceValue.Location = new System.Drawing.Point(1037, 533);
+            this.lblRemainingBalanceValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRemainingBalanceValue.Name = "lblRemainingBalanceValue";
+            this.lblRemainingBalanceValue.Size = new System.Drawing.Size(51, 16);
+            this.lblRemainingBalanceValue.TabIndex = 20;
+            this.lblRemainingBalanceValue.Text = "label15";
             // 
             // label14
             // 
@@ -310,41 +302,46 @@
             this.label14.TabIndex = 19;
             this.label14.Text = "Remaining Balance";
             // 
-            // textBox2
+            // txtPaymentAmount
             // 
-            this.textBox2.Location = new System.Drawing.Point(293, 618);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 22);
-            this.textBox2.TabIndex = 21;
+            this.txtPaymentAmount.Location = new System.Drawing.Point(293, 618);
+            this.txtPaymentAmount.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPaymentAmount.Name = "txtPaymentAmount";
+            this.txtPaymentAmount.Size = new System.Drawing.Size(220, 22);
+            this.txtPaymentAmount.TabIndex = 21;
             // 
-            // comboBox1
+            // cmbPaymentScheme
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(544, 617);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(212, 24);
-            this.comboBox1.TabIndex = 22;
+            this.cmbPaymentScheme.FormattingEnabled = true;
+            this.cmbPaymentScheme.Items.AddRange(new object[] {
+            "Cash",
+            "Gcash",
+            "Bank-Transfer"});
+            this.cmbPaymentScheme.Location = new System.Drawing.Point(544, 617);
+            this.cmbPaymentScheme.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbPaymentScheme.Name = "cmbPaymentScheme";
+            this.cmbPaymentScheme.Size = new System.Drawing.Size(212, 24);
+            this.cmbPaymentScheme.TabIndex = 22;
             // 
-            // textBox3
+            // txtReferenceNotes
             // 
-            this.textBox3.Location = new System.Drawing.Point(791, 618);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(333, 22);
-            this.textBox3.TabIndex = 23;
+            this.txtReferenceNotes.Location = new System.Drawing.Point(791, 618);
+            this.txtReferenceNotes.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReferenceNotes.Name = "txtReferenceNotes";
+            this.txtReferenceNotes.Size = new System.Drawing.Size(333, 22);
+            this.txtReferenceNotes.TabIndex = 23;
             // 
-            // button4
+            // btnRecordPayment
             // 
-            this.button4.BackColor = System.Drawing.Color.LawnGreen;
-            this.button4.Location = new System.Drawing.Point(296, 671);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 33);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "Record Payment";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnRecordPayment.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnRecordPayment.Location = new System.Drawing.Point(296, 671);
+            this.btnRecordPayment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRecordPayment.Name = "btnRecordPayment";
+            this.btnRecordPayment.Size = new System.Drawing.Size(169, 33);
+            this.btnRecordPayment.TabIndex = 24;
+            this.btnRecordPayment.Text = "Record Payment";
+            this.btnRecordPayment.UseVisualStyleBackColor = false;
+            this.btnRecordPayment.Click += new System.EventHandler(this.btnRecordPayment_Click);
             // 
             // label12
             // 
@@ -376,40 +373,52 @@
             this.label16.TabIndex = 27;
             this.label16.Text = "Reference Notes";
             // 
+            // dgvStudents
+            // 
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Location = new System.Drawing.Point(302, 208);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.RowHeadersWidth = 51;
+            this.dgvStudents.RowTemplate.Height = 24;
+            this.dgvStudents.Size = new System.Drawing.Size(968, 271);
+            this.dgvStudents.TabIndex = 28;
+            this.dgvStudents.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellClick);
+            // 
             // CashierCashieringPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.btnRecordPayment);
+            this.Controls.Add(this.txtReferenceNotes);
+            this.Controls.Add(this.cmbPaymentScheme);
+            this.Controls.Add(this.txtPaymentAmount);
+            this.Controls.Add(this.lblRemainingBalanceValue);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblTotalPaidValue);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblTotalAssessmentValue);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblStudentValue);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearchStudent);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CashierCashieringPayment";
             this.Text = "CashierCashieringPayment";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,24 +437,24 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearchStudent;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblStudentValue;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotalAssessmentValue;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTotalPaidValue;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblRemainingBalanceValue;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtPaymentAmount;
+        private System.Windows.Forms.ComboBox cmbPaymentScheme;
+        private System.Windows.Forms.TextBox txtReferenceNotes;
+        private System.Windows.Forms.Button btnRecordPayment;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridView dgvStudents;
     }
 }

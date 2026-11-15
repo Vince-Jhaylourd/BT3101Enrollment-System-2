@@ -50,13 +50,14 @@
             this.txtSchoolYear = new System.Windows.Forms.TextBox();
             this.cboGradeLevel = new System.Windows.Forms.ComboBox();
             this.cboCapacity = new System.Windows.Forms.ComboBox();
-            this.lstSections = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -289,15 +290,6 @@
             this.cboCapacity.Size = new System.Drawing.Size(161, 28);
             this.cboCapacity.TabIndex = 33;
             // 
-            // lstSections
-            // 
-            this.lstSections.FormattingEnabled = true;
-            this.lstSections.ItemHeight = 16;
-            this.lstSections.Location = new System.Drawing.Point(302, 273);
-            this.lstSections.Name = "lstSections";
-            this.lstSections.Size = new System.Drawing.Size(1005, 420);
-            this.lstSections.TabIndex = 34;
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LimeGreen;
@@ -345,17 +337,26 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(309, 290);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(959, 382);
+            this.dataGridView1.TabIndex = 39;
+            // 
             // SectionManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lstSections);
             this.Controls.Add(this.cboCapacity);
             this.Controls.Add(this.cboGradeLevel);
             this.Controls.Add(this.txtSchoolYear);
@@ -373,6 +374,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,10 +404,10 @@
         private System.Windows.Forms.TextBox txtSchoolYear;
         private System.Windows.Forms.ComboBox cboGradeLevel;
         private System.Windows.Forms.ComboBox cboCapacity;
-        private System.Windows.Forms.ListBox lstSections;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -196,6 +196,12 @@
     <Compile Include="CashierPaymentHistory.Designer.cs">
       <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="CashierPaymentReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierPaymentReceipt.Designer.cs">
+      <DependentUpon>CashierPaymentReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="CashierSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,12 @@
     </Compile>
     <Compile Include="PaymentHistoryReceipts.Designer.cs">
       <DependentUpon>PaymentHistoryReceipts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintStudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintStudentReport.Designer.cs">
+      <DependentUpon>PrintStudentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -283,6 +295,9 @@
     <EmbeddedResource Include="CashierPaymentHistory.resx">
       <DependentUpon>CashierPaymentHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CashierPaymentReceipt.resx">
+      <DependentUpon>CashierPaymentReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CashierSearchStudent.resx">
       <DependentUpon>CashierSearchStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentHistoryReceipts.resx">
       <DependentUpon>PaymentHistoryReceipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintStudentReport.resx">
+      <DependentUpon>PrintStudentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
