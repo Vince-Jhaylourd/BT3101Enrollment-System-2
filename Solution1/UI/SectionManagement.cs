@@ -26,54 +26,17 @@ namespace UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
-        
-            if (txtSectionName.Text == "" || cboGradeLevel.Text == "" ||
-                txtSchoolYear.Text == "" || cboCapacity.Text == "")
-            {
-
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-
-            lstSections.Items.Add(txtSectionName.Text + " | " + cboGradeLevel.Text + " | " +
-                                  txtSchoolYear.Text + " | " + cboCapacity.Text);
-            ClearFields();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-
-            if (lstSections.SelectedIndex == -1)
-            { 
-
-                MessageBox.Show("Select a section first.");
-                return;
-            }
-
-            lstSections.Items[lstSections.SelectedIndex] = txtSectionName.Text + " | " + cboGradeLevel.Text + " | " +
-                                                          txtSchoolYear.Text + " | " + cboCapacity.Text;
-            ClearFields();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lstSections.SelectedIndex == -1)
-            {
-                MessageBox.Show("Select a section first.");
-                return;
-            }
-
-            lstSections.Items.RemoveAt(lstSections.SelectedIndex);
-            ClearFields();
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
-            ClearFields();
-        }
 
         private void btnClear_Click_1(object sender, EventArgs e)
         {

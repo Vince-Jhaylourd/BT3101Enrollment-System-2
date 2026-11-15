@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentInformationReport));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
@@ -45,15 +46,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbFilterType = new System.Windows.Forms.ComboBox();
-            this.cbGradeLevel = new System.Windows.Forms.ComboBox();
-            this.cbSection = new System.Windows.Forms.ComboBox();
+            this.cmbFilterType = new System.Windows.Forms.ComboBox();
+            this.cmbGradeLevel = new System.Windows.Forms.ComboBox();
+            this.cmbSection = new System.Windows.Forms.ComboBox();
             this.txtAcademicYear = new System.Windows.Forms.TextBox();
             this.btnGenerate = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnPrintReport = new System.Windows.Forms.Button();
+            this.dgvStudentInformationReport = new System.Windows.Forms.DataGridView();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentInformationReport)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -249,35 +253,40 @@
             this.label7.TabIndex = 63;
             this.label7.Text = "Academic year*";
             // 
-            // cbFilterType
+            // cmbFilterType
             // 
-            this.cbFilterType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFilterType.FormattingEnabled = true;
-            this.cbFilterType.Location = new System.Drawing.Point(307, 162);
-            this.cbFilterType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbFilterType.Name = "cbFilterType";
-            this.cbFilterType.Size = new System.Drawing.Size(181, 28);
-            this.cbFilterType.TabIndex = 69;
+            this.cmbFilterType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFilterType.FormattingEnabled = true;
+            this.cmbFilterType.Items.AddRange(new object[] {
+            "All Enrolled",
+            "By Grade Level",
+            "By Section"});
+            this.cmbFilterType.Location = new System.Drawing.Point(307, 162);
+            this.cmbFilterType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbFilterType.Name = "cmbFilterType";
+            this.cmbFilterType.Size = new System.Drawing.Size(181, 28);
+            this.cmbFilterType.TabIndex = 69;
+            this.cmbFilterType.SelectedIndexChanged += new System.EventHandler(this.cmbFilterType_SelectedIndexChanged);
             // 
-            // cbGradeLevel
+            // cmbGradeLevel
             // 
-            this.cbGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGradeLevel.FormattingEnabled = true;
-            this.cbGradeLevel.Location = new System.Drawing.Point(521, 162);
-            this.cbGradeLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbGradeLevel.Name = "cbGradeLevel";
-            this.cbGradeLevel.Size = new System.Drawing.Size(181, 28);
-            this.cbGradeLevel.TabIndex = 70;
+            this.cmbGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbGradeLevel.FormattingEnabled = true;
+            this.cmbGradeLevel.Location = new System.Drawing.Point(521, 162);
+            this.cmbGradeLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbGradeLevel.Name = "cmbGradeLevel";
+            this.cmbGradeLevel.Size = new System.Drawing.Size(181, 28);
+            this.cmbGradeLevel.TabIndex = 70;
             // 
-            // cbSection
+            // cmbSection
             // 
-            this.cbSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSection.FormattingEnabled = true;
-            this.cbSection.Location = new System.Drawing.Point(731, 162);
-            this.cbSection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbSection.Name = "cbSection";
-            this.cbSection.Size = new System.Drawing.Size(181, 28);
-            this.cbSection.TabIndex = 71;
+            this.cmbSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSection.FormattingEnabled = true;
+            this.cmbSection.Location = new System.Drawing.Point(731, 162);
+            this.cmbSection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbSection.Name = "cmbSection";
+            this.cmbSection.Size = new System.Drawing.Size(181, 28);
+            this.cmbSection.TabIndex = 71;
             // 
             // txtAcademicYear
             // 
@@ -299,16 +308,7 @@
             this.btnGenerate.TabIndex = 73;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(307, 199);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(983, 452);
-            this.listBox1.TabIndex = 74;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // btnPrintReport
             // 
@@ -322,19 +322,43 @@
             this.btnPrintReport.Text = "Print report";
             this.btnPrintReport.UseVisualStyleBackColor = false;
             // 
+            // dgvStudentInformationReport
+            // 
+            this.dgvStudentInformationReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudentInformationReport.Location = new System.Drawing.Point(306, 212);
+            this.dgvStudentInformationReport.Name = "dgvStudentInformationReport";
+            this.dgvStudentInformationReport.RowHeadersWidth = 51;
+            this.dgvStudentInformationReport.RowTemplate.Height = 24;
+            this.dgvStudentInformationReport.Size = new System.Drawing.Size(981, 428);
+            this.dgvStudentInformationReport.TabIndex = 76;
+            // 
+            // printDocument1
+            // 
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // StudentInformationReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dgvStudentInformationReport);
             this.Controls.Add(this.btnPrintReport);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.txtAcademicYear);
-            this.Controls.Add(this.cbSection);
-            this.Controls.Add(this.cbGradeLevel);
-            this.Controls.Add(this.cbFilterType);
+            this.Controls.Add(this.cmbSection);
+            this.Controls.Add(this.cmbGradeLevel);
+            this.Controls.Add(this.cmbFilterType);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -349,6 +373,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudentInformationReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,12 +398,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbFilterType;
-        private System.Windows.Forms.ComboBox cbGradeLevel;
-        private System.Windows.Forms.ComboBox cbSection;
+        private System.Windows.Forms.ComboBox cmbFilterType;
+        private System.Windows.Forms.ComboBox cmbGradeLevel;
+        private System.Windows.Forms.ComboBox cmbSection;
         private System.Windows.Forms.TextBox txtAcademicYear;
         private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnPrintReport;
+        private System.Windows.Forms.DataGridView dgvStudentInformationReport;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

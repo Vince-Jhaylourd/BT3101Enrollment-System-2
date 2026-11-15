@@ -22,80 +22,7 @@ namespace UI
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            if (cboFilterType.Text == "" || txtAcademicYear.Text == "")
-            {
-                MessageBox.Show("Please fill in Filter type and Academic year.");
-                return;
-            }
-
-            listBox1.Items.Clear();
-            listBox1.Items.Add("STUDENT INFORMATION REPORT");
-            listBox1.Items.Add("Filter: " + cboFilterType.Text);
-            listBox1.Items.Add("Grade level: " + cboGradeLevel.Text);
-            listBox1.Items.Add("Section: " + cboSection.Text);
-            listBox1.Items.Add("Academic year: " + txtAcademicYear.Text);
-            listBox1.Items.Add("-----------------------------------");
-        }
-
-        private void btnPrintReport_Click(object sender, EventArgs e)
-        {
-            if (listBox1.Items.Count == 0)
-            {
-                MessageBox.Show("Generate a report first.");
-                return;
-            }
-
-            PrintDocument doc = new PrintDocument();
-            doc.PrintPage += (s, ev) =>
-            {
-                float y = 50;
-                foreach (object item in listBox1.Items)
-                {
-                    ev.Graphics.DrawString(item.ToString(), new Font("Arial", 12), Brushes.Black, 50, y);
-                    y += 25;
-                }
-            };
-
-            PrintPreviewDialog preview = new PrintPreviewDialog();
-            preview.Document = doc;
-            preview.ShowDialog();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            AdminLandingPage homeForm = new AdminLandingPage();
-            homeForm.Show();
-            this.Hide();
-        }
-
-        private void btnSectionManagement_Click(object sender, EventArgs e)
-        {
-            SectionManagement sectionForm = new SectionManagement();
-            sectionForm.Show();
-            this.Hide();
-        }
-
-        private void btnSearchStudentAccount_Click(object sender, EventArgs e)
-        {
-
-            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
-            studentForm.Show();
-            this.Hide();
-        }
-
-        private void btnPaymentHistoryReceipst_Click(object sender, EventArgs e)
-        {
-
-            PaymentHistoryReceipts paymentForm = new PaymentHistoryReceipts();
-            paymentForm.Show();
-            this.Hide();
-        }
-
-        private void btnUserManagement_Click(object sender, EventArgs e)
-        {
-            UserManagement userForm = new UserManagement();
-            userForm.Show();
-            this.Hide();
+            
         }
 
         private void buttonLogOut_Click_1(object sender, EventArgs e)
@@ -110,38 +37,46 @@ namespace UI
             this.Hide();
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AdminLandingPage HomeForm = new AdminLandingPage();
+            HomeForm.Show();
+
+            this.Hide();
+        }
+
+        private void btnSectionManagement_Click(object sender, EventArgs e)
+        {
+            SectionManagement SectionManagementForm = new SectionManagement();
+            SectionManagementForm.Show();
+            this.Hide();
+        }
+
+        private void btnStudentSearchAccountADMIN_Click(object sender, EventArgs e)
+        {
+            SearchStudentAccountADMIN SearchStudentAccountADMINForm = new SearchStudentAccountADMIN(); 
+            SearchStudentAccountADMINForm.Show();
+            this.Hide();
+        }
+
+        private void btnPaymentHistoryReceipt_Click(object sender, EventArgs e)
+        {
+            PaymentHistoryReceipts paymentHistoryReceiptsForm = new PaymentHistoryReceipts();
+            paymentHistoryReceiptsForm.Show();
+            this.Hide();
+        }
+
         private void btnStudentInformationReport_Click(object sender, EventArgs e)
         {
-            Student_InformationReport studentInformationReportFormADMIN = new Student_InformationReport();
-            studentInformationReportFormADMIN.Show();
+            Student_InformationReport studentInformationReportForm = new Student_InformationReport();
+            studentInformationReportForm.Show();
             this.Hide();
         }
 
-        private void btnHome_Click_1(object sender, EventArgs e)
+        private void btnUserManagement_Click(object sender, EventArgs e)
         {
-            AdminLandingPage adminLandingPage = new AdminLandingPage();
-            adminLandingPage.Show();
-            this.Hide();
-        }
-
-        private void btnStudentMaintenance_Click(object sender, EventArgs e)
-        {
-            StudentMaintenance studentMaintenanceForm = new StudentMaintenance();
-            studentMaintenanceForm.Show();
-            this.Hide();
-        }
-
-        private void btnStudentAssesssment_Click(object sender, EventArgs e)
-        {
-            StudentAssessment studentAssessmentForm = new StudentAssessment();
-            studentAssessmentForm.Show();
-            this.Hide();
-        }
-
-        private void btnSearchStudentAccount_Click_1(object sender, EventArgs e)
-        {
-            SearchStudentAccountADMIN studentForm = new SearchStudentAccountADMIN();
-            studentForm.Show();
+            UserManagement userManagementForm = new UserManagement();
+            userManagementForm.Show();
             this.Hide();
         }
     }

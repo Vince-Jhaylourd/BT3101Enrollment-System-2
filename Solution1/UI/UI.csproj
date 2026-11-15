@@ -220,6 +220,12 @@
     <Compile Include="PaymentHistoryReceipts.Designer.cs">
       <DependentUpon>PaymentHistoryReceipts.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintStudentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintStudentReport.Designer.cs">
+      <DependentUpon>PrintStudentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarLandingPage.cs">
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentHistoryReceipts.resx">
       <DependentUpon>PaymentHistoryReceipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintStudentReport.resx">
+      <DependentUpon>PrintStudentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

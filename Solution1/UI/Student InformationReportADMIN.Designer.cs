@@ -41,19 +41,21 @@
             this.cboGradeLevel = new System.Windows.Forms.ComboBox();
             this.cboSection = new System.Windows.Forms.ComboBox();
             this.btnGenerate = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnPrintReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUserManagement = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
-            this.btnSearchStudentAccount = new System.Windows.Forms.Button();
-            this.btnStudentAssesssment = new System.Windows.Forms.Button();
-            this.btnStudentMaintenance = new System.Windows.Forms.Button();
+            this.btnPaymentHistoryReceipt = new System.Windows.Forms.Button();
+            this.btnStudentSearchAccountADMIN = new System.Windows.Forms.Button();
+            this.btnSectionManagement = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnHome = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -194,16 +196,6 @@
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(299, 207);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(1008, 436);
-            this.listBox1.TabIndex = 37;
-            // 
             // btnPrintReport
             // 
             this.btnPrintReport.BackColor = System.Drawing.Color.LimeGreen;
@@ -215,16 +207,16 @@
             this.btnPrintReport.TabIndex = 38;
             this.btnPrintReport.Text = " Print Report";
             this.btnPrintReport.UseVisualStyleBackColor = false;
-            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
+            this.panel1.Controls.Add(this.btnUserManagement);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnStudentInformationReport);
-            this.panel1.Controls.Add(this.btnSearchStudentAccount);
-            this.panel1.Controls.Add(this.btnStudentAssesssment);
-            this.panel1.Controls.Add(this.btnStudentMaintenance);
+            this.panel1.Controls.Add(this.btnPaymentHistoryReceipt);
+            this.panel1.Controls.Add(this.btnStudentSearchAccountADMIN);
+            this.panel1.Controls.Add(this.btnSectionManagement);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnHome);
@@ -233,6 +225,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 720);
             this.panel1.TabIndex = 39;
+            // 
+            // btnUserManagement
+            // 
+            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserManagement.Location = new System.Drawing.Point(12, 447);
+            this.btnUserManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUserManagement.Name = "btnUserManagement";
+            this.btnUserManagement.Size = new System.Drawing.Size(237, 42);
+            this.btnUserManagement.TabIndex = 40;
+            this.btnUserManagement.Text = "User Management";
+            this.btnUserManagement.UseVisualStyleBackColor = true;
+            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // panel2
             // 
@@ -254,41 +258,41 @@
             this.btnStudentInformationReport.UseVisualStyleBackColor = true;
             this.btnStudentInformationReport.Click += new System.EventHandler(this.btnStudentInformationReport_Click);
             // 
-            // btnSearchStudentAccount
+            // btnPaymentHistoryReceipt
             // 
-            this.btnSearchStudentAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchStudentAccount.Location = new System.Drawing.Point(12, 318);
-            this.btnSearchStudentAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearchStudentAccount.Name = "btnSearchStudentAccount";
-            this.btnSearchStudentAccount.Size = new System.Drawing.Size(237, 42);
-            this.btnSearchStudentAccount.TabIndex = 15;
-            this.btnSearchStudentAccount.Text = "Search Student Account";
-            this.btnSearchStudentAccount.UseVisualStyleBackColor = true;
-            this.btnSearchStudentAccount.Click += new System.EventHandler(this.btnSearchStudentAccount_Click_1);
+            this.btnPaymentHistoryReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPaymentHistoryReceipt.Location = new System.Drawing.Point(12, 318);
+            this.btnPaymentHistoryReceipt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPaymentHistoryReceipt.Name = "btnPaymentHistoryReceipt";
+            this.btnPaymentHistoryReceipt.Size = new System.Drawing.Size(237, 42);
+            this.btnPaymentHistoryReceipt.TabIndex = 15;
+            this.btnPaymentHistoryReceipt.Text = "Payment History Receipts";
+            this.btnPaymentHistoryReceipt.UseVisualStyleBackColor = true;
+            this.btnPaymentHistoryReceipt.Click += new System.EventHandler(this.btnPaymentHistoryReceipt_Click);
             // 
-            // btnStudentAssesssment
+            // btnStudentSearchAccountADMIN
             // 
-            this.btnStudentAssesssment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentAssesssment.Location = new System.Drawing.Point(12, 258);
-            this.btnStudentAssesssment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStudentAssesssment.Name = "btnStudentAssesssment";
-            this.btnStudentAssesssment.Size = new System.Drawing.Size(237, 42);
-            this.btnStudentAssesssment.TabIndex = 15;
-            this.btnStudentAssesssment.Text = "Student Assesssment";
-            this.btnStudentAssesssment.UseVisualStyleBackColor = true;
-            this.btnStudentAssesssment.Click += new System.EventHandler(this.btnStudentAssesssment_Click);
+            this.btnStudentSearchAccountADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudentSearchAccountADMIN.Location = new System.Drawing.Point(12, 258);
+            this.btnStudentSearchAccountADMIN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStudentSearchAccountADMIN.Name = "btnStudentSearchAccountADMIN";
+            this.btnStudentSearchAccountADMIN.Size = new System.Drawing.Size(237, 42);
+            this.btnStudentSearchAccountADMIN.TabIndex = 15;
+            this.btnStudentSearchAccountADMIN.Text = "Search Student Account";
+            this.btnStudentSearchAccountADMIN.UseVisualStyleBackColor = true;
+            this.btnStudentSearchAccountADMIN.Click += new System.EventHandler(this.btnStudentSearchAccountADMIN_Click);
             // 
-            // btnStudentMaintenance
+            // btnSectionManagement
             // 
-            this.btnStudentMaintenance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentMaintenance.Location = new System.Drawing.Point(12, 198);
-            this.btnStudentMaintenance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnStudentMaintenance.Name = "btnStudentMaintenance";
-            this.btnStudentMaintenance.Size = new System.Drawing.Size(237, 42);
-            this.btnStudentMaintenance.TabIndex = 17;
-            this.btnStudentMaintenance.Text = "Student Maintenance";
-            this.btnStudentMaintenance.UseVisualStyleBackColor = true;
-            this.btnStudentMaintenance.Click += new System.EventHandler(this.btnStudentMaintenance_Click);
+            this.btnSectionManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSectionManagement.Location = new System.Drawing.Point(12, 198);
+            this.btnSectionManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSectionManagement.Name = "btnSectionManagement";
+            this.btnSectionManagement.Size = new System.Drawing.Size(237, 42);
+            this.btnSectionManagement.TabIndex = 17;
+            this.btnSectionManagement.Text = "Section Management";
+            this.btnSectionManagement.UseVisualStyleBackColor = true;
+            this.btnSectionManagement.Click += new System.EventHandler(this.btnSectionManagement_Click);
             // 
             // label3
             // 
@@ -322,7 +326,17 @@
             this.btnHome.TabIndex = 8;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click_1);
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(306, 226);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(958, 407);
+            this.dataGridView1.TabIndex = 40;
             // 
             // Student_InformationReport
             // 
@@ -330,9 +344,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnPrintReport);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.cboSection);
             this.Controls.Add(this.cboGradeLevel);
@@ -351,6 +365,7 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,16 +385,17 @@
         private System.Windows.Forms.ComboBox cboGradeLevel;
         private System.Windows.Forms.ComboBox cboSection;
         private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnPrintReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnStudentInformationReport;
-        private System.Windows.Forms.Button btnSearchStudentAccount;
-        private System.Windows.Forms.Button btnStudentAssesssment;
-        private System.Windows.Forms.Button btnStudentMaintenance;
+        private System.Windows.Forms.Button btnPaymentHistoryReceipt;
+        private System.Windows.Forms.Button btnStudentSearchAccountADMIN;
+        private System.Windows.Forms.Button btnSectionManagement;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnUserManagement;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
