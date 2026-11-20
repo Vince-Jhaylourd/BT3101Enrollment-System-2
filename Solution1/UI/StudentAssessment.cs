@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic.Repository;
+using Model;
 
 namespace UI
 {
@@ -15,6 +16,7 @@ namespace UI
     {
         private readonly StudentRepository _studentRepository;
         private readonly AssessmentRepository _assessmentRepository;
+        private readonly SectionRepository _sectionRepository;  
         private int selectedStudentId = 0;
         public StudentAssessment()
         {
@@ -22,6 +24,7 @@ namespace UI
 
             _studentRepository = new StudentRepository();
             _assessmentRepository = new AssessmentRepository();
+            _sectionRepository = new SectionRepository();
 
             LoadStudents();
         }
@@ -76,6 +79,30 @@ namespace UI
                 MessageBox.Show("Unable to load students: " + ex.Message);
             }
         }
+
+        private void LoadAvailableSections()
+        {
+            string gradeLevel = cbGradelevel.Text.Trim();
+            string schoolYear = txtSchoolYear.Text.Trim();
+
+            var sections = _sectionRepository.GetAvailableSections(
+                gradeLevel,
+                schoolYear
+            );
+
+            MessageBox.Show(
+                "Grade Level: " + gradeLevel +
+                "\nSchool Year: " + schoolYear +
+                "\nSections found: " + sections.Count
+            );
+
+            cbSection.DataSource = null;
+            cbSection.DisplayMember = "SectionName";
+            cbSection.ValueMember = "SectionId";
+            cbSection.DataSource = sections;
+        }
+
+        
         private void SearchStudents()
         {
             string searchText = txtSearchStudent.Text.Trim().ToLower();
@@ -162,7 +189,6 @@ namespace UI
             {
                 Application.Restart();
             }
-            this.Hide();
         }
 
         private void cbDiscountSchoolarship_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,6 +199,7 @@ namespace UI
         private void cbGradelevel_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalculateAssessment(sender, e);
+            LoadAvailableSections();
         }
 
         private void btnComputeSaveAssessment_Click(object sender, EventArgs e)

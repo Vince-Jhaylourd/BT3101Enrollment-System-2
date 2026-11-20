@@ -133,7 +133,7 @@ namespace UI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            SectionManagement homeForm = new SectionManagement();
+            AdminLandingPage homeForm = new AdminLandingPage();
             homeForm.Show();
             this.Hide();
         }

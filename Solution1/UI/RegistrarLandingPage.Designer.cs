@@ -43,20 +43,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTotalofStudents = new System.Windows.Forms.Label();
             this.lblTotalofStudentsValue = new System.Windows.Forms.Label();
+            this.lblTotalofStudents = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblTotalofEnrolledStudentsValue = new System.Windows.Forms.Label();
-            this.lblSections = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.lblTotalofSectionsValue = new System.Windows.Forms.Label();
+            this.lblSections = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lblCollectionToday = new System.Windows.Forms.Label();
             this.lblCollectionsValue = new System.Windows.Forms.Label();
-            this.lblOutstandingBalance = new System.Windows.Forms.Label();
+            this.lblCollectionToday = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.lblOutstandingBalanceValue = new System.Windows.Forms.Label();
+            this.lblOutstandingBalance = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -238,15 +238,6 @@
             this.panel4.Size = new System.Drawing.Size(229, 132);
             this.panel4.TabIndex = 31;
             // 
-            // lblTotalofStudents
-            // 
-            this.lblTotalofStudents.AutoSize = true;
-            this.lblTotalofStudents.Location = new System.Drawing.Point(12, 15);
-            this.lblTotalofStudents.Name = "lblTotalofStudents";
-            this.lblTotalofStudents.Size = new System.Drawing.Size(112, 16);
-            this.lblTotalofStudents.TabIndex = 0;
-            this.lblTotalofStudents.Text = "Total Of Students:";
-            // 
             // lblTotalofStudentsValue
             // 
             this.lblTotalofStudentsValue.AutoSize = true;
@@ -255,6 +246,15 @@
             this.lblTotalofStudentsValue.Size = new System.Drawing.Size(11, 16);
             this.lblTotalofStudentsValue.TabIndex = 1;
             this.lblTotalofStudentsValue.Text = "-";
+            // 
+            // lblTotalofStudents
+            // 
+            this.lblTotalofStudents.AutoSize = true;
+            this.lblTotalofStudents.Location = new System.Drawing.Point(12, 15);
+            this.lblTotalofStudents.Name = "lblTotalofStudents";
+            this.lblTotalofStudents.Size = new System.Drawing.Size(112, 16);
+            this.lblTotalofStudents.TabIndex = 0;
+            this.lblTotalofStudents.Text = "Total Of Students:";
             // 
             // panel5
             // 
@@ -265,14 +265,14 @@
             this.panel5.Size = new System.Drawing.Size(249, 131);
             this.panel5.TabIndex = 32;
             // 
-            // panel6
+            // lblTotalofEnrolledStudentsValue
             // 
-            this.panel6.Controls.Add(this.lblTotalofSectionsValue);
-            this.panel6.Controls.Add(this.lblSections);
-            this.panel6.Location = new System.Drawing.Point(958, 199);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(264, 132);
-            this.panel6.TabIndex = 33;
+            this.lblTotalofEnrolledStudentsValue.AutoSize = true;
+            this.lblTotalofEnrolledStudentsValue.Location = new System.Drawing.Point(24, 60);
+            this.lblTotalofEnrolledStudentsValue.Name = "lblTotalofEnrolledStudentsValue";
+            this.lblTotalofEnrolledStudentsValue.Size = new System.Drawing.Size(11, 16);
+            this.lblTotalofEnrolledStudentsValue.TabIndex = 1;
+            this.lblTotalofEnrolledStudentsValue.Text = "-";
             // 
             // label6
             // 
@@ -283,14 +283,24 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Total of Enrolled Student:";
             // 
-            // lblTotalofEnrolledStudentsValue
+            // panel6
             // 
-            this.lblTotalofEnrolledStudentsValue.AutoSize = true;
-            this.lblTotalofEnrolledStudentsValue.Location = new System.Drawing.Point(24, 60);
-            this.lblTotalofEnrolledStudentsValue.Name = "lblTotalofEnrolledStudentsValue";
-            this.lblTotalofEnrolledStudentsValue.Size = new System.Drawing.Size(11, 16);
-            this.lblTotalofEnrolledStudentsValue.TabIndex = 1;
-            this.lblTotalofEnrolledStudentsValue.Text = "-";
+            this.panel6.Controls.Add(this.lblTotalofSectionsValue);
+            this.panel6.Controls.Add(this.lblSections);
+            this.panel6.Location = new System.Drawing.Point(958, 199);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(264, 132);
+            this.panel6.TabIndex = 33;
+            // 
+            // lblTotalofSectionsValue
+            // 
+            this.lblTotalofSectionsValue.AutoSize = true;
+            this.lblTotalofSectionsValue.Location = new System.Drawing.Point(19, 72);
+            this.lblTotalofSectionsValue.Name = "lblTotalofSectionsValue";
+            this.lblTotalofSectionsValue.Size = new System.Drawing.Size(11, 16);
+            this.lblTotalofSectionsValue.TabIndex = 1;
+            this.lblTotalofSectionsValue.Text = "-";
+            this.lblTotalofSectionsValue.Click += new System.EventHandler(this.lblTotalofSectionsValue_Click);
             // 
             // lblSections
             // 
@@ -301,15 +311,6 @@
             this.lblSections.TabIndex = 0;
             this.lblSections.Text = "Sections:";
             // 
-            // lblTotalofSectionsValue
-            // 
-            this.lblTotalofSectionsValue.AutoSize = true;
-            this.lblTotalofSectionsValue.Location = new System.Drawing.Point(19, 72);
-            this.lblTotalofSectionsValue.Name = "lblTotalofSectionsValue";
-            this.lblTotalofSectionsValue.Size = new System.Drawing.Size(11, 16);
-            this.lblTotalofSectionsValue.TabIndex = 1;
-            this.lblTotalofSectionsValue.Text = "-";
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.lblCollectionsValue);
@@ -318,24 +319,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(229, 131);
             this.panel7.TabIndex = 34;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.lblOutstandingBalanceValue);
-            this.panel8.Controls.Add(this.lblOutstandingBalance);
-            this.panel8.Location = new System.Drawing.Point(630, 387);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(248, 131);
-            this.panel8.TabIndex = 35;
-            // 
-            // lblCollectionToday
-            // 
-            this.lblCollectionToday.AutoSize = true;
-            this.lblCollectionToday.Location = new System.Drawing.Point(12, 14);
-            this.lblCollectionToday.Name = "lblCollectionToday";
-            this.lblCollectionToday.Size = new System.Drawing.Size(116, 16);
-            this.lblCollectionToday.TabIndex = 0;
-            this.lblCollectionToday.Text = "Collections Today";
             // 
             // lblCollectionsValue
             // 
@@ -346,14 +329,23 @@
             this.lblCollectionsValue.TabIndex = 1;
             this.lblCollectionsValue.Text = "-";
             // 
-            // lblOutstandingBalance
+            // lblCollectionToday
             // 
-            this.lblOutstandingBalance.AutoSize = true;
-            this.lblOutstandingBalance.Location = new System.Drawing.Point(12, 14);
-            this.lblOutstandingBalance.Name = "lblOutstandingBalance";
-            this.lblOutstandingBalance.Size = new System.Drawing.Size(131, 16);
-            this.lblOutstandingBalance.TabIndex = 0;
-            this.lblOutstandingBalance.Text = "Outstanding Balance";
+            this.lblCollectionToday.AutoSize = true;
+            this.lblCollectionToday.Location = new System.Drawing.Point(12, 14);
+            this.lblCollectionToday.Name = "lblCollectionToday";
+            this.lblCollectionToday.Size = new System.Drawing.Size(116, 16);
+            this.lblCollectionToday.TabIndex = 0;
+            this.lblCollectionToday.Text = "Collections Today";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.lblOutstandingBalanceValue);
+            this.panel8.Controls.Add(this.lblOutstandingBalance);
+            this.panel8.Location = new System.Drawing.Point(630, 387);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(248, 131);
+            this.panel8.TabIndex = 35;
             // 
             // lblOutstandingBalanceValue
             // 
@@ -363,6 +355,15 @@
             this.lblOutstandingBalanceValue.Size = new System.Drawing.Size(11, 16);
             this.lblOutstandingBalanceValue.TabIndex = 1;
             this.lblOutstandingBalanceValue.Text = "-";
+            // 
+            // lblOutstandingBalance
+            // 
+            this.lblOutstandingBalance.AutoSize = true;
+            this.lblOutstandingBalance.Location = new System.Drawing.Point(12, 14);
+            this.lblOutstandingBalance.Name = "lblOutstandingBalance";
+            this.lblOutstandingBalance.Size = new System.Drawing.Size(131, 16);
+            this.lblOutstandingBalance.TabIndex = 0;
+            this.lblOutstandingBalance.Text = "Outstanding Balance";
             // 
             // RegistrarLandingPage
             // 

@@ -117,5 +117,10 @@ namespace UI
             }
             
         }
+
+        private void lblTotalofSectionsValue_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

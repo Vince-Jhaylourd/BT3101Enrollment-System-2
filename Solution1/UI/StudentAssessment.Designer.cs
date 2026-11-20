@@ -62,6 +62,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dgvListofStudents = new System.Windows.Forms.DataGridView();
             this.dgvListofStudents1 = new System.Windows.Forms.DataGridView();
+            this.cbSection = new System.Windows.Forms.ComboBox();
+            this.lblSection = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListofStudents)).BeginInit();
@@ -267,7 +269,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(617, 354);
+            this.label7.Location = new System.Drawing.Point(683, 354);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(115, 20);
             this.label7.TabIndex = 60;
@@ -363,17 +365,17 @@
             this.cbGradelevel.Location = new System.Drawing.Point(289, 378);
             this.cbGradelevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGradelevel.Name = "cbGradelevel";
-            this.cbGradelevel.Size = new System.Drawing.Size(297, 28);
+            this.cbGradelevel.Size = new System.Drawing.Size(141, 28);
             this.cbGradelevel.TabIndex = 68;
             this.cbGradelevel.SelectedIndexChanged += new System.EventHandler(this.cbGradelevel_SelectedIndexChanged);
             // 
             // txtSchoolYear
             // 
             this.txtSchoolYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSchoolYear.Location = new System.Drawing.Point(621, 379);
+            this.txtSchoolYear.Location = new System.Drawing.Point(689, 379);
             this.txtSchoolYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSchoolYear.Name = "txtSchoolYear";
-            this.txtSchoolYear.Size = new System.Drawing.Size(297, 27);
+            this.txtSchoolYear.Size = new System.Drawing.Size(229, 27);
             this.txtSchoolYear.TabIndex = 69;
             this.txtSchoolYear.Text = "2026-2027";
             // 
@@ -460,12 +462,32 @@
             this.dgvListofStudents1.TabIndex = 76;
             this.dgvListofStudents1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListofStudents1_CellClick);
             // 
+            // cbSection
+            // 
+            this.cbSection.FormattingEnabled = true;
+            this.cbSection.Location = new System.Drawing.Point(476, 378);
+            this.cbSection.Name = "cbSection";
+            this.cbSection.Size = new System.Drawing.Size(162, 24);
+            this.cbSection.TabIndex = 77;
+            // 
+            // lblSection
+            // 
+            this.lblSection.AutoSize = true;
+            this.lblSection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSection.Location = new System.Drawing.Point(473, 354);
+            this.lblSection.Name = "lblSection";
+            this.lblSection.Size = new System.Drawing.Size(79, 20);
+            this.lblSection.TabIndex = 78;
+            this.lblSection.Text = "Section*";
+            // 
             // StudentAssessment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
+            this.Controls.Add(this.lblSection);
+            this.Controls.Add(this.cbSection);
             this.Controls.Add(this.dgvListofStudents1);
             this.Controls.Add(this.dgvListofStudents);
             this.Controls.Add(this.label12);
@@ -540,5 +562,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dgvListofStudents;
         private System.Windows.Forms.DataGridView dgvListofStudents1;
+        private System.Windows.Forms.ComboBox cbSection;
+        private System.Windows.Forms.Label lblSection;
     }
 }
