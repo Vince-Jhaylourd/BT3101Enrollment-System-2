@@ -335,6 +335,7 @@
             this.txtLRN.Name = "txtLRN";
             this.txtLRN.Size = new System.Drawing.Size(205, 27);
             this.txtLRN.TabIndex = 38;
+            this.txtLRN.Text = "000000000001";
             // 
             // txtLastName
             // 

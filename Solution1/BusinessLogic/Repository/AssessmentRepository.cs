@@ -29,16 +29,6 @@ namespace BusinessLogic.Repository
                 case "Grade 6":
                     return 20000;
 
-                case "Grade 7":
-                case "Grade 8":
-                case "Grade 9":
-                case "Grade 10":
-                    return 26000;
-
-                case "Grade 11":
-                case "Grade 12":
-                    return 32000;
-
                 default:
                     return 0;
             }
@@ -56,16 +46,6 @@ namespace BusinessLogic.Repository
                 case "Grade 5":
                 case "Grade 6":
                     return 3500;
-
-                case "Grade 7":
-                case "Grade 8":
-                case "Grade 9":
-                case "Grade 10":
-                    return 4500;
-
-                case "Grade 11":
-                case "Grade 12":
-                    return 5000;
 
                 default:
                     return 0;
@@ -483,7 +463,7 @@ namespace BusinessLogic.Repository
 
                 CASE
                     WHEN e.EnrollmentId IS NOT NULL
-                    THEN 'Enrolled'
+                    THEN 'Unpaid'
                     ELSE 'Not Enrolled'
                 END AS EnrollmentStatus,
 
