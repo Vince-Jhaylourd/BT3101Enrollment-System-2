@@ -349,27 +349,16 @@
             this.cbGradelevel.FormattingEnabled = true;
             this.cbGradelevel.Items.AddRange(new object[] {
             "Grade 1",
-            "",
             "Grade 2",
-            "",
             "Grade 3",
-            "",
             "Grade 4",
-            "",
             "Grade 5",
-            "",
             "Grade 6",
-            "",
             "Grade 7",
-            "",
             "Grade 8",
-            "",
             "Grade 9",
-            "",
             "Grade 10",
-            "",
             "Grade 11",
-            "",
             "Grade 12"});
             this.cbGradelevel.Location = new System.Drawing.Point(289, 378);
             this.cbGradelevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -386,6 +375,7 @@
             this.txtSchoolYear.Name = "txtSchoolYear";
             this.txtSchoolYear.Size = new System.Drawing.Size(297, 27);
             this.txtSchoolYear.TabIndex = 69;
+            this.txtSchoolYear.Text = "2026-2027";
             // 
             // cbDiscountSchoolarship
             // 
@@ -393,13 +383,9 @@
             this.cbDiscountSchoolarship.FormattingEnabled = true;
             this.cbDiscountSchoolarship.Items.AddRange(new object[] {
             "0%",
-            "",
             "10%",
-            "",
             "25%",
-            "",
             "30%",
-            "",
             "50%"});
             this.cbDiscountSchoolarship.Location = new System.Drawing.Point(949, 378);
             this.cbDiscountSchoolarship.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

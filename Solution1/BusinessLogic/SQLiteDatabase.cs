@@ -1,4 +1,4 @@
-﻿
+﻿using BusinessLogic;
 using System;
 using System.IO;
 using Microsoft.Data.Sqlite;
@@ -8,6 +8,7 @@ namespace BusinessLogic
     public class SQLiteDatabase
     {
         private readonly string _connectionString;
+
 
         public SQLiteDatabase()
         {
@@ -87,6 +88,7 @@ namespace BusinessLogic
                     SectionName TEXT NOT NULL,
                     GradeLevel TEXT NOT NULL,
                     SchoolYear TEXT NOT NULL,
+                    Capacity INTEGER NOT NULL DEFAULT 40,
                     IsActive INTEGER NOT NULL DEFAULT 1,
 
                     UNIQUE (SectionName, GradeLevel, SchoolYear)
@@ -102,11 +104,11 @@ namespace BusinessLogic
                     ('Section A', 'Grade 2', '2026-2027'),
                     ('Section B', 'Grade 2', '2026-2027'),
 
-                    ('Section A', 'Grade 7', '2026-2027'),
-                    ('Section B', 'Grade 7', '2026-2027'),
+                    ('Section A', 'Grade 3', '2026-2027'),
+                    ('Section B', 'Grade 3', '2026-2027'),
 
-                    ('Section A', 'Grade 11', '2026-2027'),
-                    ('Section B', 'Grade 11', '2026-2027');
+                    ('Section A', 'Grade 4', '2026-2027'),
+                    ('Section B', 'Grade 4', '2026-2027');
 
 
                 -- ENROLLMENTS TABLE
@@ -176,6 +178,36 @@ namespace BusinessLogic
                 {
                     command.CommandText = createTablesSql;
                     command.ExecuteNonQuery();
+                }
+
+                using (var checkCommand = connection.CreateCommand())
+                {
+                    checkCommand.CommandText = "PRAGMA table_info(Sections);";
+
+                    bool hasCapacity = false;
+
+                    using (var reader = checkCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (reader["name"].ToString() == "Capacity")
+                            {
+                                hasCapacity = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!hasCapacity)
+                    {
+                        using (var alterCommand = connection.CreateCommand())
+                        {
+                            alterCommand.CommandText =
+                                "ALTER TABLE Sections ADD COLUMN Capacity INTEGER NOT NULL DEFAULT 40;";
+
+                            alterCommand.ExecuteNonQuery();
+                        }
+                    }
                 }
             }
         }

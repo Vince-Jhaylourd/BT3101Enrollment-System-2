@@ -160,5 +160,6 @@ namespace UI
                 lblCurrentBalance.Text = "₱0.00";
             }
         }
+
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUserManagement = new System.Windows.Forms.Button();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
             this.btnPaymentHistoryReceipst = new System.Windows.Forms.Button();
             this.btnSearchStudentAccount = new System.Windows.Forms.Button();
@@ -63,7 +62,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.btnUserManagement);
             this.panel1.Controls.Add(this.btnStudentInformationReport);
             this.panel1.Controls.Add(this.btnPaymentHistoryReceipst);
             this.panel1.Controls.Add(this.btnSearchStudentAccount);
@@ -76,17 +74,6 @@
             this.panel1.Size = new System.Drawing.Size(279, 716);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // btnUserManagement
-            // 
-            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManagement.Location = new System.Drawing.Point(12, 449);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(237, 42);
-            this.btnUserManagement.TabIndex = 15;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // btnStudentInformationReport
             // 
@@ -389,7 +376,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnUserManagement;
         private System.Windows.Forms.Button btnStudentInformationReport;
         private System.Windows.Forms.Button btnPaymentHistoryReceipst;
         private System.Windows.Forms.Button btnSearchStudentAccount;
