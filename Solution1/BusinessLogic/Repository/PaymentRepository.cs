@@ -175,5 +175,26 @@ namespace BusinessLogic.Repository
 
             return payments;
         }
+        public decimal GetCollectionsToday()
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT COALESCE(SUM(Amount), 0)
+            FROM Payments
+            WHERE date(PaymentDate, 'localtime') =
+                  date('now', 'localtime');
+        ";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+
+                    return Convert.ToDecimal(command.ExecuteScalar());
+                }
+            }
+        }
     }
 }

@@ -1,40 +1,126 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.Repository;
+using Model;
+using System;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Collections.Specialized.BitVector32;
+using System.Collections.Generic;
 
 namespace UI
 {
     public partial class SectionManagement : Form
     {
 
-   
+        private readonly SectionRepository _sectionRepository =
+    new SectionRepository();
+
+        private int selectedSectionId = 0;
+
         private int nextId = 1;
 
         public SectionManagement()
         {
             InitializeComponent();
+            cbGradeLevel.Items.Clear();
+            cbGradeLevel.Items.AddRange(new object[]
+            {
+                "Grade 1",
+                "Grade 2",
+                "Grade 3",
+                "Grade 4",
+                "Grade 5",
+                "Grade 6"
+            });
+   
+
+            LoadSections();
         }
-
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void LoadSections()
         {
+            var sections = _sectionRepository.GetAllSections();
+
+            dgvSections.DataSource = null;
+            dgvSections.AutoGenerateColumns = true;
+            dgvSections.DataSource = sections;
+
+            dgvSections.Refresh();
         }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (selectedSectionId == 0)
+            {
+                MessageBox.Show("Please select a section first.");
+                return;
+            }
 
+            if (string.IsNullOrWhiteSpace(txtSectionName.Text) ||
+                string.IsNullOrWhiteSpace(cbGradeLevel.Text) ||
+                string.IsNullOrWhiteSpace(txtSchoolYear.Text))
+            {
+                MessageBox.Show("Please complete all section details.");
+                return;
+            }
+
+            Model.Section section = new Model.Section
+            {
+                SectionId = selectedSectionId,
+                SectionName = txtSectionName.Text.Trim(),
+                GradeLevel = cbGradeLevel.Text,
+                SchoolYear = txtSchoolYear.Text.Trim(),
+                Capacity = (int)nudCapacity.Value,
+                IsActive = 1
+            };
+
+            try
+            {
+                if (_sectionRepository.UpdateSection(section))
+                {
+                    MessageBox.Show("Section updated successfully!");
+                    LoadSections();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("No section was updated.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to update section: " + ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
+            if (selectedSectionId == 0)
+            {
+                MessageBox.Show("Please select a section first.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to deactivate this section?",
+                "Confirm Deactivation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                bool success = _sectionRepository.DeactivateSection(selectedSectionId);
+
+                if (success)
+                {
+                    MessageBox.Show("Section deactivated successfully!");
+                    LoadSections();
+                    ClearFields();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to deactivate section.");
+                }
+            }
         }
 
 
@@ -44,15 +130,6 @@ namespace UI
           
         }
 
-        private void ClearFields()
-        
-        {
-            txtSectionName.Clear();
-            txtSchoolYear.Clear();
-            cboGradeLevel.SelectedIndex = -1;
-            cboCapacity.SelectedIndex = -1;
-
-        }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -90,12 +167,6 @@ namespace UI
 
         }
 
-        private void btnUserManagement_Click(object sender, EventArgs e)
-        {
-            UserManagement userForm = new UserManagement();
-            userForm.Show();
-            this.Hide();
-        }
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
@@ -105,7 +176,79 @@ namespace UI
                 Application.Restart();
             }
 
-            this.Hide();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        { 
+            
+    if (string.IsNullOrWhiteSpace(txtSectionName.Text) ||
+        string.IsNullOrWhiteSpace(cbGradeLevel.Text) ||
+        string.IsNullOrWhiteSpace(txtSchoolYear.Text))
+    {
+        MessageBox.Show("Please complete all section details.");
+        return;
+    }
+
+    Model.Section section = new Model.Section
+    {
+        SectionName = txtSectionName.Text.Trim(),
+        GradeLevel = cbGradeLevel.Text,
+        SchoolYear = txtSchoolYear.Text.Trim(),
+        Capacity = (int)nudCapacity.Value,
+        IsActive = 1
+    };
+
+    try
+    {
+        bool result = _sectionRepository.AddSection(section);
+
+        if (result)
+        {
+            MessageBox.Show("Section saved successfully!");
+
+            LoadSections();
+            ClearFields();
+        }
+        else
+        {
+            MessageBox.Show("Section was not saved.");
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Database error: " + ex.Message);
+    }
+        }
+
+        private void ClearFields()
+        {
+            selectedSectionId = 0;
+
+            txtSectionName.Clear();
+            cbGradeLevel.SelectedIndex = -1;
+            txtSchoolYear.Clear();
+
+            nudCapacity.Value = 40;
+
+            dgvSections.ClearSelection();
+        }
+
+        private void dgvSections_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgvSections.Rows[e.RowIndex];
+
+            selectedSectionId = Convert.ToInt32(row.Cells["SectionId"].Value);
+
+            txtSectionName.Text = row.Cells["SectionName"].Value.ToString();
+            cbGradeLevel.Text = row.Cells["GradeLevel"].Value.ToString();
+            txtSchoolYear.Text = row.Cells["SchoolYear"].Value.ToString();
+
+            nudCapacity.Value = Convert.ToDecimal(
+                row.Cells["Capacity"].Value
+            );
         }
     }
 }

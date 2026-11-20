@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnUserManagement = new System.Windows.Forms.Button();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
             this.btnPaymentHistoryReceipst = new System.Windows.Forms.Button();
             this.btnSearchStudentAccount = new System.Windows.Forms.Button();
@@ -48,23 +47,23 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtSectionName = new System.Windows.Forms.TextBox();
             this.txtSchoolYear = new System.Windows.Forms.TextBox();
-            this.cboGradeLevel = new System.Windows.Forms.ComboBox();
-            this.cboCapacity = new System.Windows.Forms.ComboBox();
+            this.cbGradeLevel = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeactivate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSections = new System.Windows.Forms.DataGridView();
+            this.nudCapacity = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSections)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapacity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.btnUserManagement);
             this.panel1.Controls.Add(this.btnStudentInformationReport);
             this.panel1.Controls.Add(this.btnPaymentHistoryReceipst);
             this.panel1.Controls.Add(this.btnSearchStudentAccount);
@@ -83,17 +82,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1055, 56);
             this.panel2.TabIndex = 23;
-            // 
-            // btnUserManagement
-            // 
-            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManagement.Location = new System.Drawing.Point(12, 449);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(237, 42);
-            this.btnUserManagement.TabIndex = 15;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // btnStudentInformationReport
             // 
@@ -271,24 +259,17 @@
             this.txtSchoolYear.Name = "txtSchoolYear";
             this.txtSchoolYear.Size = new System.Drawing.Size(165, 27);
             this.txtSchoolYear.TabIndex = 31;
+            this.txtSchoolYear.Text = "2026-2027";
             // 
-            // cboGradeLevel
+            // cbGradeLevel
             // 
-            this.cboGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboGradeLevel.FormattingEnabled = true;
-            this.cboGradeLevel.Location = new System.Drawing.Point(517, 162);
-            this.cboGradeLevel.Name = "cboGradeLevel";
-            this.cboGradeLevel.Size = new System.Drawing.Size(170, 28);
-            this.cboGradeLevel.TabIndex = 32;
-            // 
-            // cboCapacity
-            // 
-            this.cboCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCapacity.FormattingEnabled = true;
-            this.cboCapacity.Location = new System.Drawing.Point(946, 165);
-            this.cboCapacity.Name = "cboCapacity";
-            this.cboCapacity.Size = new System.Drawing.Size(161, 28);
-            this.cboCapacity.TabIndex = 33;
+            this.cbGradeLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGradeLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbGradeLevel.FormattingEnabled = true;
+            this.cbGradeLevel.Location = new System.Drawing.Point(517, 162);
+            this.cbGradeLevel.Name = "cbGradeLevel";
+            this.cbGradeLevel.Size = new System.Drawing.Size(170, 28);
+            this.cbGradeLevel.TabIndex = 32;
             // 
             // btnAdd
             // 
@@ -300,6 +281,7 @@
             this.btnAdd.TabIndex = 35;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -313,17 +295,17 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnDelete
+            // btnDeactivate
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(601, 224);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(120, 43);
-            this.btnDelete.TabIndex = 37;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDeactivate.BackColor = System.Drawing.Color.Red;
+            this.btnDeactivate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeactivate.Location = new System.Drawing.Point(601, 224);
+            this.btnDeactivate.Name = "btnDeactivate";
+            this.btnDeactivate.Size = new System.Drawing.Size(141, 43);
+            this.btnDeactivate.TabIndex = 37;
+            this.btnDeactivate.Text = "Deactivate";
+            this.btnDeactivate.UseVisualStyleBackColor = false;
+            this.btnDeactivate.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClear
             // 
@@ -337,14 +319,32 @@
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click_1);
             // 
-            // dataGridView1
+            // dgvSections
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(309, 290);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(959, 382);
-            this.dataGridView1.TabIndex = 39;
+            this.dgvSections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSections.Location = new System.Drawing.Point(309, 290);
+            this.dgvSections.Name = "dgvSections";
+            this.dgvSections.RowHeadersWidth = 51;
+            this.dgvSections.Size = new System.Drawing.Size(959, 382);
+            this.dgvSections.TabIndex = 39;
+            this.dgvSections.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSections_CellClick);
+            // 
+            // nudCapacity
+            // 
+            this.nudCapacity.Location = new System.Drawing.Point(946, 165);
+            this.nudCapacity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCapacity.Name = "nudCapacity";
+            this.nudCapacity.Size = new System.Drawing.Size(153, 22);
+            this.nudCapacity.TabIndex = 40;
+            this.nudCapacity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // SectionManagement
             // 
@@ -352,13 +352,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.nudCapacity);
+            this.Controls.Add(this.dgvSections);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnDeactivate);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.cboCapacity);
-            this.Controls.Add(this.cboGradeLevel);
+            this.Controls.Add(this.cbGradeLevel);
             this.Controls.Add(this.txtSchoolYear);
             this.Controls.Add(this.txtSectionName);
             this.Controls.Add(this.label8);
@@ -374,7 +374,8 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSections)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCapacity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +385,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnUserManagement;
         private System.Windows.Forms.Button btnStudentInformationReport;
         private System.Windows.Forms.Button btnPaymentHistoryReceipst;
         private System.Windows.Forms.Button btnSearchStudentAccount;
@@ -402,12 +402,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSectionName;
         private System.Windows.Forms.TextBox txtSchoolYear;
-        private System.Windows.Forms.ComboBox cboGradeLevel;
-        private System.Windows.Forms.ComboBox cboCapacity;
+        private System.Windows.Forms.ComboBox cbGradeLevel;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeactivate;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSections;
+        private System.Windows.Forms.NumericUpDown nudCapacity;
     }
 }

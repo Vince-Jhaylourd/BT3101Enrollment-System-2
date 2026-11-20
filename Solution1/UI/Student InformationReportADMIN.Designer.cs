@@ -43,7 +43,6 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnPrintReport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUserManagement = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
             this.btnPaymentHistoryReceipt = new System.Windows.Forms.Button();
@@ -211,7 +210,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.btnUserManagement);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnStudentInformationReport);
             this.panel1.Controls.Add(this.btnPaymentHistoryReceipt);
@@ -225,18 +223,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 720);
             this.panel1.TabIndex = 39;
-            // 
-            // btnUserManagement
-            // 
-            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManagement.Location = new System.Drawing.Point(12, 447);
-            this.btnUserManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(237, 42);
-            this.btnUserManagement.TabIndex = 40;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // panel2
             // 
@@ -395,7 +381,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.Button btnUserManagement;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

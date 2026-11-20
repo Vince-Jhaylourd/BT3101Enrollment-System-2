@@ -73,12 +73,6 @@ namespace UI
             this.Hide();
         }
 
-        private void btnUserManagement_Click(object sender, EventArgs e)
-        {
-            UserManagement userManagementForm = new UserManagement();
-            userManagementForm.Show();
-            this.Hide();
-        }
     }
 }
 
