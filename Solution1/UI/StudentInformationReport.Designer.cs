@@ -288,6 +288,7 @@
             this.cmbSection.Name = "cmbSection";
             this.cmbSection.Size = new System.Drawing.Size(181, 28);
             this.cmbSection.TabIndex = 71;
+            // 
             // txtAcademicYear
             // 
             this.txtAcademicYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,6 +297,7 @@
             this.txtAcademicYear.Name = "txtAcademicYear";
             this.txtAcademicYear.Size = new System.Drawing.Size(181, 27);
             this.txtAcademicYear.TabIndex = 72;
+            this.txtAcademicYear.Text = "2026-2027";
             // 
             // btnGenerate
             // 

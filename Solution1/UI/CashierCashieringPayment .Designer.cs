@@ -314,9 +314,8 @@
             // 
             this.cmbPaymentScheme.FormattingEnabled = true;
             this.cmbPaymentScheme.Items.AddRange(new object[] {
-            "Cash",
-            "Gcash",
-            "Bank-Transfer"});
+            "Full",
+            "Installment"});
             this.cmbPaymentScheme.Location = new System.Drawing.Point(544, 617);
             this.cmbPaymentScheme.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPaymentScheme.Name = "cmbPaymentScheme";
