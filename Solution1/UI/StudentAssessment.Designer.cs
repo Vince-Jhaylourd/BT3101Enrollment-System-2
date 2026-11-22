@@ -355,13 +355,7 @@
             "Grade 3",
             "Grade 4",
             "Grade 5",
-            "Grade 6",
-            "Grade 7",
-            "Grade 8",
-            "Grade 9",
-            "Grade 10",
-            "Grade 11",
-            "Grade 12"});
+            "Grade 6"});
             this.cbGradelevel.Location = new System.Drawing.Point(289, 378);
             this.cbGradelevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbGradelevel.Name = "cbGradelevel";
