@@ -2,12 +2,14 @@
 using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
 using BusinessLogic;
+using Model;
 
 namespace BusinessLogic.Repository
 {
     public class PaymentRepository
     {
         private readonly SQLiteDatabase _database;
+
 
         public PaymentRepository()
         {
@@ -48,11 +50,7 @@ namespace BusinessLogic.Repository
             }
         }
 
-        public void RecordPayment(
-            int assessmentId,
-            decimal amount,
-            string paymentMethod,
-            string referenceNumber)
+        public int RecordPayment(int assessmentId, decimal amount,string paymentMethod,string referenceNumber)
         {
             using (var connection = _database.GetConnection())
             {
@@ -101,9 +99,111 @@ namespace BusinessLogic.Repository
                     );
 
                     command.ExecuteNonQuery();
+
+
+                    return Convert.ToInt32(
+                        new SqliteCommand("SELECT last_insert_rowid();", connection)
+                            .ExecuteScalar());
                 }
             }
         }
+
+
+        public PaymentReceipt GetPaymentReceipt(int paymentId)
+        {
+            using (var connection = _database.GetConnection())
+            {
+                connection.Open();
+
+                string sql = @"
+            SELECT
+                p.PaymentId,
+                p.PaymentDate,
+                p.Amount,
+                p.PaymentMethod,
+                p.ReferenceNumber,
+                s.StudentId,
+                s.LRN,
+                s.LastName || ', ' || s.FirstName AS StudentName,
+                a.TotalFees,
+
+                (
+                    COALESCE(a.TotalFees, 0)
+                    - COALESCE((
+                        SELECT SUM(previous.Amount)
+                        FROM Payments previous
+                        WHERE previous.AssessmentId = p.AssessmentId
+                          AND previous.PaymentId < p.PaymentId
+                    ), 0)
+                ) AS PreviousBalance,
+
+                (
+                    COALESCE(a.TotalFees, 0)
+                    - COALESCE((
+                        SELECT SUM(allPayments.Amount)
+                        FROM Payments allPayments
+                        WHERE allPayments.AssessmentId = p.AssessmentId
+                          AND allPayments.PaymentId <= p.PaymentId
+                    ), 0)
+                ) AS RemainingBalance
+
+            FROM Payments p
+
+            INNER JOIN Assessments a
+                ON p.AssessmentId = a.AssessmentId
+
+            INNER JOIN Enrollments e
+                ON a.EnrollmentId = e.EnrollmentId
+
+            INNER JOIN Students s
+                ON e.StudentId = s.StudentId
+
+            WHERE p.PaymentId = @PaymentId;
+        ";
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = sql;
+                    command.Parameters.AddWithValue("@PaymentId", paymentId);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            return null;
+
+                        return new PaymentReceipt
+                        {
+                            PaymentId = Convert.ToInt32(reader["PaymentId"]),
+                            PaymentDate = Convert.ToString(reader["PaymentDate"]),
+
+                            Amount = Convert.ToDecimal(reader["Amount"]),
+
+                            PaymentMethod =
+                                Convert.ToString(reader["PaymentMethod"]),
+
+                            ReferenceNumber = reader.IsDBNull(4)
+                                ? ""
+                                : reader.GetString(4),
+
+                            StudentId = Convert.ToInt32(reader["StudentId"]),
+                            LRN = Convert.ToString(reader["LRN"]),
+                            StudentName = Convert.ToString(reader["StudentName"]),
+
+                            TotalAssessment =
+                                Convert.ToDecimal(reader["TotalFees"]),
+
+                            PreviousBalance =
+                                Convert.ToDecimal(reader["PreviousBalance"]),
+
+                            RemainingBalance =
+                                Convert.ToDecimal(reader["RemainingBalance"])
+                        };
+                    }
+                }
+            }
+        }
+
+
         public List<dynamic> GetPaymentHistory(string searchText = "")
         {
             var payments = new List<dynamic>();
@@ -134,11 +234,14 @@ namespace BusinessLogic.Repository
                 ON e.StudentId = s.StudentId
 
             WHERE
-                @SearchText = ''
+            @SearchText = ''
+                OR CAST(p.PaymentId AS TEXT) = @SearchText
                 OR CAST(s.StudentId AS TEXT) = @SearchText
                 OR s.LRN LIKE '%' || @SearchText || '%'
                 OR s.LastName LIKE '%' || @SearchText || '%'
                 OR s.FirstName LIKE '%' || @SearchText || '%'
+                OR (s.LastName || ', ' || s.FirstName)
+        LIKE '%' || @SearchText || '%'
 
             ORDER BY p.PaymentDate DESC;";
 
