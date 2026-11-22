@@ -462,12 +462,18 @@ namespace BusinessLogic.Repository
             SELECT
                 s.StudentId,
 
-                CASE
-                    WHEN e.EnrollmentId IS NOT NULL
-                    THEN 'Unpaid'
-                    ELSE 'Not Enrolled'
-                END AS EnrollmentStatus,
+               CASE
+                WHEN a.AssessmentId IS NULL
+                THEN 'Not Enrolled'
 
+                WHEN COALESCE(a.TotalFees, 0) - COALESCE(SUM(p.Amount), 0) <= 0
+                THEN 'Fully Paid'
+
+                WHEN COALESCE(SUM(p.Amount), 0) > 0
+                THEN 'Partially Paid'
+
+                ELSE 'Unpaid'
+              END AS EnrollmentStatus,
                 COALESCE(a.TotalFees, 0) AS TotalAssessment,
 
                 COALESCE(SUM(p.Amount), 0) AS TotalPaid,
