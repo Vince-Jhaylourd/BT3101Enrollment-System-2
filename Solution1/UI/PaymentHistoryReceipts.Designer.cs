@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentHistoryReceipts));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
@@ -42,13 +43,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTransactionID = new System.Windows.Forms.Label();
-            this.txtSearchTransactionID = new System.Windows.Forms.TextBox();
+            this.txtSearchTransaction = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnViewPrintReceipts = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPaymentHistory = new System.Windows.Forms.DataGridView();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaymentHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -205,13 +208,13 @@
             this.lblTransactionID.TabIndex = 27;
             this.lblTransactionID.Text = "Transaction ID ,Student ID, LRN or name";
             // 
-            // txtSearchTransactionID
+            // txtSearchTransaction
             // 
-            this.txtSearchTransactionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchTransactionID.Location = new System.Drawing.Point(282, 147);
-            this.txtSearchTransactionID.Name = "txtSearchTransactionID";
-            this.txtSearchTransactionID.Size = new System.Drawing.Size(379, 27);
-            this.txtSearchTransactionID.TabIndex = 32;
+            this.txtSearchTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchTransaction.Location = new System.Drawing.Point(282, 147);
+            this.txtSearchTransaction.Name = "txtSearchTransaction";
+            this.txtSearchTransaction.Size = new System.Drawing.Size(379, 27);
+            this.txtSearchTransaction.TabIndex = 32;
             // 
             // btnSearch
             // 
@@ -223,6 +226,7 @@
             this.btnSearch.TabIndex = 33;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnViewPrintReceipts
             // 
@@ -234,16 +238,32 @@
             this.btnViewPrintReceipts.TabIndex = 36;
             this.btnViewPrintReceipts.Text = "View / Print Receipts";
             this.btnViewPrintReceipts.UseVisualStyleBackColor = false;
+            this.btnViewPrintReceipts.Click += new System.EventHandler(this.btnViewPrintReceipts_Click);
             // 
-            // dataGridView1
+            // dgvPaymentHistory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(282, 199);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(946, 403);
-            this.dataGridView1.TabIndex = 37;
+            this.dgvPaymentHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPaymentHistory.Location = new System.Drawing.Point(282, 199);
+            this.dgvPaymentHistory.Name = "dgvPaymentHistory";
+            this.dgvPaymentHistory.RowHeadersWidth = 51;
+            this.dgvPaymentHistory.RowTemplate.Height = 24;
+            this.dgvPaymentHistory.Size = new System.Drawing.Size(946, 403);
+            this.dgvPaymentHistory.TabIndex = 37;
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage_1);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // PaymentHistoryReceipts
             // 
@@ -251,21 +271,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1319, 719);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPaymentHistory);
             this.Controls.Add(this.btnViewPrintReceipts);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearchTransactionID);
+            this.Controls.Add(this.txtSearchTransaction);
             this.Controls.Add(this.lblTransactionID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "PaymentHistoryReceipts";
             this.Text = "PaymentHistoryReceipts";
+            this.Load += new System.EventHandler(this.PaymentHistoryReceipts_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPaymentHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,9 +308,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTransactionID;
-        private System.Windows.Forms.TextBox txtSearchTransactionID;
+        private System.Windows.Forms.TextBox txtSearchTransaction;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnViewPrintReceipts;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPaymentHistory;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
