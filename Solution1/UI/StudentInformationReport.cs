@@ -17,6 +17,8 @@ namespace UI
         private readonly StudentRepository _studentRepository = new StudentRepository();
         private readonly AssessmentRepository _assessmentRepository =
     new AssessmentRepository();
+        private readonly SectionRepository _sectionRepository =
+    new SectionRepository();
         public StudentInformationReport()
         {
             InitializeComponent();
@@ -24,6 +26,32 @@ namespace UI
 
             cmbGradeLevel.Enabled = false;
             cmbSection.Enabled = false;
+        }
+
+        private void LoadSections()
+        {
+            var sections = _sectionRepository.GetAllSections();
+
+            string selectedGrade = cmbGradeLevel.Text;
+
+            cmbSection.Items.Clear();
+
+            var filteredSections = sections
+                .Where(s => s.GradeLevel == selectedGrade)
+                .Select(s => s.SectionName)
+                .Distinct()
+                .OrderBy(s => s)
+                .ToList();
+
+            foreach (var section in filteredSections)
+            {
+                cmbSection.Items.Add(section);
+            }
+
+            if (cmbSection.Items.Count > 0)
+            {
+                cmbSection.SelectedIndex = 0;
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -74,6 +102,21 @@ namespace UI
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             var students = _assessmentRepository.GetAssessedStudents();
+            // Filter by Section
+            if (cmbFilterType.Text == "By Section")
+            {
+                if (cmbGradeLevel.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a Grade Level.");
+                    return;
+                }
+
+                if (cmbSection.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select a Section.");
+                    return;
+                }
+            }
 
             // Filter by Grade Level
             if (cmbFilterType.Text == "By Grade Level")
@@ -134,12 +177,21 @@ namespace UI
 
         private void cmbFilterType_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             string filterType = cmbFilterType.Text;
 
             cmbGradeLevel.Enabled = filterType == "By Grade Level"
                                  || filterType == "By Section";
 
             cmbSection.Enabled = filterType == "By Section";
+
+            cmbSection.Items.Clear();
+
+            if (filterType == "By Section" &&
+                !string.IsNullOrWhiteSpace(cmbGradeLevel.Text))
+            {
+                LoadSections();
+            }
         }
         private void LoadGradeLevels()
         {
@@ -151,13 +203,16 @@ namespace UI
             cmbGradeLevel.Items.Add("Grade 4");
             cmbGradeLevel.Items.Add("Grade 5");
             cmbGradeLevel.Items.Add("Grade 6");
-            cmbGradeLevel.Items.Add("Grade 7");
-            cmbGradeLevel.Items.Add("Grade 8");
-            cmbGradeLevel.Items.Add("Grade 9");
-            cmbGradeLevel.Items.Add("Grade 10");
-            cmbGradeLevel.Items.Add("Grade 11");
-            cmbGradeLevel.Items.Add("Grade 12");
         }
 
+
+        private void cmbGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cmbFilterType.Text == "By Section")
+            {
+                LoadSections();
+            }
+        }
     }
 }

@@ -3,11 +3,14 @@ using BusinessLogic;
 using Microsoft.Data.Sqlite;
 using Model;
 using System.Collections.Generic;
+using BusinessLogic.Repository;
+using System.Linq;
 
 namespace BusinessLogic.Repository
 {
     public class SectionRepository
     {
+
         private readonly SQLiteDatabase _database;
 
         public SectionRepository()

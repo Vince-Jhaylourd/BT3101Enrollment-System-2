@@ -277,6 +277,7 @@
             this.cmbGradeLevel.Name = "cmbGradeLevel";
             this.cmbGradeLevel.Size = new System.Drawing.Size(181, 28);
             this.cmbGradeLevel.TabIndex = 70;
+            this.cmbGradeLevel.SelectedIndexChanged += new System.EventHandler(this.cmbGradeLevel_SelectedIndexChanged);
             // 
             // cmbSection
             // 
@@ -287,7 +288,6 @@
             this.cmbSection.Name = "cmbSection";
             this.cmbSection.Size = new System.Drawing.Size(181, 28);
             this.cmbSection.TabIndex = 71;
-            // 
             // txtAcademicYear
             // 
             this.txtAcademicYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,9 +331,6 @@
             this.dgvStudentInformationReport.RowTemplate.Height = 24;
             this.dgvStudentInformationReport.Size = new System.Drawing.Size(981, 428);
             this.dgvStudentInformationReport.TabIndex = 76;
-            // 
-            // printDocument1
-            // 
             // 
             // printPreviewDialog1
             // 

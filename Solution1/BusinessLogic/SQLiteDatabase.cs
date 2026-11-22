@@ -95,20 +95,27 @@ namespace BusinessLogic
                 );
                 
                 -- SAMPLE SECTIONS
+                   
                     INSERT OR IGNORE INTO Sections
                     (SectionName, GradeLevel, SchoolYear)
                     VALUES
                     ('Section A', 'Grade 1', '2026-2027'),
                     ('Section B', 'Grade 1', '2026-2027'),
+    
+                    ('Section C', 'Grade 2', '2026-2027'),
+                    ('Section D', 'Grade 2', '2026-2027'),
 
-                    ('Section A', 'Grade 2', '2026-2027'),
-                    ('Section B', 'Grade 2', '2026-2027'),
+                    ('Section E', 'Grade 3', '2026-2027'),
+                    ('Section F', 'Grade 3', '2026-2027'),
 
-                    ('Section A', 'Grade 3', '2026-2027'),
-                    ('Section B', 'Grade 3', '2026-2027'),
+                    ('Section G', 'Grade 4', '2026-2027'),
+                    ('Section H', 'Grade 4', '2026-2027'),
 
-                    ('Section A', 'Grade 4', '2026-2027'),
-                    ('Section B', 'Grade 4', '2026-2027');
+                    ('Section I', 'Grade 5', '2026-2027'),
+                    ('Section J', 'Grade 5', '2026-2027'),
+
+                    ('Section K', 'Grade 6', '2026-2027'),
+                    ('Section L', 'Grade 6', '2026-2027');
 
 
                 -- ENROLLMENTS TABLE

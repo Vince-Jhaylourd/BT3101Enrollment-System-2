@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Data.Sqlite;
+using System.Data;
 using Model;
 
 namespace BusinessLogic.Repository
@@ -239,6 +240,116 @@ namespace BusinessLogic.Repository
                     }
                 }
             }
+        }
+        public List<Student> GetEnrolledStudents()
+        {
+            var list = new List<Student>();
+
+            using (var con = _database.GetConnection())
+            {
+                con.Open();
+
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                SELECT DISTINCT
+                    s.StudentId,
+                    s.LRN,
+                    s.LastName,
+                    s.FirstName,
+                    s.MiddleName,
+                    s.Gender,
+                    s.DateOfBirth,
+                    s.ContactNo,
+                    s.GuardianName,
+                    s.GuardianContact,
+                    s.Address
+                FROM Students s
+                INNER JOIN Enrollments e
+                    ON s.StudentId = e.StudentId
+                WHERE s.IsDeleted = 0
+                ORDER BY s.LastName, s.FirstName;";
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                                    list.Add(Map(reader));
+                        }
+                    }
+                }
+            }
+
+            return list;
+        }
+        public DataTable GetStudentInformationReport(
+            string studentType,
+            string gradeLevel,
+            string section,
+            string schoolYear)
+        {
+            var table = new DataTable();
+
+            using (var con = _database.GetConnection())
+            {
+                con.Open();
+
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = @"
+                SELECT DISTINCT
+                    s.StudentId,
+                    s.LRN,
+                    s.LastName,
+                    s.FirstName,
+                    s.MiddleName,
+                    s.Gender,
+                    s.DateOfBirth,
+                    s.ContactNo,
+                    s.GuardianName,
+                    s.GuardianContact,
+                    s.Address,
+                    sec.GradeLevel,
+                    sec.SectionName AS Section,
+                    e.SchoolYear
+                FROM Enrollments e
+                INNER JOIN Students s
+                    ON s.StudentId = e.StudentId
+                INNER JOIN Sections sec
+                    ON sec.SectionId = e.SectionId
+                WHERE s.IsDeleted = 0
+                  AND e.Status = 'Enrolled'
+                  AND e.SchoolYear = @SchoolYear
+                  AND (
+                      @StudentType = 'All Enrolled'
+                      OR (
+                          @StudentType = 'By Grade Level'
+                          AND sec.GradeLevel = @GradeLevel
+                      )
+                      OR (
+                          @StudentType = 'By Section'
+                          AND sec.SectionName = @Section
+                      )
+                  )
+                ORDER BY
+                    sec.GradeLevel,
+                    sec.SectionName,
+                    s.LastName,
+                    s.FirstName;";
+
+                    cmd.Parameters.AddWithValue("@StudentType", studentType);
+                    cmd.Parameters.AddWithValue("@GradeLevel", gradeLevel);
+                    cmd.Parameters.AddWithValue("@Section", section);
+                    cmd.Parameters.AddWithValue("@SchoolYear", schoolYear);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        table.Load(reader);
+                    }
+                }
+            }
+
+            return table;
         }
     }
 }
