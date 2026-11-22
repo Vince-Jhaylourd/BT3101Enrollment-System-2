@@ -277,6 +277,7 @@
             this.cmbGradeLevel.Name = "cmbGradeLevel";
             this.cmbGradeLevel.Size = new System.Drawing.Size(181, 28);
             this.cmbGradeLevel.TabIndex = 70;
+            this.cmbGradeLevel.SelectedIndexChanged += new System.EventHandler(this.cmbGradeLevel_SelectedIndexChanged);
             // 
             // cmbSection
             // 
@@ -296,6 +297,7 @@
             this.txtAcademicYear.Name = "txtAcademicYear";
             this.txtAcademicYear.Size = new System.Drawing.Size(181, 27);
             this.txtAcademicYear.TabIndex = 72;
+            this.txtAcademicYear.Text = "2026-2027";
             // 
             // btnGenerate
             // 
@@ -331,9 +333,6 @@
             this.dgvStudentInformationReport.RowTemplate.Height = 24;
             this.dgvStudentInformationReport.Size = new System.Drawing.Size(981, 428);
             this.dgvStudentInformationReport.TabIndex = 76;
-            // 
-            // printDocument1
-            // 
             // 
             // printPreviewDialog1
             // 

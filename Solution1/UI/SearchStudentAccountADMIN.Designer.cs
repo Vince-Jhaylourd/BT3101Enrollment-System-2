@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUserManagement = new System.Windows.Forms.Button();
             this.btnStudentInformationReport = new System.Windows.Forms.Button();
             this.btnPaymentHistoryReceipst = new System.Windows.Forms.Button();
             this.btnSearchStudentAccount = new System.Windows.Forms.Button();
@@ -42,9 +41,9 @@
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearchADMIN = new System.Windows.Forms.Button();
-            this.txtStudentIDAdmin = new System.Windows.Forms.TextBox();
+            this.txtStudentAdmin = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtgListOfStudentADMIN = new System.Windows.Forms.DataGridView();
+            this.dgvListOfStudentADMIN = new System.Windows.Forms.DataGridView();
             this.lblCurrentBalance = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblEnrollmentStatus = new System.Windows.Forms.Label();
@@ -57,13 +56,12 @@
             this.lblStudent = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListOfStudentADMIN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfStudentADMIN)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.btnUserManagement);
             this.panel1.Controls.Add(this.btnStudentInformationReport);
             this.panel1.Controls.Add(this.btnPaymentHistoryReceipst);
             this.panel1.Controls.Add(this.btnSearchStudentAccount);
@@ -76,17 +74,6 @@
             this.panel1.Size = new System.Drawing.Size(279, 716);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // btnUserManagement
-            // 
-            this.btnUserManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManagement.Location = new System.Drawing.Point(12, 449);
-            this.btnUserManagement.Name = "btnUserManagement";
-            this.btnUserManagement.Size = new System.Drawing.Size(237, 42);
-            this.btnUserManagement.TabIndex = 15;
-            this.btnUserManagement.Text = "User Management";
-            this.btnUserManagement.UseVisualStyleBackColor = true;
-            this.btnUserManagement.Click += new System.EventHandler(this.btnUserManagement_Click);
             // 
             // btnStudentInformationReport
             // 
@@ -199,6 +186,7 @@
             this.buttonLogOut.TabIndex = 18;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // label1
             // 
@@ -221,15 +209,16 @@
             this.btnSearchADMIN.TabIndex = 61;
             this.btnSearchADMIN.Text = "Search";
             this.btnSearchADMIN.UseVisualStyleBackColor = false;
+            this.btnSearchADMIN.Click += new System.EventHandler(this.btnSearchADMIN_Click);
             // 
-            // txtStudentIDAdmin
+            // txtStudentAdmin
             // 
-            this.txtStudentIDAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStudentIDAdmin.Location = new System.Drawing.Point(297, 143);
-            this.txtStudentIDAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtStudentIDAdmin.Name = "txtStudentIDAdmin";
-            this.txtStudentIDAdmin.Size = new System.Drawing.Size(475, 27);
-            this.txtStudentIDAdmin.TabIndex = 60;
+            this.txtStudentAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStudentAdmin.Location = new System.Drawing.Point(297, 143);
+            this.txtStudentAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtStudentAdmin.Name = "txtStudentAdmin";
+            this.txtStudentAdmin.Size = new System.Drawing.Size(475, 27);
+            this.txtStudentAdmin.TabIndex = 60;
             // 
             // label5
             // 
@@ -241,15 +230,16 @@
             this.label5.TabIndex = 59;
             this.label5.Text = "Student ID, LRN or name";
             // 
-            // dtgListOfStudentADMIN
+            // dgvListOfStudentADMIN
             // 
-            this.dtgListOfStudentADMIN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgListOfStudentADMIN.Location = new System.Drawing.Point(297, 175);
-            this.dtgListOfStudentADMIN.Name = "dtgListOfStudentADMIN";
-            this.dtgListOfStudentADMIN.RowHeadersWidth = 51;
-            this.dtgListOfStudentADMIN.RowTemplate.Height = 24;
-            this.dtgListOfStudentADMIN.Size = new System.Drawing.Size(968, 331);
-            this.dtgListOfStudentADMIN.TabIndex = 63;
+            this.dgvListOfStudentADMIN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListOfStudentADMIN.Location = new System.Drawing.Point(297, 175);
+            this.dgvListOfStudentADMIN.Name = "dgvListOfStudentADMIN";
+            this.dgvListOfStudentADMIN.RowHeadersWidth = 51;
+            this.dgvListOfStudentADMIN.RowTemplate.Height = 24;
+            this.dgvListOfStudentADMIN.Size = new System.Drawing.Size(968, 331);
+            this.dgvListOfStudentADMIN.TabIndex = 63;
+            this.dgvListOfStudentADMIN.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListOfStudentADMIN_CellClick);
             // 
             // lblCurrentBalance
             // 
@@ -367,9 +357,9 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblStudent);
-            this.Controls.Add(this.dtgListOfStudentADMIN);
+            this.Controls.Add(this.dgvListOfStudentADMIN);
             this.Controls.Add(this.btnSearchADMIN);
-            this.Controls.Add(this.txtStudentIDAdmin);
+            this.Controls.Add(this.txtStudentAdmin);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
@@ -380,7 +370,7 @@
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgListOfStudentADMIN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfStudentADMIN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,7 +379,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnUserManagement;
         private System.Windows.Forms.Button btnStudentInformationReport;
         private System.Windows.Forms.Button btnPaymentHistoryReceipst;
         private System.Windows.Forms.Button btnSearchStudentAccount;
@@ -402,9 +391,9 @@
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSearchADMIN;
-        private System.Windows.Forms.TextBox txtStudentIDAdmin;
+        private System.Windows.Forms.TextBox txtStudentAdmin;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dtgListOfStudentADMIN;
+        private System.Windows.Forms.DataGridView dgvListOfStudentADMIN;
         private System.Windows.Forms.Label lblCurrentBalance;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblEnrollmentStatus;

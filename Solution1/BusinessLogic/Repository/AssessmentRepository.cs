@@ -394,8 +394,9 @@ namespace BusinessLogic.Repository
                 connection.Open();
 
                 string sql = @"
-            SELECT COUNT(*)
-            FROM Sections;";
+                    SELECT COUNT(*)
+                    FROM Sections
+                    WHERE IsActive = 1;";
 
                 using (var command = connection.CreateCommand())
                 {
