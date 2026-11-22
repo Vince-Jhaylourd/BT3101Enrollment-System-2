@@ -1,7 +1,10 @@
-﻿using System;
-using System.Windows.Forms;
-using BusinessLogic.Repository;
+﻿using BusinessLogic.Repository;
 using Model;
+using System;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Printing;
 
 namespace UI
 {
@@ -20,6 +23,11 @@ namespace UI
     new PaymentRepository();
 
         private int selectedStudentId = 0;
+        private int currentPaymentId = 0;
+        private PaymentReceipt receiptData = null;
+
+
+
         public CashierCashieringPayment()
         {
             InitializeComponent();
@@ -109,14 +117,13 @@ namespace UI
 
         private void btnRecordPayment_Click(object sender, EventArgs e)
         {
-            // Ensure a student is selected
+
             if (selectedStudentId == 0)
             {
                 MessageBox.Show("Please select a student first.");
                 return;
             }
 
-            // Validate payment amount
             decimal amount;
 
             if (!decimal.TryParse(txtPaymentAmount.Text, out amount)
@@ -126,14 +133,12 @@ namespace UI
                 return;
             }
 
-            // Check payment method
             if (cmbPaymentScheme.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a payment scheme.");
                 return;
             }
 
-            // Get the student's current account
             StudentAccount account =
                 _assessmentRepository.GetStudentAccount(selectedStudentId);
 
@@ -143,7 +148,6 @@ namespace UI
                 return;
             }
 
-            // Prevent overpayment
             if (amount > account.CurrentBalance)
             {
                 MessageBox.Show(
@@ -152,7 +156,6 @@ namespace UI
                 return;
             }
 
-            // Get assessment
             int assessmentId =
                 _paymentRepository.GetAssessmentId(selectedStudentId);
 
@@ -162,6 +165,75 @@ namespace UI
                     "This student does not have an assessment yet."
                 );
                 return;
+            }
+
+            DialogResult confirmResult = MessageBox.Show(
+                "Are you sure you want to record this payment?",
+                "Confirm Payment",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirmResult != DialogResult.Yes)
+                return;
+
+            try
+            {
+                // Save payment and retrieve its ID
+                currentPaymentId = _paymentRepository.RecordPayment(
+                    assessmentId,
+                    amount,
+                    cmbPaymentScheme.Text,
+                    txtReferenceNotes.Text
+                );
+
+                MessageBox.Show(
+                    "Payment recorded successfully!",
+                    "Payment Successful",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                // Refresh account information
+                RefreshStudentAccount();
+
+                // Clear payment fields
+                txtPaymentAmount.Clear();
+                txtReferenceNotes.Clear();
+                cmbPaymentScheme.SelectedIndex = -1;
+
+                // Ask whether to open the official receipt
+                DialogResult receiptResult = MessageBox.Show(
+                    "Payment recorded. Open the official receipt now?",
+                    "Official Receipt",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (receiptResult == DialogResult.Yes)
+                {
+                    receiptData =
+                        _paymentRepository.GetPaymentReceipt(currentPaymentId);
+
+                    if (receiptData != null)
+                    {
+                        printPreviewDialog1.Document = printDocument1;
+                        printPreviewDialog1.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to retrieve payment receipt.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "An error occurred while recording payment:\n" + ex.Message,
+                    "Payment Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
         private void RefreshStudentAccount()
@@ -184,5 +256,86 @@ namespace UI
                     "₱" + account.CurrentBalance.ToString("N2");
             }
         }
+        //CENTER TEXT FUNCTION
+        private string CenterText(string text, int width)
+        {
+            if (text.Length >= width)
+                return text;
+
+            int spaces = (width - text.Length) / 2;
+
+            return new string(' ', spaces) + text;
+        }
+
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (receiptData == null)
+            {
+                e.HasMorePages = false;
+                return;
+            }
+
+            using (Font receiptFont = new Font("Consolas", 10))
+            {
+                float x = e.MarginBounds.Left;
+                float y = e.MarginBounds.Top;
+
+                float lineHeight = receiptFont.GetHeight(e.Graphics) + 5;
+
+                string separator = new string('=', 46);
+
+                string receiptNumber =
+                    "OR-" + DateTime.Now.Year + "-" +
+                    receiptData.PaymentId.ToString("D6");
+
+                string[] receiptLines =
+                {
+            separator,
+            CenterText("OFFICIAL RECEIPT", 46),
+            CenterText("Enrollment System - Cashier", 46),
+            separator,
+            "",
+            "Receipt No.: " + receiptNumber,
+            "Date: " + receiptData.PaymentDate,
+            "Student ID: " + receiptData.StudentId,
+            "Student Name: " + receiptData.StudentName,
+            "",
+            separator,
+            "Previous Balance:    " +
+                receiptData.PreviousBalance.ToString("N2"),
+            "Amount Paid:         " +
+                receiptData.Amount.ToString("N2"),
+            "Payment Scheme:      " + receiptData.PaymentMethod,
+            "Remaining Balance:   " +
+                receiptData.RemainingBalance.ToString("N2"),
+            separator,
+            "Reference Notes:",
+            string.IsNullOrWhiteSpace(receiptData.ReferenceNumber)
+                ? "N/A"
+                : receiptData.ReferenceNumber,
+            "",
+            separator,
+            CenterText("Thank you!", 46),
+            separator
+        };
+
+                foreach (string line in receiptLines)
+                {
+                    e.Graphics.DrawString(
+                        line,
+                        receiptFont,
+                        Brushes.Black,
+                        x,
+                        y
+                    );
+
+                    y += lineHeight;
+                }
+            }
+
+            e.HasMorePages = false;
+        }
+    
     }
 }

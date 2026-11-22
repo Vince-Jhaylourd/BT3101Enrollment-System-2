@@ -154,6 +154,7 @@
             this.txtAcademicYear.Name = "txtAcademicYear";
             this.txtAcademicYear.Size = new System.Drawing.Size(169, 27);
             this.txtAcademicYear.TabIndex = 32;
+            this.txtAcademicYear.Text = "2026-2027";
             // 
             // cmbFilterType
             // 
