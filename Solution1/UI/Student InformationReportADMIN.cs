@@ -226,6 +226,9 @@ namespace UI
         {
 
             printPreviewDialog1.Document = printDocument1;
+
+            printPreviewDialog1.PrintPreviewControl.AutoZoom = false;
+            printPreviewDialog1.PrintPreviewControl.Zoom = 0.80;
             printPreviewDialog1.ShowDialog();
         }
 

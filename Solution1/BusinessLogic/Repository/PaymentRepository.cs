@@ -234,11 +234,14 @@ namespace BusinessLogic.Repository
                 ON e.StudentId = s.StudentId
 
             WHERE
-                @SearchText = ''
+            @SearchText = ''
+                OR CAST(p.PaymentId AS TEXT) = @SearchText
                 OR CAST(s.StudentId AS TEXT) = @SearchText
                 OR s.LRN LIKE '%' || @SearchText || '%'
                 OR s.LastName LIKE '%' || @SearchText || '%'
                 OR s.FirstName LIKE '%' || @SearchText || '%'
+                OR (s.LastName || ', ' || s.FirstName)
+        LIKE '%' || @SearchText || '%'
 
             ORDER BY p.PaymentDate DESC;";
 
