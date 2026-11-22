@@ -266,11 +266,13 @@ namespace UI
                     );
 
                 // Find a section automatically
-                int sectionId =
-                    _assessmentRepository.GetAvailableSectionId(
-                        gradeLevel,
-                        schoolYear
-                    );
+                if (cbSection.SelectedValue == null)
+                {
+                    MessageBox.Show("Please select a Section.");
+                    return;
+                }
+
+                int sectionId = Convert.ToInt32(cbSection.SelectedValue);
 
                 if (sectionId == 0)
                 {
