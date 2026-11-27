@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
+
     public partial class StudentInformationReport : Form
     {
         private readonly StudentRepository _studentRepository = new StudentRepository();
@@ -215,5 +216,117 @@ namespace UI
             }
         }
 
+
+        private void btnPrintReport_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+
+
+        }
+
+        private int printRowIndex = 0;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+
+            Graphics graphics = e.Graphics;
+
+            int left = 50;
+            int top = 50;
+            int rowHeight = 30;
+
+            Font titleFont = new Font("Arial", 16, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 9, FontStyle.Bold);
+            Font bodyFont = new Font("Arial", 9);
+
+            // REPORT TITLE
+            graphics.DrawString(
+                "STUDENT INFORMATION REPORT",
+                titleFont,
+                Brushes.Black,
+                left,
+                top
+            );
+
+            top += 40;
+
+            // ACADEMIC YEAR
+            graphics.DrawString(
+                "Academic Year: " + txtAcademicYear.Text,
+                bodyFont,
+                Brushes.Black,
+                left,
+                top
+            );
+
+            top += 40;
+
+            // COLUMN HEADERS
+            int x = left;
+
+            foreach (DataGridViewColumn column in dgvStudentInformationReport.Columns)
+            {
+                if (column.Visible)
+                {
+                    graphics.DrawString(
+                        column.HeaderText,
+                        headerFont,
+                        Brushes.Black,
+                        x,
+                        top
+                    );
+
+                    x += 120;
+                }
+            }
+
+            top += rowHeight;
+
+            // STUDENT ROWS
+            while (printRowIndex < dgvStudentInformationReport.Rows.Count)
+            {
+                DataGridViewRow row =
+                    dgvStudentInformationReport.Rows[printRowIndex];
+
+                if (!row.IsNewRow)
+                {
+                    x = left;
+
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (dgvStudentInformationReport.Columns[cell.ColumnIndex].Visible)
+                        {
+                            string value = cell.Value?.ToString() ?? "";
+
+                            graphics.DrawString(
+                                value,
+                                bodyFont,
+                                Brushes.Black,
+                                x,
+                                top
+                            );
+
+                            x += 120;
+                        }
+                    }
+
+                    top += rowHeight;
+                }
+
+                printRowIndex++;
+
+                if (top > e.MarginBounds.Bottom - rowHeight)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+            }
+
+            printRowIndex = 0;
+            e.HasMorePages = false;
+        }
+
     }
 }
+
