@@ -28,6 +28,7 @@ namespace UI
         {
             CashierHome homeForm = new CashierHome();
             homeForm.Show();
+            this.Hide();
             
         }
 
@@ -37,6 +38,7 @@ namespace UI
                 new CashierCashieringPayment();
 
             paymentForm.Show();
+            this.Hide();
          
         }
 
@@ -46,6 +48,7 @@ namespace UI
                 new CashierPaymentHistory();
 
             historyForm.Show();
+            this.Hide();
             
         }
 
@@ -107,6 +110,7 @@ namespace UI
 
             dgvStudents.DataSource =
                 _studentRepository.Search(searchText);
+
         }
     }
 }

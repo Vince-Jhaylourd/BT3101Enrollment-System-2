@@ -33,6 +33,7 @@ namespace UI
         {
             CashierHome homeForm = new CashierHome();
             homeForm.Show();
+            this.Hide();
             
         }
 
@@ -42,7 +43,7 @@ namespace UI
                 new CashierSearchStudent();
 
             searchForm.Show();
-            
+            this.Hide();
         }
 
         private void btnCashiering_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace UI
                 new CashierCashieringPayment();
 
             paymentForm.Show();
-            
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -108,15 +109,7 @@ namespace UI
                         return;
                     }
 
-                    printDocument1.DefaultPageSettings.PaperSize =
-                        new PaperSize("Receipt", 315, 600);
-
-                    printDocument1.DefaultPageSettings.Margins =
-                        new Margins(15, 15, 15, 15);
-
                     printPreviewDialog1.Document = printDocument1;
-                    printPreviewDialog1.PrintPreviewControl.AutoZoom = false;
-                    printPreviewDialog1.PrintPreviewControl.Zoom = 0.75;
 
                     printPreviewDialog1.ShowDialog();
                 }
