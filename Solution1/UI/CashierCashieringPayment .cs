@@ -68,7 +68,6 @@ namespace UI
             {
                 Application.Restart();
             }
-            this.Hide();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

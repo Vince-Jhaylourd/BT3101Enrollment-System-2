@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierPaymentHistory));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -44,6 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnViewReceipt = new System.Windows.Forms.Button();
             this.dgvPaymentHistory = new System.Windows.Forms.DataGridView();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPaymentHistory)).BeginInit();
@@ -55,7 +58,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Location = new System.Drawing.Point(264, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1056, 68);
             this.panel2.TabIndex = 7;
@@ -77,7 +80,7 @@
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogout.Location = new System.Drawing.Point(895, 15);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(125, 37);
             this.btnLogout.TabIndex = 2;
@@ -95,7 +98,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(-3, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 720);
             this.panel1.TabIndex = 6;
@@ -103,7 +106,7 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(17, 415);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(232, 54);
             this.button8.TabIndex = 11;
@@ -113,7 +116,7 @@
             // btnCashiering
             // 
             this.btnCashiering.Location = new System.Drawing.Point(17, 332);
-            this.btnCashiering.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCashiering.Margin = new System.Windows.Forms.Padding(4);
             this.btnCashiering.Name = "btnCashiering";
             this.btnCashiering.Size = new System.Drawing.Size(232, 54);
             this.btnCashiering.TabIndex = 10;
@@ -124,7 +127,7 @@
             // btnSearchStudent
             // 
             this.btnSearchStudent.Location = new System.Drawing.Point(17, 255);
-            this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchStudent.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchStudent.Name = "btnSearchStudent";
             this.btnSearchStudent.Size = new System.Drawing.Size(232, 54);
             this.btnSearchStudent.TabIndex = 9;
@@ -159,7 +162,7 @@
             // btnHome
             // 
             this.btnHome.Location = new System.Drawing.Point(17, 172);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(232, 54);
             this.btnHome.TabIndex = 8;
@@ -171,7 +174,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSearch.Location = new System.Drawing.Point(624, 149);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 15;
@@ -182,7 +185,7 @@
             // txtSearchStudent
             // 
             this.txtSearchStudent.Location = new System.Drawing.Point(293, 149);
-            this.txtSearchStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearchStudent.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchStudent.Name = "txtSearchStudent";
             this.txtSearchStudent.Size = new System.Drawing.Size(319, 22);
             this.txtSearchStudent.TabIndex = 14;
@@ -212,7 +215,7 @@
             // 
             this.btnViewReceipt.BackColor = System.Drawing.Color.LawnGreen;
             this.btnViewReceipt.Location = new System.Drawing.Point(293, 658);
-            this.btnViewReceipt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnViewReceipt.Margin = new System.Windows.Forms.Padding(4);
             this.btnViewReceipt.Name = "btnViewReceipt";
             this.btnViewReceipt.Size = new System.Drawing.Size(169, 33);
             this.btnViewReceipt.TabIndex = 25;
@@ -231,6 +234,22 @@
             this.dgvPaymentHistory.TabIndex = 26;
             this.dgvPaymentHistory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPaymentHistory_CellClick);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.DocumentName = "printPreviewDialog1";
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // CashierPaymentHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,7 +263,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CashierPaymentHistory";
             this.Text = "CashierPaymentHistory";
             this.panel2.ResumeLayout(false);
@@ -275,5 +294,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnViewReceipt;
         private System.Windows.Forms.DataGridView dgvPaymentHistory;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

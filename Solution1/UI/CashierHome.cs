@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -79,6 +80,7 @@ namespace UI
             CashierCashieringPayment paymentForm = new CashierCashieringPayment();
             paymentForm.Show();
             this.Hide();
+            
         }
 
         private void btnPaymentHistory_Click(object sender, EventArgs e)
@@ -86,6 +88,7 @@ namespace UI
             CashierPaymentHistory historyForm = new CashierPaymentHistory();
             historyForm.Show();
             this.Hide();
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -95,6 +98,7 @@ namespace UI
                 Application.Restart();
             }
         }
+        
 
     }
 }

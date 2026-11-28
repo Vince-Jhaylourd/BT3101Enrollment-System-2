@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using BusinessLogic.Repository;
+using Model;
+using System.Drawing;
+using System.Drawing.Printing;
 
 namespace UI
 {
@@ -9,6 +12,8 @@ namespace UI
         private readonly PaymentRepository _paymentRepository =
             new PaymentRepository();
 
+
+        private PaymentReceipt receiptData = null;
         private int selectedPaymentId = 0;
 
         public CashierPaymentHistory()
@@ -29,6 +34,7 @@ namespace UI
             CashierHome homeForm = new CashierHome();
             homeForm.Show();
             this.Hide();
+            
         }
 
         private void btnSearchStudent_Click(object sender, EventArgs e)
@@ -80,16 +86,108 @@ namespace UI
 
         private void btnViewReceipt_Click(object sender, EventArgs e)
         {
-            //if (selectedPaymentId == 0)
-            //{
-            //MessageBox.Show("Please select a payment first.");
-            //return;
-            //}
+            {
+                if (dgvPaymentHistory.CurrentRow == null)
+                {
+                    MessageBox.Show("Please select a payment first.",
+                        "No Payment Selected",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
 
-            //CashierPaymentReceipt receiptForm =
-            //    new CashierPaymentReceipt(selectedPaymentId);
+                try
+                {
+                    int paymentId = Convert.ToInt32(
+                        dgvPaymentHistory.CurrentRow.Cells["PaymentId"].Value);
 
-            //receiptForm.Show();
+                    receiptData = _paymentRepository.GetPaymentReceipt(paymentId);
+
+                    if (receiptData == null)
+                    {
+                        MessageBox.Show("Unable to retrieve the receipt.");
+                        return;
+                    }
+
+                    printPreviewDialog1.Document = printDocument1;
+
+                    printPreviewDialog1.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unable to open receipt: " + ex.Message);
+                }
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            if (receiptData == null)
+            {
+                e.HasMorePages = false;
+                return;
+            }
+
+            using (Font receiptFont = new Font("Consolas", 14, FontStyle.Regular))
+            {
+                float x = e.MarginBounds.Left;
+                float y = e.MarginBounds.Top;
+                float lineHeight = receiptFont.GetHeight(e.Graphics) + 8;
+
+                string separator = new string('=', 46);
+
+                string receiptNumber = "OR-" +
+                    DateTime.Now.Year + "-" +
+                    receiptData.PaymentId.ToString("D6");
+
+                string[] receiptLines =
+                {
+            separator,
+            CenterText("OFFICIAL RECEIPT", 46),
+            CenterText("Enrollment System - Cashier", 46),
+            separator,
+            "",
+            "Receipt No.: " + receiptNumber,
+            "Date: " + receiptData.PaymentDate,
+            "Student ID: " + receiptData.StudentId,
+            "Student Name: " + receiptData.StudentName,
+            "",
+
+            separator,
+            "Previous Balance:    " + receiptData.PreviousBalance.ToString("N2"),
+            "Amount Paid:         " + receiptData.Amount.ToString("N2"),
+            "Payment Scheme:      " + receiptData.PaymentMethod,
+            "Remaining Balance:   " + receiptData.RemainingBalance.ToString("N2"),
+            separator,
+            "Reference Notes:",
+            string.IsNullOrWhiteSpace(receiptData.ReferenceNumber)
+                ? "N/A" : receiptData.ReferenceNumber,
+            "",
+            separator,
+            CenterText("Thank you!", 46),
+            separator
+        };
+
+                foreach (string line in receiptLines)
+                {
+                    e.Graphics.DrawString(
+                        line, receiptFont, Brushes.Black, x, y);
+
+                    y += lineHeight;
+                }
+            }
+
+            e.HasMorePages = false;
+        }
+
+        private string CenterText(string text, int width)
+        {
+            if (text.Length >= width)
+                return text;
+
+            int spaces = (width - text.Length) / 2;
+
+            return new string(' ', spaces) + text;
         }
     }
 }

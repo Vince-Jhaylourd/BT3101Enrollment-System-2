@@ -29,6 +29,7 @@ namespace UI
             CashierHome homeForm = new CashierHome();
             homeForm.Show();
             this.Hide();
+            
         }
 
         private void btnCashiering_Click(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace UI
 
             paymentForm.Show();
             this.Hide();
+         
         }
 
         private void btnPaymentHistory_Click(object sender, EventArgs e)
@@ -47,6 +49,7 @@ namespace UI
 
             historyForm.Show();
             this.Hide();
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -107,6 +110,7 @@ namespace UI
 
             dgvStudents.DataSource =
                 _studentRepository.Search(searchText);
+
         }
     }
 }
